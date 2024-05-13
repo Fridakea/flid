@@ -16,6 +16,26 @@
   --accent-color-tint: #838ce0;
   --accent-color-shade: #4650a6;
 }
+
+.dark-mode {
+  /* Variables for colors in darkmode*/
+  --primary-color: #281411;
+  --primary-color-tint: #190D0C;
+  --primary-color-shade: #351E1A;
+
+  --text-color: #FEF5EA;
+  --text-color-tint: #E8D2B7;
+  --text-color-shade: #ffffff;
+
+  --secondary-color: #8A2A3B;
+  --secondary-color-tint: #601724;
+  --secondary-color-shade: #D68893;
+
+  --accent-color: #A0A6E5;
+  --accent-color-tint: #838CE0;
+  --accent-color-shade: #BDC0EA;
+}
+
 /* general font styling for desktop*/
 h1 {
   font-family: "Outfit", sans-serif;
