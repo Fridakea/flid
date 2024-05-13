@@ -1,18 +1,67 @@
 :root {
-    /* Variables for colors */
-    --primary-color: #FEF5EA;
-    --primary-color-tint: #ffffff;
-    --primary-color-shade: #E8D2B7;
+  /* Variables for colors */
+  --primary-color: #fef5ea;
+  --primary-color-tint: #ffffff;
+  --primary-color-shade: #e8d2b7;
 
-    --text-color: #281411;
-    --text-color-tint: #351E1A;
-    --text-color-shade: #190D0C;
+  --text-color: #281411;
+  --text-color-tint: #351e1a;
+  --text-color-shade: #190d0c;
 
-    --secondary-color: #E1A7AC;
-    --secondary-color-tint: #EDC6C5;
-    --secondary-color-shade: #D68893;
+  --secondary-color: #e1a7ac;
+  --secondary-color-tint: #edc6c5;
+  --secondary-color-shade: #d68893;
 
-    --accent-color: #6670CE;
-    --accent-color-tint: #838CE0;
-    --accent-color-shade: #4650A6;
+  --accent-color: #6670ce;
+  --accent-color-tint: #838ce0;
+  --accent-color-shade: #4650a6;
+}
+/* general font styling for desktop*/
+h1 {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-size: 89.8 px;
+  font-style: normal;
+}
+h2 {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: regular;
+  font-size: 67.43 px;
+  font-style: normal;
+}
+h3 {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: regular;
+  font-size: 50.5 px;
+  font-style: normal;
+}
+h4 {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: regular;
+  font-size: 37.9 px;
+  font-style: normal;
+}
+h5 {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: regular;
+  font-size: 28.4 px;
+  font-style: normal;
+}
+h6 {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: regular;
+  font-size: 21.3 px;
+  font-style: normal;
+}
+p {
+  font-family: "europa", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16 px;
 }
