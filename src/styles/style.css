@@ -1,0 +1,52 @@
+/* Reset */
+* {
+    margin: 0; padding: 0; box-sizing: border-box; 
+    font-family: 'Fraunces', serif;
+    color: var(--text-color);
+}
+
+img { 
+    width: 100%; height: auto; display: block; 
+}
+
+/* General classnames */
+/* Styling for flex and grid */
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling for gap and spacing */
+.gap-s {
+    gap: var(--spacing-small);
+}
+
+.gap-m {
+    gap: var(--spacing-medium);
+}
+
+.gap-l {
+    gap: var(--spacing-large);
+}
+
+.mb-s {
+    margin-bottom: var(--spacing-small);
+}
+
+.mb-m {
+    margin-bottom: var(--spacing-medium);
+}
+
+.mb-l {
+    margin-bottom: var(--spacing-large);
+}

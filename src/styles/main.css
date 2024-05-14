@@ -15,6 +15,11 @@
   --accent-color: #6670ce;
   --accent-color-tint: #838ce0;
   --accent-color-shade: #4650a6;
+
+  /* Variables for spacing */
+  --spacing-small: 16px;
+  --spacing-medium: 48px;
+  --spacing-large: 80px;
 }
 
 .dark-mode {

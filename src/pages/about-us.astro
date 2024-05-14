@@ -16,12 +16,45 @@ import Mainlayout from "../layouts/Mainlayout.astro";
         typer af samarbejde.
       </p>
     </div>
+
+    <div class="keyword-section">
+      <div>
+        <h3>Unika</h3>
+        <img
+          src="../img/unika-image.webp"
+          alt="Billede af en skål lavet af kunstneren Lærke Laura"
+        />
+      </div>
+
+      <div>
+        <h3>Håndlavet</h3>
+        <img
+          src="../img/artists/helene-keinicke/helene-keinicke5.webp"
+          alt="Billede af en illustration lavrt af kunstneren Helene Keinicke"
+        />
+      </div>
+
+      <div>
+        <h3>Fællesskab</h3>
+        <img
+          src="../img/artists/rosamunde/rosamunde14.webp"
+          alt="Billede af kopper lavet af kunstneren Rosamunde"
+        />
+      </div>
+    </div>
   </main>
 </Mainlayout>
 
 <style>
   span {
     font-size: 2rem;
+  }
+
+  .keyword-section {
+    & img {
+      aspect-ratio: 1 / 1;
+      max-width: 400px;
+    }
   }
 
   @media (min-width: 769px) {
