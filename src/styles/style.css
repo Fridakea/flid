@@ -1,14 +1,3 @@
-/* Reset */
-* {
-    margin: 0; padding: 0; box-sizing: border-box; 
-    font-family: 'Fraunces', serif;
-    color: var(--text-color);
-}
-
-img { 
-    width: 100%; height: auto; display: block; 
-}
-
 /* General classnames */
 /* Styling for flex and grid */
 .flex-col {
