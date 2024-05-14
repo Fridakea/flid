@@ -1,0 +1,82 @@
+---
+
+---
+
+<div class="timeline">
+  <div data-aos="fade-right">
+    <img
+      src="../img/timeline-img1.webp"
+      alt="Billede af kunstner som skaber kunst"
+    />
+    <p>Kunstner får ide</p>
+  </div>
+
+  <div data-aos="fade-left">
+    <img src="../img/timeline-img2.webp" alt="Færdigt kunstværk" />
+    <p>Færdigt kunstværk</p>
+  </div>
+
+  <div data-aos="fade-left">
+    <img
+      src="../img/timeline-img3.webp"
+      alt="Billede af kunst på Flid marked"
+    />
+    <p>Kunstner kontakter Flid</p>
+  </div>
+
+  <div data-aos="fade-right">
+    <img src="../img/timeline-img4.webp" alt="Kunstner og kunde krammer" />
+    <p>Match mellem kunst og køber</p>
+  </div>
+
+  <div data-aos="fade-up">
+    <img src="../img/timeline-img5.webp" alt="Færdigt kunstværk i et hjem" />
+    <p>Kunstværk får nyt hjem</p>
+  </div>
+</div>
+
+<style>
+  img {
+    width: 150px;
+  }
+
+  .timeline {
+    position: relative;
+    height: 1300px;
+    margin-bottom: var(--spacing-large);
+
+    & div {
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+
+    & :nth-child(1) {
+      left: 25%;
+      top: 10%;
+    }
+
+    & :nth-child(2) {
+      left: 60%;
+      top: 30%;
+    }
+
+    & :nth-child(3) {
+      left: 75%;
+      top: 50%;
+    }
+
+    & :nth-child(4) {
+      left: 30%;
+      top: 67%;
+    }
+
+    & :nth-child(5) {
+      left: 50%;
+      top: 90%;
+
+      & img {
+        width: 250px;
+      }
+    }
+  }
+</style>

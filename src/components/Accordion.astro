@@ -1,3 +1,20 @@
 ---
-
+const { title, text } = Astro.props;
 ---
+
+<details>
+  <summary>{title}</summary>
+  <p>{text}</p>
+</details>
+
+<style>
+  details {
+    border-bottom: 1px solid var(--secondary-color);
+    margin-bottom: var(--spacing-small);
+    & summary {
+      cursor: pointer;
+      padding: calc(var(--spacing-small) / 2) var(--spacing-small);
+      transition: 0.2s ease-in-out;
+    }
+  }
+</style>
