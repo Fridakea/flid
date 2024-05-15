@@ -65,11 +65,13 @@ main {
 /* general font styling for desktop*/
 h1, h2, h3, h4, h5, h6 {
   font-family: "Outfit", sans-serif;
+  margin-bottom: var(--spacing-small);
 }
 
 h1 {
   font-weight: bold;
   font-size: 3rem;
+  margin-bottom: calc(var(--spacing-small) * 2);
 }
 h2 {
   font-size: 2.5rem;

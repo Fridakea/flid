@@ -23,6 +23,10 @@
     align-items: center;
 }
 
+.flex1 {
+    flex: 1;
+}
+
 /* Styling for gap and spacing */
 .gap-s {
     gap: var(--spacing-small);
