@@ -3,7 +3,93 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 ---
 
 <Mainlayout>
-  <main></main>
+  <main>
+<h1>Bliv udstiller</h1>
+
+<div>
+ <div>
+  <p>Som udstiller oplever man en unik følelse af fællesskab blandt de andre kunsthåndværkere, der deler den samme passion og engagement for deres håndværk. Man får muligheden for at dele sin egen kreativitet med et nysgerrigt publikum, der gladeligt udforsker hvert eneste værk med interesse og beundring.</p>
+  <p>Det er en dag fyldt med spænding og håb, hvor man som udstiller drømmer om at se sine værker finde nye hjem hos begejstrede købere. Men det handler ikke kun om salg; det handler også om at skabe forbindelser og dele glæden ved kunsthåndværk med andre ligesindede sjæle.</p>
+  <p>Flid Marked er mere end bare et sted at sælge sine værker; det er en fejring af kreativitet, talent og dedikation til kunsthåndværkets ædle traditioner. Det er et sted, hvor kunst og håndværk forenes og skaber magi for både udstillere og besøgende.</p>
+</div>
+ 
+  <div class="triple_pic"></div>
+
+  <div>
+    <h2>Q & A</h2>
+  <details>
+    <summary><h3>Bordtyper & priser</h3></summary>
+    <article>
+     <p></p>
+    </article>
+  </details>
+  <details>
+    <summary><h3>I tilfælde af aflysning</h3></summary>
+    <article>
+  <p></p>
+    </article>
+  </details>
+  <details>
+    <summary></summary>
+    <article>
+      <slot />
+    </article>
+  </details>
+  </div>
+</div>
+
+<form action="">
+<div class="grid_1-2">
+  <input type="text" placeholder="Brandnavn..." required="">
+  <input type="text" placeholder="CVR nummer..." required="">
+
+  <select name="primary" id="primary">
+    <option value="primary">Primær kategori</option>
+    <option value="ceramics">Keramik</option>
+    <option value="textile">Tekstil</option>
+    <option value="knit">Strik</option>
+    <option value="upcycle">Upcycle</option>
+  </select>
+
+  <select name="secondary" id="secondary">
+    <option value="secondary">Sekundær kategori</option>
+    <option value="ceramics">Keramik</option>
+    <option value="textile">Tekstil</option>
+    <option value="knit">Strik</option>
+    <option value="upcycle">Upcycle</option>
+  </select>
+
+  <textarea name="description" id="description" placeholder="beskriv dit professionelle kreative virke (materialer, teknikker, inspirationskilder m.m.), der kan bruges af Flid i en kommunikationskontekst..."></textarea>
+
+<div>
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Upload Image" name="submit">
+</div>
+
+
+</div>
+
+<div class="grid_2-3">
+  
+</div>
+
+</form>
+
+  </main>
 </Mainlayout>
 
-<style></style>
+<style>
+
+@media (max-width: 769px) {
+.grid_1-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid_2-3 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+}
+
+</style>
