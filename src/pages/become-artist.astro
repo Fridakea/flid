@@ -3,7 +3,66 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 ---
 
 <Mainlayout>
-  <main></main>
+  <main>
+<h1>Bliv udstiller</h1>
+
+<div>
+ <div>
+  <p></p>
+</div>
+ 
+  <div class="triple_pic"></div>
+  <div>
+  <details>
+    <summary></summary>
+    <article>
+      <slot />
+    </article>
+  </details>
+  </div>
+</div>
+
+<div class="grid_1-2">
+<form action="">
+  <input type="text" placeholder="Brandnavn..." required="">
+  <input type="text" placeholder="CVR nummer..." required="">
+
+  <select name="primary" id="primary">
+    <option value="ceramics">Keramik</option>
+    <option value="textile">Tekstil</option>
+    <option value="knit">Strik</option>
+    <option value="upcycle">Upcycle</option>
+  </select>
+
+  <select name="secondary" id="secondary">
+    <option value="ceramics">Keramik</option>
+    <option value="textile">Tekstil</option>
+    <option value="knit">Strik</option>
+    <option value="upcycle">Upcycle</option>
+  </select>
+
+
+</form>
+
+
+
+</div>
+
+<div class="grid_2-3">
+
+</div>
+  </main>
 </Mainlayout>
 
-<style></style>
+<style>
+.grid_1-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid_2-3 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+</style>
