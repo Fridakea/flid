@@ -1,9 +1,20 @@
 ---
+import Header from"../components/Header.astro";
 import Mainlayout from "../layouts/Mainlayout.astro";
+import MarkedHover from"../components/MarkedHover.astro";
+import ForsideAnimation from"../components/ForsideAnimation.astro";
+import ForsideInfo from"../components/ForsideInfo.astro";
+import Footer from"../components/Footer.astro";
 ---
 
 <Mainlayout>
-  <main></main>
+  <main>
+    <Header />
+    <MarkedHover />
+    <ForsideAnimation />
+    <ForsideInfo />
+    <Footer />
+  </main>
 </Mainlayout>
 
 <style></style>
