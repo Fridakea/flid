@@ -1,4 +1,12 @@
 /* General classnames */
+.pc-only {
+    display: none;
+}
+
+.pc-hide {
+    display: block;
+}
+
 /* Styling for flex and grid */
 .flex-col {
     display: flex;

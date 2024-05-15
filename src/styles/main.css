@@ -52,10 +52,19 @@ img {
   width: 100%; height: auto; display: block; 
 }
 
+/* general styling for body and main */
+body {
+  padding: var(--spacing-small);
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+}
+
 /* general font styling for desktop*/
 h1, h2, h3, h4, h5, h6 {
   font-family: "Outfit", sans-serif;
-  font-weight: regular;
 }
 
 h1 {

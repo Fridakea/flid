@@ -1,11 +1,12 @@
 ---
 import Mainlayout from "../layouts/Mainlayout.astro";
 import Timeline from "../components/Timeline.astro";
+import Accordion from "../components/Accordion.astro";
 ---
 
 <Mainlayout>
   <main>
-    <div class="mb-l">
+    <div class="about-flid mb-l">
       <h1>Om os</h1>
       <p>
         <span>Flid</span>
@@ -20,7 +21,14 @@ import Timeline from "../components/Timeline.astro";
 
     <Timeline />
 
-    <div class="keyword-section">
+    <div class="flex-row flex-center">
+      <p>
+        <span id="visitor-count">0</span>
+        <span class="fade-in-2s">besøgende pr. år gennemsnitligt</span>
+      </p>
+    </div>
+
+    <div class="keyword-section pc-flex-row">
       <div>
         <h3>Unika</h3>
         <img
@@ -30,11 +38,12 @@ import Timeline from "../components/Timeline.astro";
       </div>
 
       <div>
-        <h3>Håndlavet</h3>
+        <h3 class="pc-hide">Håndlavet</h3>
         <img
           src="../img/artists/helene-keinicke/helene-keinicke5.webp"
           alt="Billede af en illustration lavrt af kunstneren Helene Keinicke"
         />
+        <h3 class="pc-only">Håndlavet</h3>
       </div>
 
       <div>
@@ -45,18 +54,52 @@ import Timeline from "../components/Timeline.astro";
         />
       </div>
     </div>
+
+    <Accordion title="Hvem er Flid?" />
   </main>
 </Mainlayout>
 
 <style>
-  span {
+  .about-flid {
+    max-width: 525px;
+
+    & span {
+      font-size: 2rem;
+    }
+  }
+
+  #visitor-count {
     font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .fade-in-2s {
+    animation: fade-in 4s;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 
   .keyword-section {
+    & h3 {
+      margin-bottom: -8px;
+      margin-left: -16px;
+    }
     & img {
       aspect-ratio: 1 / 1;
       max-width: 400px;
+      width: 60%;
+      margin-bottom: var(--spacing-medium);
     }
   }
 
@@ -64,5 +107,35 @@ import Timeline from "../components/Timeline.astro";
     span {
       font-size: 3rem;
     }
+
+    .keyword-section {
+      & :nth-child(2) {
+        margin-bottom: 0;
+        & .pc-only {
+          margin-top: -9px;
+        }
+      }
+
+      & img {
+        width: 75%;
+      }
+    }
   }
 </style>
+
+<script>
+  const counter = document.getElementById("visitor-count");
+  let currentNumber = 0;
+  let interval; // Store interval, so we can stop it
+
+  function countUp() {
+    currentNumber += 7; // Adjust how fast its counting
+    counter.textContent = `${currentNumber}`;
+    if (currentNumber >= 1800) {
+      clearInterval(interval); // Stops interval when 1800 is reached
+      counter.textContent = "1809";
+    }
+  }
+
+  interval = setInterval(countUp, 1);
+</script>

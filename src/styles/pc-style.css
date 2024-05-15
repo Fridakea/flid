@@ -1,4 +1,13 @@
-/* General classnames */
+@media (min-width: 769px) {
+    /* General classnames */
+.pc-only {
+    display: block;
+}
+
+.pc-hide {
+    display: none;
+}
+
 /* For flex, grid and spacing */
 .pc-flex-col {
     display: flex;
@@ -13,4 +22,5 @@
 .pc-flex-center {
     justify-content: center;
     align-items: center;
+}
 }
