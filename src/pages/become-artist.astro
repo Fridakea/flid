@@ -22,12 +22,13 @@ import Mainlayout from "../layouts/Mainlayout.astro";
   </div>
 </div>
 
-<div class="grid_1-2">
 <form action="">
+<div class="grid_1-2">
   <input type="text" placeholder="Brandnavn..." required="">
   <input type="text" placeholder="CVR nummer..." required="">
 
   <select name="primary" id="primary">
+    <option value="primary">Primær kategori</option>
     <option value="ceramics">Keramik</option>
     <option value="textile">Tekstil</option>
     <option value="knit">Strik</option>
@@ -35,26 +36,35 @@ import Mainlayout from "../layouts/Mainlayout.astro";
   </select>
 
   <select name="secondary" id="secondary">
+    <option value="secondary">Sekundær kategori</option>
     <option value="ceramics">Keramik</option>
     <option value="textile">Tekstil</option>
     <option value="knit">Strik</option>
     <option value="upcycle">Upcycle</option>
   </select>
 
+  <textarea name="description" id="description" placeholder="beskriv dit professionelle kreative virke (materialer, teknikker, inspirationskilder m.m.), der kan bruges af Flid i en kommunikationskontekst..."></textarea>
 
-</form>
-
+<div>
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Upload Image" name="submit">
+</div>
 
 
 </div>
 
 <div class="grid_2-3">
-
+  
 </div>
+
+</form>
+
   </main>
 </Mainlayout>
 
 <style>
+
+@media (max-width: 769px) {
 .grid_1-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -63,6 +73,7 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 .grid_2-3 {
   display: grid;
   grid-template-columns: 2fr 1fr;
+}
 }
 
 </style>
