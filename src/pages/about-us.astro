@@ -1,4 +1,10 @@
 ---
+import { Image } from "astro:assets";
+import img1 from "../assets/img/unika-image.webp";
+import img2 from "../assets/img/artists/helene-keinicke/helene-keinicke5.webp";
+import img3 from "../assets/img/artists/rosamunde/rosamunde14.webp";
+import img4 from "../assets/img/julemarked19/j19-1.webp";
+import img5 from "../assets/img/julemarked19/j19-2.webp";
 import Mainlayout from "../layouts/Mainlayout.astro";
 import Timeline from "../components/Timeline.astro";
 import Accordion from "../components/Accordion.astro";
@@ -31,16 +37,16 @@ import Accordion from "../components/Accordion.astro";
     <div class="keyword-section pc-flex-row">
       <div>
         <h3>Unika</h3>
-        <img
-          src="../img/unika-image.webp"
+        <Image
+          src={img1}
           alt="Billede af en skål lavet af kunstneren Lærke Laura"
         />
       </div>
 
       <div>
         <h3 class="pc-hide">Håndlavet</h3>
-        <img
-          src="../img/artists/helene-keinicke/helene-keinicke5.webp"
+        <Image
+          src={img2}
           alt="Billede af en illustration lavrt af kunstneren Helene Keinicke"
         />
         <h3 class="pc-only">Håndlavet</h3>
@@ -48,8 +54,8 @@ import Accordion from "../components/Accordion.astro";
 
       <div>
         <h3>Fællesskab</h3>
-        <img
-          src="../img/artists/rosamunde/rosamunde14.webp"
+        <Image
+          src={img3}
           alt="Billede af kopper lavet af kunstneren Rosamunde"
         />
       </div>
@@ -156,9 +162,9 @@ import Accordion from "../components/Accordion.astro";
       </div>
 
       <div class="flex1">
-        <img
+        <Image
           class="accordion-img mb-m"
-          src="../img/julemarked19/julemarked19-img1.webp"
+          src={img4}
           alt="Billede af udstillere på Flids julemarked 2019"
         />
       </div>
@@ -223,9 +229,9 @@ import Accordion from "../components/Accordion.astro";
       </div>
 
       <div class="flex1">
-        <img
+        <Image
           class="accordion-img mb-m"
-          src="../img/julemarked19/julemarked19-img2.webp"
+          src={img5}
           alt="Billede af udstillere på Flids julemarked 2019"
         />
       </div>

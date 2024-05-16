@@ -1,9 +1,131 @@
 ---
+import CarouselSwiper from "../components/CarouselSwiper.astro";
 import Mainlayout from "../layouts/Mainlayout.astro";
+import img1 from "../assets/img/julemarked22/j22-1.png";
+import img2 from "../assets/img/julemarked22/j22-2.png";
+import img3 from "../assets/img/julemarked22/j22-3.png";
+import img4 from "../assets/img/julemarked22/j22-4.png";
+import img5 from "../assets/img/julemarked22/j22-5.png";
+import img6 from "../assets/img/julemarked22/j22-6.png";
+import img7 from "../assets/img/julemarked22/j22-7.png";
+import img8 from "../assets/img/julemarked22/j22-8.png";
+import img9 from "../assets/img/julemarked22/j22-9.png";
+import img10 from "../assets/img/julemarked22/j22-10.png";
+import img11 from "../assets/img/julemarked22/j22-11.png";
+import img12 from "../assets/img/julemarked19/j19-1.webp";
+import img13 from "../assets/img/julemarked19/j19-2.webp";
+import img14 from "../assets/img/julemarked19/j19-3.png";
+import img15 from "../assets/img/julemarked19/j19-4.png";
+import img16 from "../assets/img/julemarked19/j19-5.png";
+import img17 from "../assets/img/julemarked19/j19-6.png";
+import img18 from "../assets/img/julemarked19/j19-7.png";
+import img19 from "../assets/img/julemarked19/j19-8.png";
+import img20 from "../assets/img/foraarsmarked19/f19-1.png";
+import img21 from "../assets/img/foraarsmarked19/f19-2.png";
+import img22 from "../assets/img/foraarsmarked19/f19-3.png";
+import img23 from "../assets/img/foraarsmarked19/f19-4.png";
+import img24 from "../assets/img/foraarsmarked19/f19-5.png";
+import img25 from "../assets/img/foraarsmarked19/f19-6.png";
+import img26 from "../assets/img/foraarsmarked19/f19-7.png";
+import img27 from "../assets/img/foraarsmarked19/f19-8.png";
+import img28 from "../assets/img/foraarsmarked19/f19-9.png";
+import img29 from "../assets/img/foraarsmarked19/f19-10.png";
+import img30 from "../assets/img/foraarsmarked19/f19-11.png";
+import img31 from "../assets/img/julemarked16/j16-1.png";
+import img32 from "../assets/img/julemarked16/j16-2.png";
+import img33 from "../assets/img/julemarked16/j16-3.png";
+import img34 from "../assets/img/julemarked16/j16-4.png";
+import img35 from "../assets/img/julemarked16/j16-5.png";
 ---
 
 <Mainlayout>
-  <main></main>
+  <main>
+    <div class="text-about-subpage mb-m">
+      <h1>Projektgalleri</h1>
+      <h2>Se billeder fra tidligere Flid markeder</h2>
+      <p>
+        Nedenfor kan du se et udpluk af billeder som er taget fra tidligere
+        markeder. Billederne er taget af vores skønne fotografer "", og viser en
+        del af den atmosfærde som er på Flid marked.
+      </p>
+      <p>
+        Lyder det som noget for dig? Så kom endelig og vær med! Der er massere
+        af plads og hjerterum til både deltagere og udstillere.
+      </p>
+    </div>
+
+    <div class="swiper-section">
+      <h3>Julemarked 2022</h3>
+      <CarouselSwiper
+        images={[
+          img1,
+          img2,
+          img3,
+          img4,
+          img5,
+          img6,
+          img7,
+          img8,
+          img9,
+          img10,
+          img11,
+        ]}
+        alt="Julemarked 2022 billede "
+      />
+    </div>
+
+    <div class="swiper-section">
+      <h3>Julemarked 2019</h3>
+      <CarouselSwiper
+        images={[img14, img15, img16, img17, img18, img19, img12, img13]}
+        alt="Julemarked 2019 billede "
+      />
+    </div>
+
+    <div class="swiper-section">
+      <h3>Forårsmarked 2019</h3>
+      <CarouselSwiper
+        images={[
+          img20,
+          img21,
+          img22,
+          img23,
+          img24,
+          img25,
+          img26,
+          img27,
+          img28,
+          img29,
+          img30,
+        ]}
+        alt="Forårsmarked 2019 billede "
+      />
+    </div>
+
+    <div class="swiper-section">
+      <h3>Julemarked 2016</h3>
+      <CarouselSwiper
+        images={[img31, img32, img33, img34, img35]}
+        alt="Julemarked 2016 billede "
+      />
+    </div>
+  </main>
 </Mainlayout>
 
-<style></style>
+<style>
+  .text-about-subpage {
+    max-width: 750px;
+    & p {
+      margin-bottom: var(--spacing-small);
+    }
+  }
+
+  .swiper-section {
+    margin-bottom: var(--spacing-medium);
+
+    & h3 {
+      margin-bottom: -3px;
+      margin-left: var(--spacing-small);
+    }
+  }
+</style>
