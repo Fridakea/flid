@@ -25,6 +25,10 @@ const { images, alt } = Astro.props;
     padding: var(--spacing-small);
   }
 
+  .swiper-wrapper {
+    background-color: grey;
+  }
+
   .swiper-slide {
     text-align: center;
     font-size: 18px;
@@ -39,6 +43,11 @@ const { images, alt } = Astro.props;
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .swiper-pagination {
+    background-color: red;
+    color: blue;
   }
 </style>
 
