@@ -1,4 +1,9 @@
 ---
+import "../styles/main.css";
+import "../styles/style.css";
+import "../styles/pc-style.css";
+import { Image } from "astro:assets";
+import poster from "../assets/img/flid-posters/foraarsmarked18.webp";
 ---
 <section>
 <div>
@@ -16,7 +21,7 @@
         <div class="rows color2"><h3>Entrépris</h3><h3>40 kr.</h3></div>
        </div>
        </div>
-       <img src="/img/flid-posters/efteraarsmarked21.webp" alt="poster">
+       <Image src={poster} alt="Billede af plakat lavet til sensommermarked" />
 </section>
 
        <style>
