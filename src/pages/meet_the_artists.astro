@@ -1,41 +1,80 @@
 ---
 import Mainlayout from "../layouts/Mainlayout.astro";
-import Footer from "../components/Footer.astro";
 ---
 
 <Mainlayout>
   <main>
-<h2>Udstillerne på næste marked</h2>
-<img src="" alt="">
-<h5></h5>
-<h2>Udstillerne på forrige marked</h2>
-<article>
-  <section>
-    <img src="" alt="">
-    <div>
-     <h5>Forårsmarked 2024</h5>
-    </div>
-  </section>
-  <section>
-    <img src="" alt="">
-    <div>
-      <h5>Julemarked 2024</h5>
-     </div>
-  </section>
-  <section>
-    <img src="" alt="">
-    <div>
-      <h5>Forårsmarked 2023</h5>
-     </div>
-  </section>
-</article>  
-</main>
+    <h2>Udstillerne på næste marked</h2>
+      <div class="sensommer_container">
+        <img src="/src/assets/img/sensommermarked.webp" alt="sensommermarked">
+          <div></div>
+          <h5>Sensommermarked</h5>
+      </div>
+    <h2>Udstillerne på forrige marked</h2>
+    <article id="market_parent">
+        <section class="market_child">
+          <img src="" alt="">
+          <div></div>
+          <h6>Forårsmarked 2024</h6>  
+        </section>
+      <section class="market_child">
+        <img src="" alt="">
+         <div></div>
+          <h6>Julemarked 2024</h6>
+      </section>
+      <section class="market_child">
+        <img src="" alt="">
+        <div></div>
+          <h6>Forårsmarked 2023</h6>
+      </section> 
+    </article>  
+  </main>
 </Mainlayout>
 
 
 <style>
+.sensommer_container div{
+  width: 100%;
+  height: 40px;
+  background-color:bisque;
+  transform: translateY(-100%);
+  opacity: 80%;
+  position: relative;
+  z-index: 0;
+}
 
-<style>
 
+.sensommer_container h5{
+  transform: translateY(-250%);
+  display: flex;
+  flex-direction: column;
+  align-items:flex-end;
+}
+
+#market_parent {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-end;
+  justify-content: flex-end;
+  margin: auto;
+  gap: 5%;
+}
+
+#market_parent .market_child div{
+  background-color: #281411;
+  transform: translateY(100%);
+  width: 200%;
+  height: 50px;
+}
+
+#market_parent .market_child h6{
+  transform: translateY(100%);
+  color: #FEF5EA;
+}
+
+/* .sensommer_container:hover div{
+  height: 100px;
+  transform: translateY(-100%);
+} */
   
 </style>

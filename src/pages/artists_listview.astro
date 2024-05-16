@@ -4,19 +4,21 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 
 <Mainlayout>
   <main>
-<img class="arrow" src="" alt="">
-    <nav>
+    <img class="arrow" src="" alt="">
+    <template id="market_template">
+      <nav>
         <ul>
             <li><a href="#">Top-level page</a></li>
             <li>Current Page</li>
         </ul>
-    </nav>
-    <h1></h1>
-    <h5></h5>
-    <form action="">
-    </form>
-    <section>
-    <template>
+      </nav>
+      <h1>Sensommermarked</h1>
+      <h5>Beskrivelse af sensommermarkedet 2024</h5>
+    </template>
+  <form action="">
+  </form>
+  <section class="artist_container">
+    <template id="artist_template">
          <a href="">
              <article class="artist_article">
              <img class="artist_image" src="" alt="">
@@ -24,8 +26,8 @@ import Mainlayout from "../layouts/Mainlayout.astro";
             </article>
         </a>
       </template>
-    </section>
-  </main>
+  </section>
+</main>
 </Mainlayout>
 
 <style></style>
