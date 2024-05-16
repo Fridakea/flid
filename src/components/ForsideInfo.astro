@@ -1,6 +1,7 @@
 ---
 ---
-
+<section>
+<div>
 <h3>Deltag i vores Sensommermarked</h3>
 <p>Flid fylder 10 år, og af den årsag vil vi gerne invitere til Sensommermarked!
     Flid fylder 10 år, og af den årsag vil vi gerne invitere til Sensommermarked!
@@ -9,11 +10,34 @@
        Flid fylder 10 år, og af den årsag vil vi gerne invitere til Sensommermarked!</p>
        <h4>Vores næste markede: Sensommermarked</h4>
        <div id="Tabel">
-        <div><h3>Dato:</h3><h3>21 Juni 2024</h3></div>
-        <div><h3>Tidspunkt</h3><h3>Kl. 10:00 - 16:00</h3></div>
-        <div><h3>Lokation:</h3><h3>Nørrebro Hallen</h3></div>
-        <div><h3>Entrépris</h3><h3>40 kr.</h3></div>
+        <div class="rows color1"><h3>Dato:</h3><h3>21 Juni 2024</h3></div>
+        <div class="rows color2"><h3>Tidspunkt</h3><h3>Kl. 10:00 - 16:00</h3></div>
+        <div class="rows color1"><h3>Lokation:</h3><h3>Nørrebro Hallen</h3></div>
+        <div class="rows color2"><h3>Entrépris</h3><h3>40 kr.</h3></div>
+       </div>
        </div>
        <img src="/img/flid-posters/efteraarsmarked21.webp" alt="poster">
+</section>
 
-       <style></style>
+       <style>
+section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+gap: 30px;
+}
+#Tabel{
+
+}
+.rows{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+.color1{
+    background-color: #F3D6D1;
+}
+.color2{
+    background-color: #EDC6C5;
+}
+       </style>
