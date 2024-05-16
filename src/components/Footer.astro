@@ -66,10 +66,10 @@ import FooterButton from "./Footer_Button.astro";
     <section class="footer_columns">
       <nav>
          <ul>
-            <li>Mød udstillerne</li>
-            <li>Om os</li>
-            <li>Bliv udstiller</li>
-            <li>Projektgalleri</li>
+            <li><a href="">Mød udstillerne</a></li>
+            <li><a href="">Om os</a></li>
+            <li><a href="">Bliv udstiller</a></li>
+            <li><a href="">Projektgalleri</a></li>
         </ul>
       </nav>
     </section>
@@ -88,10 +88,13 @@ article{
 ul{
     list-style: none;
 }
+a{
+  text-decoration: none;
+}
 li{
   font-size: 1.2rem;
 }
-li:hover{
+a:hover{
     text-transform:uppercase;
 }
 .some{
