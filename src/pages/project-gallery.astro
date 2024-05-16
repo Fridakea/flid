@@ -1,9 +1,13 @@
 ---
+import CarouselSwiper from "../components/CarouselSwiper.astro";
 import Mainlayout from "../layouts/Mainlayout.astro";
 ---
 
 <Mainlayout>
-  <main></main>
+  <main>
+    <h1>Projektgalleri</h1>
+    <CarouselSwiper images={["img1", "img2", "img3"]} alt="julemarked" />
+  </main>
 </Mainlayout>
 
 <style></style>

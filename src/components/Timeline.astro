@@ -1,36 +1,35 @@
 ---
-
+import { Image } from "astro:assets";
+import img1 from "../assets/img/timeline-img1.webp";
+import img2 from "../assets/img/timeline-img2.webp";
+import img3 from "../assets/img/timeline-img3.webp";
+import img4 from "../assets/img/timeline-img4.webp";
+import img5 from "../assets/img/timeline-img5.webp";
 ---
 
 <div class="timeline">
   <div data-aos="fade-in">
-    <img
-      src="../img/timeline-img1.webp"
-      alt="Billede af kunstner som skaber kunst"
-    />
+    <Image src={img1} alt="Billede af kunstner som skaber kunst" />
     <p>Kunstner får ide</p>
   </div>
 
   <div data-aos="fade-in">
-    <img src="../img/timeline-img2.webp" alt="Færdigt kunstværk" />
+    <Image src={img2} alt="Færdigt kunstværk" />
     <p>Færdigt kunstværk</p>
   </div>
 
   <div data-aos="fade-in">
-    <img
-      src="../img/timeline-img3.webp"
-      alt="Billede af kunst på Flid marked"
-    />
+    <Image src={img3} alt="Billede af kunst på Flid marked" />
     <p>Kunstner kontakter Flid</p>
   </div>
 
   <div data-aos="fade-in">
-    <img src="../img/timeline-img4.webp" alt="Kunstner og kunde krammer" />
+    <Image src={img4} alt="Kunstner og kunde krammer" />
     <p>Match mellem kunst og køber</p>
   </div>
 
   <div data-aos="fade-in">
-    <img src="../img/timeline-img5.webp" alt="Færdigt kunstværk i et hjem" />
+    <Image src={img5} alt="Færdigt kunstværk i et hjem" />
     <p>Kunstværk får nyt hjem</p>
   </div>
 </div>
@@ -43,7 +42,7 @@
   .timeline {
     position: relative;
     height: 1300px;
-    background-image: url("../img/timeline.svg");
+    background-image: url("../assets/img/timeline.svg");
     background-repeat: no-repeat;
     background-size: contain;
 
