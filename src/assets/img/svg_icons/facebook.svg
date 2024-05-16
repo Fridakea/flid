@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="facebook_icon" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 46">
+  <defs>
+    <style>
+      .fill {
+        fill: #adb3ea;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path class="fill" d="M23,0C10.3,0,0,10.36,0,23.14c0,11.55,8.41,21.12,19.41,22.86v-16.17h-5.84v-6.69h5.84v-5.1c0-5.8,3.43-9,8.69-9,2.52,0,5.15.45,5.15.45v5.69h-2.91c-2.85,0-3.74,1.79-3.74,3.62v4.34h6.37l-1.02,6.69h-5.35v16.17c11-1.73,19.41-11.31,19.41-22.86C46,10.36,35.7,0,23,0Z"/>
+  </g>
+</svg>

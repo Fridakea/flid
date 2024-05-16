@@ -1,0 +1,45 @@
+---
+---
+<section id="Container">
+<div id="text">
+<h2>Design</h2>
+<h2>Kunst</h2>
+<h2>Håndværk</h2>
+</div>
+<img src="/img/kopcrop.jpg" alt="kop">
+</section>
+
+<style>
+#text{
+    position: absolute;
+    left: 80%;
+    bottom: 25%;
+    line-height: 110px;
+}
+img{
+    padding: 70px 70px 70px 0px;
+}
+.red{
+    color: red;
+    background-color: red;
+}
+#container:hover{
+    & .text:hover{
+        position: absolute;
+    left: 20%;
+    bottom: 25%;
+    line-height: 110px;
+    }
+}
+
+</style>
+<script>
+    window.addEventListener("load", onHover);
+
+    function onHover(){
+document.querySelector("#container").addEventListener("mouseover", hoverEffekt)
+    }
+    function hoverEffekt(){
+        document.querySelector("#text").classList.add("red")
+    }
+</script>
