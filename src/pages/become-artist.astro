@@ -3,7 +3,7 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 import "../styles/main.css"
 import "../styles/pc-style.css"
 import "../styles/style.css"
-import Accordion from "../components/"
+import Accordion from "../components/Accordion.astro"
 ---
 
 <Mainlayout>
@@ -18,9 +18,9 @@ import Accordion from "../components/"
 </div>
  
   <div class="triple_pic">
-    <img class="box-1" src="/public/img/become-artist billeder/left_pic.webp" alt="Smiling lady at stand">
-    <img class="box-2" src="/public/img/become-artist billeder/middle_picture.webp" alt="Glass eggs in different colors">
-    <img class="box-3" src="/public/img/become-artist billeder/right_pic.webp" alt="Customer and seller at stand">
+    <img class="box-1" src="../assets/img/become_artist/left_pic.webp" alt="Smiling lady at stand">
+    <img class="box-2" src="../assets/img/become_artist/middle_picture.webp" alt="Glass eggs in different colors">
+    <img class="box-3" src="../assets/img/become_artist/right_pic.webp" alt="Customer and seller at stand">
   </div>
 
   <div>
@@ -163,7 +163,7 @@ input[type="text"], textarea, select {
 }
 
 @media (max-width: 769px) {
-  .become_text {
+  .become_text p  {
 max-width: 535px;
 
   }
