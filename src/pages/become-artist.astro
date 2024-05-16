@@ -11,6 +11,7 @@ import Accordion from "../components/Accordion.astro"
 <h1>Bliv udstiller</h1>
 
 <div>
+
  <div class="become_text">
   <p>Som udstiller oplever man en unik følelse af fællesskab blandt de andre kunsthåndværkere, der deler den samme passion og engagement for deres håndværk. Man får muligheden for at dele sin egen kreativitet med et nysgerrigt publikum, der gladeligt udforsker hvert eneste værk med interesse og beundring.</p>
   <p>Det er en dag fyldt med spænding og håb, hvor man som udstiller drømmer om at se sine værker finde nye hjem hos begejstrede købere. Men det handler ikke kun om salg; det handler også om at skabe forbindelser og dele glæden ved kunsthåndværk med andre ligesindede sjæle.</p>
@@ -25,25 +26,27 @@ import Accordion from "../components/Accordion.astro"
 
   <div>
     <h2>Q & A</h2>
-  <details>
-    <summary><h3>Bordtyper & priser</h3></summary>
-    <article>
-     <p></p>
-    </article>
-  </details>
-  <details>
-    <summary><h3>I tilfælde af aflysning</h3></summary>
-    <article>
-  <p></p>
-    </article>
-  </details>
-  <details>
-    <summary></summary>
-    <article>
-      <slot />
-    </article>
-  </details>
+<Accordion title="Bordtyper & priser">
+  <p>Priser for deltagelse - alle priser på deltagelse er eks. moms. <br> Der er mulighed for at deltage én enkelt dag på Flid. <br>
+    Priserne for én dags udstilling er:</p>
+   <ul>
+    <li>Almindeligt bord (180*90cm): 1.200kr</li>
+    <li>Dobbeltbord (360*90cm): 2.200kr</li>
+   </ul>
+   <p>Skulle du i stedet ønske at deltage 2 dage, er priserne følgende:</p>
+   <ul>
+    <li>Almindeligt bord (180*90cm): 2.200kr</li>
+    <li>Dobbeltbord (360*90cm): 3.600kr</li>
+   </ul>
+   <p></p>
+</Accordion>
+<Accordion title="I tilfælde af aflysning">
+  <p>Skulle der ske en uforudsigelig forhindring, er det indtil en måned før afviklingen af Flid gratis at melde fra, da Flid derved har mulighed for at finde nye udstillere. </p>
+  <p> Sker aflysningen indenfor 14-30 dage før eventen, opkræves halvdelen af deltagergebyret. Melder du fra mindre end 14 dage før opkræves hele beløbet.</p>
+  <p>Tvinges vi af samfundshensyn til at aflyse grundet samfundshensyn, opkræves der naturligvis ikke deltagergebyr.</p>
+</Accordion>
   </div>
+
 </div>
 
 <form action="">
@@ -86,8 +89,8 @@ import Accordion from "../components/Accordion.astro"
     <option value="dobbel2">2 dage - dobbelt bord (360*90 cm) <span>3.600kr</span></option>
   </select>
 
-  <textarea name="" id="" placeholder="Uddannelse og tidligere samarbejder..."></textarea>
-  <textarea name="" id="" placeholder="Andet på hjertet?"></textarea>
+  <textarea name="works" id="works" placeholder="Uddannelse og tidligere samarbejder..."></textarea>
+  <textarea name="extra" id="extra" placeholder="Andet på hjertet?"></textarea>
   
   <div class="kontaktinfo">
     <h2>Kontaktinformation</h2>
@@ -157,6 +160,12 @@ input[type="text"], textarea, select {
     gap: 20px;
 }
 
+#description {
+  min-height: 237px;
+}
+#works, #extra {
+  min-height: 286px;
+}
 .big {
   grid-column: 1 / 3;
     grid-row: 3 / 4;
