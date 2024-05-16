@@ -1,3 +1,25 @@
 ---
-
+const { title } = Astro.props;
 ---
+
+<details>
+  <summary>{title}</summary>
+  <slot />
+</details>
+
+<style>
+  details {
+    color: var(--text-color);
+    border-bottom: 1px solid var(--text-color);
+    margin-bottom: var(--spacing-small);
+    & summary {
+      cursor: pointer;
+      padding: calc(var(--spacing-small) / 2) var(--spacing-small);
+      transition: 0.2s ease-in-out;
+    }
+  }
+
+  summary::marker {
+    color: var(--secondary-color-shade);
+  }
+</style>

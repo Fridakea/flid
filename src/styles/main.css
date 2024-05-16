@@ -15,6 +15,11 @@
   --accent-color: #6670ce;
   --accent-color-tint: #838ce0;
   --accent-color-shade: #4650a6;
+
+  /* Variables for spacing */
+  --spacing-small: 16px;
+  --spacing-medium: 48px;
+  --spacing-large: 80px;
 }
 
 .dark-mode {
@@ -36,52 +41,53 @@
   --accent-color-shade: #bdc0ea;
 }
 
+/* Reset */
+* {
+  margin: 0; padding: 0; box-sizing: border-box; 
+  font-family: "europa", sans-serif;
+  color: var(--text-color);
+}
+
+img { 
+  width: 100%; height: auto; display: block; 
+}
+
+/* general styling for body and main */
+body {
+  padding: var(--spacing-small);
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+}
+
 /* general font styling for desktop*/
-h1 {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
+  margin-bottom: var(--spacing-small);
+}
+
+h1 {
   font-weight: bold;
-  font-size: 89.8 pt;
-  font-style: normal;
+  font-size: 3rem;
+  margin-bottom: calc(var(--spacing-small) * 2);
 }
 h2 {
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: regular;
-  font-size: 67.43 pt;
-  font-style: normal;
+  font-size: 2.5rem;
 }
 h3 {
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: regular;
-  font-size: 50.5 pt;
-  font-style: normal;
+  font-size: 2rem;
 }
-h4 {
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: regular;
-  font-size: 37.9 pt;
-  font-style: normal;
+h4, summary {
+  font-size: 1.75rem;
 }
 h5 {
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: regular;
-  font-size: 28.4 pt;
-  font-style: normal;
+  font-size: 1.5rem;
 }
 h6 {
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: regular;
-  font-size: 21.3 pt;
-  font-style: normal;
+  font-size: 1.25rem;
 }
 p {
-  font-family: "europa", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 16 pt;
+  font-size: 1rem;
 }

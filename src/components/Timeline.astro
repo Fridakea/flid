@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+import img1 from "../assets/img/timeline-img1.webp";
+import img2 from "../assets/img/timeline-img2.webp";
+import img3 from "../assets/img/timeline-img3.webp";
+import img4 from "../assets/img/timeline-img4.webp";
+import img5 from "../assets/img/timeline-img5.webp";
+---
+
+<div class="timeline">
+  <div data-aos="fade-in">
+    <Image src={img1} alt="Billede af kunstner som skaber kunst" />
+    <p>Kunstner får ide</p>
+  </div>
+
+  <div data-aos="fade-in">
+    <Image src={img2} alt="Færdigt kunstværk" />
+    <p>Færdigt kunstværk</p>
+  </div>
+
+  <div data-aos="fade-in">
+    <Image src={img3} alt="Billede af kunst på Flid marked" />
+    <p>Kunstner kontakter Flid</p>
+  </div>
+
+  <div data-aos="fade-in">
+    <Image src={img4} alt="Kunstner og kunde krammer" />
+    <p>Match mellem kunst og køber</p>
+  </div>
+
+  <div data-aos="fade-in">
+    <Image src={img5} alt="Færdigt kunstværk i et hjem" />
+    <p>Kunstværk får nyt hjem</p>
+  </div>
+</div>
+
+<style>
+  img {
+    width: 150px;
+  }
+
+  .timeline {
+    position: relative;
+    height: 1300px;
+    background-image: url("../assets/img/timeline.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    display: flex;
+    justify-self: center;
+
+    margin-bottom: var(--spacing-large);
+
+    & div {
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+
+    & :nth-child(1) {
+      left: 22%;
+      top: 5%;
+    }
+
+    & :nth-child(2) {
+      left: 60%;
+      top: 30%;
+    }
+
+    & :nth-child(3) {
+      left: 78%;
+      top: 50%;
+      text-align: right;
+    }
+
+    & :nth-child(4) {
+      left: 30%;
+      top: 67%;
+    }
+
+    & :nth-child(5) {
+      left: 50%;
+      top: 90%;
+      text-align: center;
+
+      & img {
+        width: 250px;
+      }
+    }
+  }
+</style>

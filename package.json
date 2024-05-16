@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "Flid",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,6 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.8.2"
+    "aos": "^2.3.4",
+    "astro": "^4.8.2",
+    "swiper": "^11.1.3"
   }
 }

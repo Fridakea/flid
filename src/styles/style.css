@@ -1,0 +1,53 @@
+/* General classnames */
+.pc-only {
+    display: none;
+}
+
+.pc-hide {
+    display: block;
+}
+
+/* Styling for flex and grid */
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex1 {
+    flex: 1;
+}
+
+/* Styling for gap and spacing */
+.gap-s {
+    gap: var(--spacing-small);
+}
+
+.gap-m {
+    gap: var(--spacing-medium);
+}
+
+.gap-l {
+    gap: var(--spacing-large);
+}
+
+.mb-s {
+    margin-bottom: var(--spacing-small);
+}
+
+.mb-m {
+    margin-bottom: var(--spacing-medium);
+}
+
+.mb-l {
+    margin-bottom: var(--spacing-large);
+}
