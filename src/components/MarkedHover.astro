@@ -2,20 +2,50 @@
 import "../styles/main.css";
 import "../styles/style.css";
 import "../styles/pc-style.css";
+import { Image } from "astro:assets";
+import sensommerSvg from "../assets/img/Sensommermarked.svg";
+import julSvg from "../assets/img/Julemarked.svg";
+import foraarSvg from "../assets/img/Foraarsmarked.svg";
 ---
-<button>
+<!-- <button>
     Julemarked
 </button>
 <button>
     Sensommermarked
-</button>
-<button>
+</button> -->
+<!-- <button>
     Forårsmarked
-</button>
+</button> -->
+<section>
+<Image id="jul" src={julSvg} alt="Svg" />
+<Image id="sen" src={sensommerSvg} alt="Svg" />
+<Image id="for" src={foraarSvg} alt="Svg" />
+</section>
 
 <style>
     button{
         height: 100px;
         width: 120px;
     }
+    section{
+        height: 1000px;
+    }
+    img{
+        position: absolute;
+        max-width: 650px;
+    }
+  
+    @media (min-width: 1200px) {
+  #jul{
+        left: 11%;
+    }
+    #sen{
+        max-width: 1154px;
+        left: 12.4%;
+    }
+    #for{
+        left: 47%;
+    }
+}
+
 </style>
