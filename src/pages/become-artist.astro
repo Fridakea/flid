@@ -1,5 +1,9 @@
 ---
 import Mainlayout from "../layouts/Mainlayout.astro";
+import "../styles/main.css"
+import "../styles/pc-style.css"
+import "../styles/style.css"
+import Accordion from "../components/Accordion.astro"
 ---
 
 <Mainlayout>
@@ -7,35 +11,42 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 <h1>Bliv udstiller</h1>
 
 <div>
- <div>
+
+ <div class="become_text">
   <p>Som udstiller oplever man en unik følelse af fællesskab blandt de andre kunsthåndværkere, der deler den samme passion og engagement for deres håndværk. Man får muligheden for at dele sin egen kreativitet med et nysgerrigt publikum, der gladeligt udforsker hvert eneste værk med interesse og beundring.</p>
   <p>Det er en dag fyldt med spænding og håb, hvor man som udstiller drømmer om at se sine værker finde nye hjem hos begejstrede købere. Men det handler ikke kun om salg; det handler også om at skabe forbindelser og dele glæden ved kunsthåndværk med andre ligesindede sjæle.</p>
   <p>Flid Marked er mere end bare et sted at sælge sine værker; det er en fejring af kreativitet, talent og dedikation til kunsthåndværkets ædle traditioner. Det er et sted, hvor kunst og håndværk forenes og skaber magi for både udstillere og besøgende.</p>
 </div>
  
-  <div class="triple_pic"></div>
+  <div class="triple_pic">
+    <img class="box-1" src="../assets/img/become_artist/left_pic.webp" alt="Smiling lady at stand">
+    <img class="box-2" src="../assets/img/become_artist/middle_picture.webp" alt="Glass eggs in different colors">
+    <img class="box-3" src="../assets/img/become_artist/right_pic.webp" alt="Customer and seller at stand">
+  </div>
 
   <div>
     <h2>Q & A</h2>
-  <details>
-    <summary><h3>Bordtyper & priser</h3></summary>
-    <article>
-     <p></p>
-    </article>
-  </details>
-  <details>
-    <summary><h3>I tilfælde af aflysning</h3></summary>
-    <article>
-  <p></p>
-    </article>
-  </details>
-  <details>
-    <summary></summary>
-    <article>
-      <slot />
-    </article>
-  </details>
+<Accordion title="Bordtyper & priser">
+  <p>Priser for deltagelse - alle priser på deltagelse er eks. moms. <br> Der er mulighed for at deltage én enkelt dag på Flid. <br>
+    Priserne for én dags udstilling er:</p>
+   <ul>
+    <li>Almindeligt bord (180*90cm): 1.200kr</li>
+    <li>Dobbeltbord (360*90cm): 2.200kr</li>
+   </ul>
+   <p>Skulle du i stedet ønske at deltage 2 dage, er priserne følgende:</p>
+   <ul>
+    <li>Almindeligt bord (180*90cm): 2.200kr</li>
+    <li>Dobbeltbord (360*90cm): 3.600kr</li>
+   </ul>
+   <p></p>
+</Accordion>
+<Accordion title="I tilfælde af aflysning">
+  <p>Skulle der ske en uforudsigelig forhindring, er det indtil en måned før afviklingen af Flid gratis at melde fra, da Flid derved har mulighed for at finde nye udstillere. </p>
+  <p> Sker aflysningen indenfor 14-30 dage før eventen, opkræves halvdelen af deltagergebyret. Melder du fra mindre end 14 dage før opkræves hele beløbet.</p>
+  <p>Tvinges vi af samfundshensyn til at aflyse grundet samfundshensyn, opkræves der naturligvis ikke deltagergebyr.</p>
+</Accordion>
   </div>
+
 </div>
 
 <form action="">
@@ -70,7 +81,27 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 </div>
 
 <div class="grid_2-3">
+  <select name="type_bord" id="bord">
+    <option value="bord">Type bord</option>
+    <option value="almindelig1"> 1 dag - almindeligt bord (180*90 cm) <span>1.200kr</span></option>
+    <option value="dobbel1">1 dag - dobbelt bord (360*90 cm) <span>2.200kr</span></option>
+    <option value="almindelig2">2 dage - almindeligt bord (180*90 cm) <span>2.200kr</span> </option>
+    <option value="dobbel2">2 dage - dobbelt bord (360*90 cm) <span>3.600kr</span></option>
+  </select>
+
+  <textarea name="works" id="works" placeholder="Uddannelse og tidligere samarbejder..."></textarea>
+  <textarea name="extra" id="extra" placeholder="Andet på hjertet?"></textarea>
   
+  <div class="kontaktinfo">
+    <h2>Kontaktinformation</h2>
+    <input type="text" placeholder="Navn..." required="">
+    <input type="text" placeholder="Efternavn..." required="">
+    <input class="big" type="text" placeholder="Adresse..." required="">
+    <input type="text" placeholder="By..." required="">
+    <input type="text" placeholder="Postnummer..." required="">
+    <input class="big" type="text" placeholder="Emailadresse..." required="">
+    <input class="big" type="text" placeholder="Telefonnummer..." required="">
+  </div>
 </div>
 
 </form>
@@ -79,8 +110,70 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 </Mainlayout>
 
 <style>
+ .triple_pic {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+       grid-template-rows: repeat(4, 500px);
+        margin-top: 50px;
+  }
+
+  .triple_pic img {
+    height: 100%;
+    object-fit: cover;
+}
+  .box-1 {
+        grid-row: 3 / 5;
+        grid-column: 1 / 3;
+        z-index: 2;
+    }
+
+    .box-2 {
+        grid-row: 2 / 4;
+        grid-column: 2 / 4;
+        z-index: 1;
+
+    }
+
+    .box-3 {
+        grid-row: 1 / 3;
+        grid-column: 3 / 5;
+    }
+
+
+/**forms */ 
+
+input[type="text"], textarea, select {
+    background-color: #F3D6D1;
+    font-size: 1.2rem;
+    color: #837E7E;
+    border: none;
+    /* gap: 10px; */
+    width: 100%;
+}
+
+.kontaktinfo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(7, 1fr);
+    gap: 20px;
+}
+
+#description {
+  min-height: 237px;
+}
+#works, #extra {
+  min-height: 286px;
+}
+.big {
+  grid-column: 1 / 3;
+    grid-row: 3 / 4;
+}
 
 @media (max-width: 769px) {
+  .become_text p  {
+max-width: 535px;
+
+  }
 .grid_1-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -91,5 +184,4 @@ import Mainlayout from "../layouts/Mainlayout.astro";
   grid-template-columns: 2fr 1fr;
 }
 }
-
 </style>
