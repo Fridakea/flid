@@ -1,3 +1,36 @@
 ---
-
+import "../styles/main.css";
+import "../styles/style.css";
+import "../styles/pc-style.css";
+import Logo from "./Logo.astro"
+import Burger_Menu from "./Burger_Menu.astro"
 ---
+ 
+<header>
+    <Logo></Logo>
+
+ <section class="head_container">
+
+
+    <Burger_Menu></Burger_Menu>
+ </section>
+
+ </header>
+
+ <style>
+    header{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-right: 10px;
+}
+.head_container{
+    grid-column: 3;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 12px;
+    }
+
+
+ </style>
