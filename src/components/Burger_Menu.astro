@@ -7,10 +7,10 @@ import Logo from "./Logo.astro"
 
 <menu class="menuparent">
     <li> <Logo></Logo> </li>
-    <li><a href="/meet_the_artists"><h3>Mød udstillerne</h3></a></li>
-    <li><a href="/about-us"> <h3>Om os</h3> </a></li>
-    <li><a href="/become-artist"> <h3>Bliv udstiller</h3></a></li>
-    <li><a href="/project-gallery"> <h3>Projektgalleri</h3></a></li>
+    <li class="menupunkt"><a href="/meet_the_artists"><h3>Mød udstillerne</h3></a></li>
+    <li class="menupunkt"><a href="/about-us"> <h3>Om os</h3> </a></li>
+    <li class="menupunkt"><a href="/become-artist"> <h3>Bliv udstiller</h3></a></li>
+    <li class="menupunkt"><a href="/project-gallery"> <h3>Projektgalleri</h3></a></li>
 </menu>
 <div class="hamburger">
     <span class="burgerbar"></span>
@@ -23,21 +23,26 @@ import Logo from "./Logo.astro"
   opacity: 0;
 }
 .hamburger.active .burgerbar:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(12px) rotate(45deg);
 }
 .hamburger.active .burgerbar:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-12px) rotate(-45deg);
 }
 
 .burgerbar {
   display: block;
-  width: 30px;
-  height: 3.5px;
-  margin-bottom: 5px;
+  width: 40px;
+  height: 2px;
+  margin-bottom: 10px;
   background-color: var(--text-color);
   border-radius: 3px;
   position: relative;
   z-index: 20;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger:hover{
+    cursor:pointer;
 }
 
 .hamburger {
@@ -74,11 +79,11 @@ import Logo from "./Logo.astro"
     flex-direction: column;
     background-color: #f9f6ee;
     width: 100%;
-    /* transition: 0.3s; */
+    transition: 0.3s;
     z-index: 10;
   }
 
-.menuparent li a h3 {
+.menupunkt h3 {
   text-decoration: none;
   list-style: none;
   padding-right: 4%;
