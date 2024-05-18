@@ -43,13 +43,18 @@
 
 /* Reset */
 * {
-  margin: 0; padding: 0; box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
   font-family: "europa", sans-serif;
   color: var(--text-color);
 }
 
-img { 
-  width: 100%; height: auto; display: block; 
+img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* general styling for body and main */
@@ -63,7 +68,12 @@ main {
 }
 
 /* general font styling for desktop*/
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Outfit", sans-serif;
   font-weight: normal;
   margin-bottom: var(--spacing-small);
@@ -80,7 +90,8 @@ h2 {
 h3 {
   font-size: 2rem;
 }
-h4, summary {
+h4,
+summary {
   font-size: 1.75rem;
 }
 h5 {

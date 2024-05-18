@@ -1,0 +1,54 @@
+---
+import "../styles/main.css";
+import "../styles/style.css";
+import "../styles/pc-style.css";
+import { Image } from "astro:assets";
+---
+<section>
+    
+    <div class="card" id="julemarked"><h1>Julemarked</h1></div>
+    <div class="card" id="sensommermarked"><h1>Sensommermarked</h1></div>
+    <div class="card" id="foraarsmarked"><h1>Forårsmarked</h1></div>
+</section>
+<style>
+    section{
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+    }
+    .card{
+        height: 534px;
+        width: 341px;
+    }
+    h1{
+        font-size: 2.3rem;
+        color: white;
+    }
+    #julemarked{
+        background-color: #E7B7B8;
+    }
+    #sensommermarked{
+        background-color: #D68893;
+    }
+    #foraarsmarked{
+        background-color: #C55A6D;
+    }
+    #julemarked:hover{
+        background-image: url("../assets/img/flid-posters/julemarked23.webp");
+        background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center;
+    }
+    #sensommermarked:hover{
+        background-image: url("../assets/img/flid-posters/efteraarsmarked21.webp");
+        background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center;
+    }
+    #foraarsmarked:hover{
+        background-image: url("../assets/img/flid-posters/foraarsmarked23.webp");
+        background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center;
+    }
+</style>

@@ -1,32 +1,51 @@
 ---
+import "../styles/main.css";
+import "../styles/style.css";
+import "../styles/pc-style.css";
+import { Image } from "astro:assets";
+import poster from "../assets/img/flid-posters/foraarsmarked18.webp";
 ---
 <section>
-<div>
+<div id="indhold">
+    <div>
 <h3>Deltag i vores Sensommermarked</h3>
 <p>Flid fylder 10 år, og af den årsag vil vi gerne invitere til Sensommermarked!
-    Flid fylder 10 år, og af den årsag vil vi gerne invitere til Sensommermarked!
-     Flid fylder 10 år, og af den årsag vil vi gerne invitere til Sensommermarked!
-      Flid fylder 10 år, og af den årsag vil vi gerne invitere til Sensommermarked!
-       Flid fylder 10 år, og af den årsag vil vi gerne invitere til Sensommermarked!</p>
+Vi vil i år gerne velkommen til vores særlige Sensommermarked i anledning af 10-års jubilæet for Kunsthåndværkermarked Flid. Oplev det bedste inden for unikt håndværk og skabende talent, når vi fejrer et årti med dedikation til kunsten.
+ Kom og deltag i denne festlige begivenhed, hvor vi hylder kreativitet, dygtighed og originalitet.</p>
+ <p>Der er betaling ved døren, så bare skriv det ind i kalenderen og mød op til en god dag. Glæd dig til en dag fyldt med inspirerende værker, live demonstrations og meget mere! Oplev et helt specielt markede, fyldt med håndlavet kunst, men også kunstnerne bag.
+    Vi hos flid, glæder os rigtigt meget til at se jer.</p>
+</div>
+<div>
        <h4>Vores næste markede: Sensommermarked</h4>
        <div id="Tabel">
+        <div class="rows color2"><h3>Entrépris</h3><h3>40 kr.</h3></div>
         <div class="rows color1"><h3>Dato:</h3><h3>21 Juni 2024</h3></div>
         <div class="rows color2"><h3>Tidspunkt</h3><h3>Kl. 10:00 - 16:00</h3></div>
         <div class="rows color1"><h3>Lokation:</h3><h3>Nørrebro Hallen</h3></div>
-        <div class="rows color2"><h3>Entrépris</h3><h3>40 kr.</h3></div>
        </div>
        </div>
-       <img src="/img/flid-posters/efteraarsmarked21.webp" alt="poster">
+    </div>
+       <Image src={poster} alt="Billede af plakat lavet til sensommermarked" />
 </section>
 
        <style>
 section{
     display: grid;
     grid-template-columns: 1fr 1fr;
-gap: 30px;
+gap: 60px;
+}
+p{
+    padding-top: 15px;
+}
+#indhold{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 #Tabel{
-
+h3{
+    font-weight: 600;
+}
 }
 .rows{
     display:flex;
@@ -36,8 +55,18 @@ gap: 30px;
 }
 .color1{
     background-color: #F3D6D1;
+    
 }
 .color2{
     background-color: #EDC6C5;
+    
+}
+
+@media (max-width: 769px) {
+    section{
+    display: flex;
+    flex-direction: column;
+gap: 60px;
+}
 }
        </style>
