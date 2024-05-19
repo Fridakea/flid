@@ -4,16 +4,18 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 
 <Mainlayout>
   <main>
+    <section id="breadcrumb">
     <a href="meet_the_artists"><img class="arrow" src="/src/assets/img/arrow1.svg" alt="pil"></a>
     <!-- <template id="market_template"> -->
       <nav>
         <ul>
-            <li><a href="artists_singleview">Top-level page</a></li>
-            <li>Current Page</li>
+            <li><a href="artists_singleview">Mød udstillerne</a></li>
+            <li>Sensommermarked 2024</li>
         </ul>
       </nav>
-      <h1>Sensommermarked</h1>
-      <h5>Beskrivelse af sensommermarkedet 2024</h5>
+    </section>
+      <h2>Sensommermarked</h2>
+      <h6>Oplev det bedste inden for unikt håndværk og skabende talent, når vi fejrer et årti med dedikation til kunsten. Kom og deltag i denne festlige begivenhed, hvor vi hylder kreativitet, dygtighed og originalitet.</h6>
     <!-- </template> -->
   <form action="">
   </form>
@@ -34,9 +36,118 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 .arrow{
   max-width: 30px;
   }
+
+  h2{
+    font-weight: bold;
+  }
+
+  h6{
+    display: none;
+  }
+  #breadcrumb nav{
+    display: none;
+  }
+ 
+  /* ---- Produktliste grid ------ */
+  .artist_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 290px));
+  }
+
+  @media (min-width: 769px) {
+h6{
+  display: block;
+}  
+#breadcrumb nav{
+    display: block;
+  }
+ 
+
+#breadcrumb {
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+}
+
+#breadcrumb nav{
+  text-align: right;
+}
+
+  /* creating the breadcrumb foundation */
+  ul { list-style: none; } /* remove bullet points */
+  ul li { display: inline; } /* show list items horizontally */
+
+/* Put an angle bracket (>) between list items */
+#breadcrumb ul li+li:before {
+  content: ">";
+  padding: 10px;  
+}
+
+ul li a { text-decoration: none; } /* remove underlines from links */
+ul li a:hover { text-decoration: underline; } /* show underline on mouseover */
+
+/* additional styling */
+ul {
+color: var(  --text-color);
+  font-family: "Avenir";
+  font-weight: bold;
+}
+
+ul li a {color: var(  --text-color);}
+ul li a:visited {color: var(  --text-color)}
+ul li+li:before {color: var(  --text-color)}
+}
+
+
 </style>
 
 
 <script>
+// test af fetch af produktliste
+window.addEventListener("DOMContentLoaded", init);
+
+const productURL = "https://qmyalvetxznlhsyfuzba.supabase.co/rest/v1/mushrooms";
+const apikey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFteWFsdmV0eHpubGhzeWZ1emJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDc5OTI4OTYsImV4cCI6MjAyMzU2ODg5Nn0.dfZQy2h04COSqrYNSAorBU6RJr9hRLvEKJ-MhFLPTsM";
+
+let productTemplate;
+let productContainer;
+
+function init() {
+  console.log("init");
+
+  productTemplate = document.querySelector("#template");
+  console.log("productTemplate", productTemplate);
+
+  productContainer = document.querySelector(".product_container");
+  console.log("product_container", productContainer);
+
+  fetch(productURL, {
+    headers: {
+      apikey: apikey,
+    },
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (json) {
+      showProducts(json);
+    });
+}
+
+function showProducts(productJSON) {
+  console.log(productJSON);
+  let productClone;
+
+  productJSON.forEach((product) => {
+    console.log("Product", product);
+    productClone = productTemplate.cloneNode(true).content;
+    productClone.querySelector(".product_image").src = product.image;
+    productClone.querySelector(".product_name").textContent = product.name;
+    productClone.querySelector("a").href = "product.html?id=" + product.id;
+    if (product.rare) {
+      productClone.querySelector(".rare").classList.remove("hide");
+    }
+    productContainer.appendChild(productClone);
+  });
+}
 
 </script>
