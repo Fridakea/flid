@@ -45,6 +45,11 @@ import Mainlayout from "../layouts/Mainlayout.astro";
   h6{
     display: none;
   }
+
+  #breadcrumb{
+    padding-bottom: 5%;
+    padding-top: 2%;
+  }
   #breadcrumb nav{
     display: none;
   }
@@ -54,6 +59,7 @@ import Mainlayout from "../layouts/Mainlayout.astro";
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
     gap: 5px;
+    justify-content: center;
   }
 
   /* Rectangle 12 */
@@ -73,6 +79,8 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 h6{
   display: block;
 }  
+
+/* breadcrumb */
 #breadcrumb nav{
     display: block;
   }
@@ -85,19 +93,27 @@ h6{
 #breadcrumb nav{
   text-align: right;
 }
+ul { 
+  list-style: none; 
+}
 
-  /* creating the breadcrumb foundation */
-  ul { list-style: none; } /* remove bullet points */
-  ul li { display: inline; } /* show list items horizontally */
+/* vis liste-elementerne horisontalt */
+ul li { 
+  display: inline; 
+} 
 
-/* Put an angle bracket (>) between list items */
+/* Sæt en (>) mellem liste-elementerne */
 #breadcrumb ul li+li:before {
   content: ">";
   padding: 10px;  
 }
 
-ul li a { text-decoration: none; } /* remove underlines from links */
-ul li a:hover { text-decoration: underline; } /* show underline on mouseover */
+ul li a { 
+  text-decoration: none; 
+}
+ul li a:hover { 
+  text-decoration: underline; 
+}
 
 /* additional styling */
 ul {
@@ -109,6 +125,13 @@ color: var(  --text-color);
 ul li a {color: var(  --text-color);}
 ul li a:visited {color: var(  --text-color)}
 ul li+li:before {color: var(  --text-color)}
+
+.artist_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 220px));
+    gap: 25px;
+  }
+
 }
 </style>
 
