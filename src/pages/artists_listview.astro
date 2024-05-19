@@ -4,17 +4,19 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 
 <Mainlayout>
   <main>
-    <img class="arrow" src="" alt="">
-    <template id="market_template">
+    <section id="breadcrumb">
+    <a href="meet_the_artists"><img class="arrow" src="/src/assets/img/arrow1.svg" alt="pil"></a>
+    <!-- <template id="market_template"> -->
       <nav>
         <ul>
-            <li><a href="#">Top-level page</a></li>
-            <li>Current Page</li>
+            <li><a href="artists_singleview">Mød udstillerne</a></li>
+            <li>Sensommermarked 2024</li>
         </ul>
       </nav>
-      <h1>Sensommermarked</h1>
-      <h5>Beskrivelse af sensommermarkedet 2024</h5>
-    </template>
+    </section>
+      <h2>Sensommermarked</h2>
+      <h6>Oplev det bedste inden for unikt håndværk og skabende talent, når vi fejrer et årti med dedikation til kunsten. Kom og deltag i denne festlige begivenhed, hvor vi hylder kreativitet, dygtighed og originalitet.</h6>
+    <!-- </template> -->
   <form action="">
   </form>
   <section class="artist_container">
@@ -30,4 +32,122 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 </main>
 </Mainlayout>
 
-<style></style>
+<style>
+.arrow{
+  max-width: 30px;
+  }
+
+  h2{
+    font-weight: bold;
+  }
+
+  h6{
+    display: none;
+  }
+  #breadcrumb nav{
+    display: none;
+  }
+ 
+  /* ---- Produktliste grid ------ */
+  .artist_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 290px));
+  }
+
+  @media (min-width: 769px) {
+h6{
+  display: block;
+}  
+#breadcrumb nav{
+    display: block;
+  }
+ 
+
+#breadcrumb {
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+}
+
+#breadcrumb nav{
+  text-align: right;
+}
+
+  /* creating the breadcrumb foundation */
+  ul { list-style: none; } /* remove bullet points */
+  ul li { display: inline; } /* show list items horizontally */
+
+/* Put an angle bracket (>) between list items */
+#breadcrumb ul li+li:before {
+  content: ">";
+  padding: 10px;  
+}
+
+ul li a { text-decoration: none; } /* remove underlines from links */
+ul li a:hover { text-decoration: underline; } /* show underline on mouseover */
+
+/* additional styling */
+ul {
+color: var(  --text-color);
+  font-family: "Avenir";
+  font-weight: bold;
+}
+
+ul li a {color: var(  --text-color);}
+ul li a:visited {color: var(  --text-color)}
+ul li+li:before {color: var(  --text-color)}
+}
+
+
+</style>
+
+
+<script>
+// test af fetch af produktliste
+window.addEventListener("DOMContentLoaded", init);
+
+const artistURL = "#/rest/v1/mushrooms";
+const apikey = "#";
+
+let artistTemplate;
+let artistContainer;
+
+function init() {
+  console.log("init");
+
+  artistTemplate = document.querySelector("#artist_template");
+  console.log("artistTemplate", artistTemplate);
+
+ artistContainer = document.querySelector(".artist_container");
+  console.log("artist_container", artistContainer);
+
+  fetch(artistURL, {
+    headers: {
+      apikey: apikey,
+    },
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (json) {
+      showProducts(json);
+    });
+}
+
+function showProducts(artistJSON) {
+  console.log(artistJSON);
+  let artistClone;
+
+  artistJSON.forEach((artist) => {
+    console.log("Artist", artist);
+    artistClone = artistTemplate.cloneNode(true).content;
+    artistClone.querySelector(".artist_image").src = artist.image;
+    artistClone.querySelector(".product_name").textContent = artist.name;
+    artistClone.querySelector("a").href = "artist.html?id=" + artist.id;
+    if (artist.rare) {
+      artistClone.querySelector(".rare").classList.remove("hide");
+    }
+    artistContainer.appendChild(artistClone);
+  });
+}
+
+</script>

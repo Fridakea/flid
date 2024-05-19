@@ -5,28 +5,36 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 <Mainlayout>
   <main>
     <h2>Udstillerne på næste marked</h2>
-      <div class="sensommer_container">
+      <a href="artists_listview">
+        <div class="sensommer_container">
         <img src="/src/assets/img/sensommermarked.webp" alt="sensommermarked">
           <div></div>
           <h5>Sensommermarked</h5>
-      </div>
+        </div>
+      </a>
     <h2>Udstillerne på forrige marked</h2>
     <article id="market_parent">
+       <a href="artists_listview">
         <section class="market_child">
           <img src="" alt="">
           <div></div>
           <h6>Forårsmarked 2024</h6>  
         </section>
-      <section class="market_child">
+      </a> 
+      <a href="artists_listview">
+        <section class="market_child">
         <img src="" alt="">
          <div></div>
           <h6>Julemarked 2024</h6>
       </section>
-      <section class="market_child">
+      </a>
+      <a href="artists_listview">
+        <section class="market_child">
         <img src="" alt="">
         <div></div>
           <h6>Forårsmarked 2023</h6>
       </section> 
+      </a>
     </article>  
   </main>
 </Mainlayout>
@@ -62,14 +70,17 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 
 #market_parent .market_child div{
   background-color: #281411;
-  transform: translateY(100%);
-  width: 200%;
+  transform: translateY(112%);
+  width: 100%;
   height: 50px;
+    position: relative;
+    z-index: 0;
 }
 
 #market_parent .market_child h6{
-  transform: translateY(100%);
+  transform: translateY(80%);
   color: #FEF5EA;
+
 }
 
 /* .sensommer_container:hover div{
