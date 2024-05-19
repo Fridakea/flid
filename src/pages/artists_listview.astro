@@ -21,11 +21,11 @@ import Mainlayout from "../layouts/Mainlayout.astro";
   </form>
   <section class="artist_container">
     <template id="artist_template">
-         <a href="">
-             <article class="artist_article">
-             <img class="artist_image" src="" alt="">
-             <h2 class="artist_name"></h2>
-            </article>
+         <a href="#">
+             <img class="artist_image" src="src/assets/img/artists/helene-keinicke/helene-keinicke1.webp" alt="produkt billede">
+              <div> 
+                <h5 class="artist_name">Kunstnernavn</h5>
+              </div>
         </a>
       </template>
   </section>
@@ -39,6 +39,7 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 
   h2{
     font-weight: bold;
+    font-size: 1.9rem;
   }
 
   h6{
@@ -51,7 +52,20 @@ import Mainlayout from "../layouts/Mainlayout.astro";
   /* ---- Produktliste grid ------ */
   .artist_container{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 290px));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 160px));
+  }
+
+  /* Rectangle 12 */
+  .artist_name{
+  position: absolute;
+  padding: 4px;
+  padding-top: 0; 
+  width: auto;
+  height: 30px;
+  left: 40.7px;
+  top: 397px;
+  background: #E7B7B8;
+  color: #FEF5EA;
   }
 
   @media (min-width: 769px) {
@@ -62,7 +76,6 @@ h6{
     display: block;
   }
  
-
 #breadcrumb {
   display: grid;
   grid-template-columns: 3fr 3fr;
@@ -96,17 +109,15 @@ ul li a {color: var(  --text-color);}
 ul li a:visited {color: var(  --text-color)}
 ul li+li:before {color: var(  --text-color)}
 }
-
-
 </style>
 
 
 <script>
-// test af fetch af produktliste
+// fetch af kunstnerliste
 window.addEventListener("DOMContentLoaded", init);
 
-const artistURL = "#/rest/v1/mushrooms";
-const apikey = "#";
+const artistURL = "https://dvtoiextyxkictfnquyo.supabase.co/rest/v1/artist";
+const apikey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2dG9pZXh0eXhraWN0Zm5xdXlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTUxNjEzMzQsImV4cCI6MjAzMDczNzMzNH0.OHxi8VUkxXZaCDHCvU9EJD4CMxx3Os6TYHI5hhCIiLM";
 
 let artistTemplate;
 let artistContainer;
@@ -129,23 +140,20 @@ function init() {
       return response.json();
     })
     .then(function (json) {
-      showProducts(json);
+      showArtists(json);
     });
 }
 
-function showProducts(artistJSON) {
+function showArtists(artistJSON) {
   console.log(artistJSON);
   let artistClone;
 
   artistJSON.forEach((artist) => {
     console.log("Artist", artist);
     artistClone = artistTemplate.cloneNode(true).content;
-    artistClone.querySelector(".artist_image").src = artist.image;
-    artistClone.querySelector(".product_name").textContent = artist.name;
-    artistClone.querySelector("a").href = "artist.html?id=" + artist.id;
-    if (artist.rare) {
-      artistClone.querySelector(".rare").classList.remove("hide");
-    }
+    artistClone.querySelector(".artist_image").src = artist.images;
+    artistClone.querySelector(".artist_name").textContent = artist.name;
+    artistClone.querySelector("a").href = "artists_singleview.html?id=" + artist.id;
     artistContainer.appendChild(artistClone);
   });
 }
