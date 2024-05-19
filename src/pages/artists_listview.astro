@@ -105,22 +105,22 @@ ul li+li:before {color: var(  --text-color)}
 // test af fetch af produktliste
 window.addEventListener("DOMContentLoaded", init);
 
-const productURL = "https://qmyalvetxznlhsyfuzba.supabase.co/rest/v1/mushrooms";
-const apikey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFteWFsdmV0eHpubGhzeWZ1emJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDc5OTI4OTYsImV4cCI6MjAyMzU2ODg5Nn0.dfZQy2h04COSqrYNSAorBU6RJr9hRLvEKJ-MhFLPTsM";
+const artistURL = "#/rest/v1/mushrooms";
+const apikey = "#";
 
-let productTemplate;
-let productContainer;
+let artistTemplate;
+let artistContainer;
 
 function init() {
   console.log("init");
 
-  productTemplate = document.querySelector("#template");
-  console.log("productTemplate", productTemplate);
+  artistTemplate = document.querySelector("#artist_template");
+  console.log("artistTemplate", artistTemplate);
 
-  productContainer = document.querySelector(".product_container");
-  console.log("product_container", productContainer);
+ artistContainer = document.querySelector(".artist_container");
+  console.log("artist_container", artistContainer);
 
-  fetch(productURL, {
+  fetch(artistURL, {
     headers: {
       apikey: apikey,
     },
@@ -133,20 +133,20 @@ function init() {
     });
 }
 
-function showProducts(productJSON) {
-  console.log(productJSON);
-  let productClone;
+function showProducts(artistJSON) {
+  console.log(artistJSON);
+  let artistClone;
 
-  productJSON.forEach((product) => {
-    console.log("Product", product);
-    productClone = productTemplate.cloneNode(true).content;
-    productClone.querySelector(".product_image").src = product.image;
-    productClone.querySelector(".product_name").textContent = product.name;
-    productClone.querySelector("a").href = "product.html?id=" + product.id;
-    if (product.rare) {
-      productClone.querySelector(".rare").classList.remove("hide");
+  artistJSON.forEach((artist) => {
+    console.log("Artist", artist);
+    artistClone = artistTemplate.cloneNode(true).content;
+    artistClone.querySelector(".artist_image").src = artist.image;
+    artistClone.querySelector(".product_name").textContent = artist.name;
+    artistClone.querySelector("a").href = "artist.html?id=" + artist.id;
+    if (artist.rare) {
+      artistClone.querySelector(".rare").classList.remove("hide");
     }
-    productContainer.appendChild(productClone);
+    artistContainer.appendChild(artistClone);
   });
 }
 
