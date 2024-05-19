@@ -178,8 +178,8 @@ function showArtist(artist) {
   document.querySelector(".artist_undertitle").textContent = artist[0].name;
   document.querySelector(".txt_description").textContent = artist[0].description;
   document.querySelector(".artist_image").src = artist.images;
-  document.querySelector(".primary_category").textContent = artist[0].area;
-  document.querySelector(".secondary_category").textContent = artist[0].season;
+  document.querySelector(".primary_category").textContent = artist[0].primary_category;
+  document.querySelector(".secondary_category").textContent = artist[0].secondary_category;
 }
 
 getArtist();
