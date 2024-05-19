@@ -20,14 +20,16 @@ import Mainlayout from "../layouts/Mainlayout.astro";
   <form action="">
   </form>
   <section class="artist_container">
-    <template id="artist_template">
+    <!-- <template id="artist_template"> -->
          <a href="">
              <article class="artist_article">
-             <img class="artist_image" src="" alt="">
-             <h2 class="artist_name"></h2>
+             <img class="artist_image" src="src/assets/img/artists/helene-keinicke/helene-keinicke1.webp" alt="produkt billede">
+              <div> 
+                <h5 class="artist_name">Kunstnernavn</h5>
+              </div>
             </article>
         </a>
-      </template>
+      <!-- </template> -->
   </section>
 </main>
 </Mainlayout>
@@ -39,6 +41,7 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 
   h2{
     font-weight: bold;
+    font-size: 1.9rem;
   }
 
   h6{
@@ -51,7 +54,20 @@ import Mainlayout from "../layouts/Mainlayout.astro";
   /* ---- Produktliste grid ------ */
   .artist_container{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 290px));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 160px));
+  }
+
+  /* Rectangle 12 */
+  .artist_name{
+  position: absolute;
+  padding: 4px;
+  padding-top: 0; 
+  width: auto;
+  height: 30px;
+  left: 40.7px;
+  top: 397px;
+  background: #E7B7B8;
+  color: #FEF5EA;
   }
 
   @media (min-width: 769px) {
@@ -62,7 +78,6 @@ h6{
     display: block;
   }
  
-
 #breadcrumb {
   display: grid;
   grid-template-columns: 3fr 3fr;
@@ -96,8 +111,6 @@ ul li a {color: var(  --text-color);}
 ul li a:visited {color: var(  --text-color)}
 ul li+li:before {color: var(  --text-color)}
 }
-
-
 </style>
 
 
@@ -105,8 +118,8 @@ ul li+li:before {color: var(  --text-color)}
 // test af fetch af produktliste
 window.addEventListener("DOMContentLoaded", init);
 
-const artistURL = "#/rest/v1/mushrooms";
-const apikey = "#";
+const artistURL = "https://dvtoiextyxkictfnquyo.supabase.co/rest/v1/artists";
+const apikey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2dG9pZXh0eXhraWN0Zm5xdXlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTUxNjEzMzQsImV4cCI6MjAzMDczNzMzNH0.OHxi8VUkxXZaCDHCvU9EJD4CMxx3Os6TYHI5hhCIiLM";
 
 let artistTemplate;
 let artistContainer;
