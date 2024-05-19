@@ -15,11 +15,11 @@ import Mainlayout from "../layouts/Mainlayout.astro";
         </nav>
     </section>
      <article class="product_container">
-        <h1>Kunstnernavn</h1>
+        <h1 class="product_headline">Kunstnernavn</h1>
             <section id="some_container">
                 <ul>
-                    <li class="first_category" >Kategori 1</li>
-                    <li class="second_category" >Kategori 2</li>
+                    <li class="primary_category">Kategori 1</li>
+                    <li class="secondary_category">Kategori 2</li>
                 </ul>
                 <div class="some">
                     <svg id="insta_icon" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 46 46">
@@ -70,7 +70,7 @@ import Mainlayout from "../layouts/Mainlayout.astro";
                 <div class="img_product">
                     <img src="src/assets/img/artists/helene-keinicke/helene-keinicke1.webp" alt="produkt billede">
                 </div>
-                <h4>We upcycle 
+                <h4 class="txt_description">We upcycle 
                     discarded textiles to give them a longer life </h4>
                 <p>Amolia is a Danish company founded to help close the loop on the textile industry and contribute to a more sustainable future. We create home textile products made of upcycled textiles and furniture pieces made from recycled textiles. We collect, manually sort through and cut out all reusable fabric in our warehouse in Holbæk, Denmark, then organize by type and size ready to be sent to our factory in the EU.</p>
             </section>
@@ -177,8 +177,8 @@ function showProduct(product) {
   document.querySelector(".product_headline").textContent = product[0].name;
   document.querySelector(".txt_description").textContent = product[0].description;
   document.querySelector(".img_product img").src = product[0].image;
-  document.querySelector(".first_category").textContent = product[0].area;
-  document.querySelector(".second_category").textContent = product[0].season;
+  document.querySelector(".primary_category").textContent = product[0].area;
+  document.querySelector(".secondary_category").textContent = product[0].season;
 }
 
 getProduct();

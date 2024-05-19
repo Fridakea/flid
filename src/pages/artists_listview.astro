@@ -20,16 +20,14 @@ import Mainlayout from "../layouts/Mainlayout.astro";
   <form action="">
   </form>
   <section class="artist_container">
-    <!-- <template id="artist_template"> -->
-         <a href="">
-             <article class="artist_article">
+    <template id="artist_template">
+         <a href="#">
              <img class="artist_image" src="src/assets/img/artists/helene-keinicke/helene-keinicke1.webp" alt="produkt billede">
               <div> 
                 <h5 class="artist_name">Kunstnernavn</h5>
               </div>
-            </article>
         </a>
-      <!-- </template> -->
+      </template>
   </section>
 </main>
 </Mainlayout>
@@ -115,10 +113,10 @@ ul li+li:before {color: var(  --text-color)}
 
 
 <script>
-// test af fetch af produktliste
+// fetch af kunstnerliste
 window.addEventListener("DOMContentLoaded", init);
 
-const artistURL = "https://dvtoiextyxkictfnquyo.supabase.co/rest/v1/artists";
+const artistURL = "https://dvtoiextyxkictfnquyo.supabase.co/rest/v1/artist";
 const apikey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2dG9pZXh0eXhraWN0Zm5xdXlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTUxNjEzMzQsImV4cCI6MjAzMDczNzMzNH0.OHxi8VUkxXZaCDHCvU9EJD4CMxx3Os6TYHI5hhCIiLM";
 
 let artistTemplate;
@@ -142,23 +140,20 @@ function init() {
       return response.json();
     })
     .then(function (json) {
-      showProducts(json);
+      showArtists(json);
     });
 }
 
-function showProducts(artistJSON) {
+function showArtists(artistJSON) {
   console.log(artistJSON);
   let artistClone;
 
   artistJSON.forEach((artist) => {
     console.log("Artist", artist);
     artistClone = artistTemplate.cloneNode(true).content;
-    artistClone.querySelector(".artist_image").src = artist.image;
-    artistClone.querySelector(".product_name").textContent = artist.name;
-    artistClone.querySelector("a").href = "artist.html?id=" + artist.id;
-    if (artist.rare) {
-      artistClone.querySelector(".rare").classList.remove("hide");
-    }
+    artistClone.querySelector(".artist_image").src = artist.images;
+    artistClone.querySelector(".artist_name").textContent = artist.name;
+    artistClone.querySelector("a").href = "artists_singleview.html?id=" + artist.id;
     artistContainer.appendChild(artistClone);
   });
 }
