@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+import Mainlayout from "../../layouts/Mainlayout.astro";
+import { apiDetails } from "../../settings";
+
+export async function getStaticPaths() {
+  const data = await fetch(`${apiDetails.supabaseUrl}/artist?select=*`, {
+    method: "GET",
+    headers: {
+      apikey: apiDetails.supabaseAnonKey,
+    },
+  }).then((response) => response.json());
+
+  // Laver liste med billeder i imageFolder mappen. Se astro doc: https://docs.astro.build/en/recipes/dynamically-importing-images/
+  const imageFolder = "/src/assets/img/artists";
+  const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/img/artists/**/*.{jpeg,jpg,png,gif,webp}"
+  );
+  console.log(images);
+
+  return data.map((artist) => {
+    // Check if the images are in our folders, and throw an error if its not.
+    artist.images.forEach((imgPath) => {
+      if (!images[`${imageFolder}/${imgPath}`]) {
+        throw new Error(
+          `"${imgPath}" ser ud til at mangle i mappen ${imageFolder}`
+        );
+      }
+    });
+
+    const artistImages = artist.images.map((imgPath) =>
+      images[`${imageFolder}/${imgPath}`]()
+    );
+
+    return {
+      params: { slug: artist.slug },
+      props: {
+        artist,
+        artistImages: artistImages,
+      },
+    };
+  });
+}
+
+interface Props {
+  artist: any;
+  artistImages: ImageMetadata[];
+}
+
+const { artist, artistImages } = Astro.props;
+---
+
+<Mainlayout>
+  <main>
+    <h1>{artist.name}</h1>
+
+    <div class="gallery-example">
+      {
+        artistImages.map((artistImage) => (
+          <Image src={artistImage} alt={artist.name} />
+        ))
+      }
+    </div>
+  </main>
+</Mainlayout>
+<style>
+  .gallery-example {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+</style>
