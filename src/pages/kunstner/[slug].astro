@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import Mainlayout from "../../layouts/Mainlayout.astro";
+import { apiDetails } from "../../settings";
+
+export async function getStaticPaths() {
+  const data = await fetch(`${apiDetails.supabaseUrl}/artist?select=*`, {
+    method: "GET",
+    headers: {
+      apikey: apiDetails.supabaseAnonKey,
+    },
+  }).then((response) => response.json());
+
+  // Laver liste med billeder i imageFolder mappen. Se astro doc: https://docs.astro.build/en/recipes/dynamically-importing-images/
+  const imageFolder = "/src/assets/img/artists";
+  const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/img/artists/**/*.{jpeg,jpg,png,gif,webp}"
+  );
+  console.log(images);
+
+  return data.map((artist) => {
+    artist.images.forEach((a) => console.log(a));
+
+    // Check if the image is in our folder, and throw an error if its not.
+    if (!images[`${imageFolder}/${artist.images}`]) {
+      throw new Error(
+        `"${artist.images}" ser ud til at mangle i mappen ${imageFolder}`
+      );
+    }
+
+    return {
+      params: { slug: artist.slug },
+      props: {
+        artist,
+        poster: images[`${imageFolder}/${artist.image}`](),
+      },
+    };
+  });
+}
+
+interface Props {
+  artist: any;
+  poster: ImageMetadata;
+}
+
+const { artist, poster } = Astro.props;
+---
+
+<Mainlayout>
+  <main>
+    <h1>{artist.name}</h1>
+    <Image src={poster} alt={artist.name} />
+  </main>
+</Mainlayout>

@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import Mainlayout from "../../layouts/Mainlayout.astro";
+import { apiDetails } from "../../settings";
+
+export async function getStaticPaths() {
+  const data = await fetch(`${apiDetails.supabaseUrl}/market?select=*`, {
+    method: "GET",
+    headers: {
+      apikey: apiDetails.supabaseAnonKey,
+    },
+  }).then((response) => response.json());
+
+  // Laver liste med billeder i imageFolder mappen. Se astro doc: https://docs.astro.build/en/recipes/dynamically-importing-images/
+  const imageFolder = "/src/assets/img/flid-posters";
+  const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/img/flid-posters/*.{jpeg,jpg,png,gif,webp}"
+  );
+
+  return data.map((market) => {
+    // Check if the image is in our folder, and throw an error if its not.
+    if (!images[`${imageFolder}/${market.image}`]) {
+      throw new Error(
+        `"${market.image}" ser ud til at mangle i mappen ${imageFolder}`
+      );
+    }
+
+    return {
+      params: { slug: market.slug },
+      props: {
+        market,
+        poster: images[`${imageFolder}/${market.image}`](),
+      },
+    };
+  });
+}
+
+interface Props {
+  market: any;
+  poster: ImageMetadata;
+}
+
+const { market, poster } = Astro.props;
+---
+
+<Mainlayout>
+  <main>
+    <h1>{market.name}</h1>
+    <Image src={poster} alt={market.name} />
+  </main>
+</Mainlayout>
