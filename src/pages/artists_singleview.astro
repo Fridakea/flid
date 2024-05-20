@@ -255,7 +255,7 @@ import { Image } from "astro:assets";
       artist[0].secondary_description;
     document.querySelector(".txt_description").textContent =
       artist[0].description;
-    document.querySelector(".artist_image").src = artist.images;
+    document.querySelector(".img_product img").src = artist[0].images;
     document.querySelector(".primary_category").textContent =
       artist[0].primary_category;
     document.querySelector(".secondary_category").textContent =
