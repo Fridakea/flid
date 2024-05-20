@@ -1,4 +1,8 @@
-import { defineConfig } from 'astro/config';
+// https://docs.astro.build/en/guides/images/#configure-squoosh
+import { defineConfig, squooshImageService } from 'astro/config';
 
-// https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  image: {
+    service: squooshImageService(),
+  },
+});
