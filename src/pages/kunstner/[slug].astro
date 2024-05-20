@@ -19,20 +19,24 @@ export async function getStaticPaths() {
   console.log(images);
 
   return data.map((artist) => {
-    artist.images.forEach((a) => console.log(a));
+    // Check if the images are in our folders, and throw an error if its not.
+    artist.images.forEach((imgPath) => {
+      if (!images[`${imageFolder}/${imgPath}`]) {
+        throw new Error(
+          `"${imgPath}" ser ud til at mangle i mappen ${imageFolder}`
+        );
+      }
+    });
 
-    // Check if the image is in our folder, and throw an error if its not.
-    if (!images[`${imageFolder}/${artist.images}`]) {
-      throw new Error(
-        `"${artist.images}" ser ud til at mangle i mappen ${imageFolder}`
-      );
-    }
+    const artistImages = artist.images.map((imgPath) =>
+      images[`${imageFolder}/${imgPath}`]()
+    );
 
     return {
       params: { slug: artist.slug },
       props: {
         artist,
-        poster: images[`${imageFolder}/${artist.image}`](),
+        artistImages: artistImages,
       },
     };
   });
@@ -40,15 +44,29 @@ export async function getStaticPaths() {
 
 interface Props {
   artist: any;
-  poster: ImageMetadata;
+  artistImages: ImageMetadata[];
 }
 
-const { artist, poster } = Astro.props;
+const { artist, artistImages } = Astro.props;
 ---
 
 <Mainlayout>
   <main>
     <h1>{artist.name}</h1>
-    <Image src={poster} alt={artist.name} />
+
+    <div class="gallery-example">
+      {
+        artistImages.map((artistImage) => (
+          <Image src={artistImage} alt={artist.name} />
+        ))
+      }
+    </div>
   </main>
 </Mainlayout>
+<style>
+  .gallery-example {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+</style>
