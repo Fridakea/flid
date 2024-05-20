@@ -1,5 +1,6 @@
 ---
 import Mainlayout from "../layouts/Mainlayout.astro";
+import { Image } from "astro:assets";
 ---
 
 <Mainlayout>
@@ -17,11 +18,17 @@ import Mainlayout from "../layouts/Mainlayout.astro";
      <article class="product_container">
         <h1 class="product_headline">Kunstnernavn</h1>
             <section id="some_container">
-                <ul>
-                    <li class="primary_category">Kategori 1</li>
-                    <li class="secondary_category">Kategori 2</li>
-                </ul>
-                <div class="some">
+               <div class="img_product">
+                    <img src="#" class="artist_image" alt="produkt billede">
+                </div>
+                <div id="some_child">
+                  <div>
+                    <ul>
+                      <li class="primary_category">Kategori 1</li>
+                      <li class="secondary_category">Kategori 2</li>
+                    </ul>
+                  </div>
+                <div class="some_childchild">
                         <svg id="insta_icon" class="instagram_url" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 46 46">
                         <defs>
                         <style>
@@ -65,11 +72,10 @@ import Mainlayout from "../layouts/Mainlayout.astro";
                         </g>
                         </svg>
                 </div>
+              </div>
             </section>
             <section>
-                <div class="img_product">
-                    <img src="#" class="artist_image" alt="produkt billede">
-                </div>
+               
                 <h4 class="artist_undertitle">We upcycle 
                     discarded textiles to give them a longer life </h4>
                 <p class="txt_description">Amolia is a Danish company founded to help close the loop on the textile industry and contribute to a more sustainable future. We create home textile products made of upcycled textiles and furniture pieces made from recycled textiles.</p>
@@ -81,7 +87,9 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 
 <style>
    .arrow{
-  max-width: 30px;
+    max-width: 30px;
+    padding-bottom: 5%;
+    padding-top: 2%;
   }
 
   h6{
@@ -90,19 +98,31 @@ import Mainlayout from "../layouts/Mainlayout.astro";
   #breadcrumb nav{
     display: none;
   }
-  #some_container{
-    display: grid;
-grid-template-columns: 1fr 1fr;
+  #some_container li {
+  margin-left: 15%;
   }
-  .some{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+
+  #some_child{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 30px;
+    /* grid-template-rows: 1fr 1fr; */
+  }
+
+ul{
+  grid-column: 1;
+}
+
+.some_childchild{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column: 2;
 }
 #insta_icon, #facebook_icon{
     max-width: 50px;
     margin-right: 10px;
+    margin-bottom: 10px;
 } 
 
 #insta_icon:hover .fyld, 
@@ -149,7 +169,26 @@ color: var(  --text-color);
 ul li a {color: var(  --text-color);}
 ul li a:visited {color: var(  --text-color)}
 ul li+li:before {color: var(  --text-color)}
+
+#some_container{
+    display: grid;
+grid-template-columns: 1fr 1fr;
+  }
+  .some_child{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
 }
+
+.img_product{
+  order: 1;
+}
+
+}
+
+
+
 </style>
 
 <script>
@@ -175,7 +214,7 @@ function getArtist() {
 function showArtist(artist) {
   console.log(artist);
   document.querySelector(".product_headline").textContent = artist[0].name;
-  document.querySelector(".artist_undertitle").textContent = artist[0].name;
+  document.querySelector(".artist_undertitle").textContent = artist[0].secondary_description;
   document.querySelector(".txt_description").textContent = artist[0].description;
   document.querySelector(".artist_image").src = artist.images;
   document.querySelector(".primary_category").textContent = artist[0].primary_category;
