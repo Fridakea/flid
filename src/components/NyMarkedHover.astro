@@ -6,9 +6,9 @@ import { Image } from "astro:assets";
 ---
 <section>
     
-    <div class="card" id="julemarked"><h1>Julemarked</h1></div>
+    <!-- <div class="card" id="julemarked"><h1>Julemarked</h1></div>
     <div class="card" id="sensommermarked"><h1>Sensommermarked</h1></div>
-    <div class="card" id="foraarsmarked"><h1>Forårsmarked</h1></div>
+    <div class="card" id="foraarsmarked"><h1>Forårsmarked</h1></div> -->
     <div class="markedknap-container">
     </div>
 </section>
@@ -88,7 +88,7 @@ function init() {
   itemContainer = document.querySelector(".markedknap-container");
   console.log("itemContainer", itemContainer);
 
-  fetch(itemURL+"/rest/v1/markets?select=*",{
+  fetch(itemURL+"/rest/v1/market_type?select=*",{
     method:"GET",
     headers:{
         apikey: key
@@ -110,9 +110,9 @@ items.forEach((item) => {
   itemClone = itemTemplate.cloneNode(true).content;
   itemClone.querySelector(
     "a"
-  ).href = `marked-singleview.astro?marked=${item.name}`;
+  ).href = `marked-singleview.astro?market_type=${item.type}`;
 
-  itemClone.querySelector(".marked_text").textContent = item.name;
+  itemClone.querySelector(".marked_text").textContent = item.type;
 
   itemContainer.appendChild(itemClone);
 });
