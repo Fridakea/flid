@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+import Mainlayout from "../../layouts/Mainlayout.astro";
+import { apiDetails } from "../../settings";
+
+export async function getStaticPaths() {
+  const data = await fetch(`${apiDetails.supabaseUrl}/market_type?select=*`, {
+    method: "GET",
+    headers: {
+      apikey: apiDetails.supabaseAnonKey,
+    },
+  }).then((response) => response.json());
+
+  // Laver liste med billeder i imageFolder mappen. Astro doc: https://docs.astro.build/en/recipes/dynamically-importing-images/
+  const imageFolder = "/src/assets/img/flid-posters";
+  const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/img/flid-posters/*.{jpeg,jpg,png,gif,webp}");
+    const imageFotosFolder = "/src/assets/img/market_type";
+    const imageFotos = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/img/market_type/*.{jpeg,jpg,png,gif,webp}"
+  );
+
+  return data.map((market) => {
+    // Check if the image is in our folder, and throw an error if its not.
+    if (!images[`${imageFolder}/${market.image_last_poster}`]) {
+      throw new Error(
+        `"${market.image_last_poster}" ser ud til at mangle i mappen ${imageFolder}`
+      );
+    }
+    if (!imageFotos[`${imageFotosFolder}/${market.image_last_market}`]) {
+      throw new Error(
+        `"${market.image_last_poster}" ser ud til at mangle i mappen ${imageFolder}`
+      );
+    }
+
+    return {
+      params: { id: market.id },
+      props: {
+        market,
+        poster: images[`${imageFolder}/${market.image_last_poster}`](),
+        fotos: imageFotos[`${imageFotosFolder}/${market.image_last_market}`](),
+      },
+    };
+  });
+}
+
+interface Props {
+  market: any;
+  poster: ImageMetadata;
+  fotos: ImageMetadata;
+}
+
+const { market, poster, fotos } = Astro.props;
+---
+
+<Mainlayout>
+  <main>
+    <h1>{market.type}</h1>
+    <Image src={poster} alt={market.type} />
+    <Image src={fotos} alt={market.type} />
+  </main>
+</Mainlayout>

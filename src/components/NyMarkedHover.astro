@@ -6,11 +6,29 @@ import { Image } from "astro:assets";
 ---
 <section>
     
-    <div class="card" id="julemarked"><h1>Julemarked</h1></div>
+    <!-- <div class="card" id="julemarked"><h1>Julemarked</h1></div>
     <div class="card" id="sensommermarked"><h1>Sensommermarked</h1></div>
-    <div class="card" id="foraarsmarked"><h1>Forårsmarked</h1></div>
+    <div class="card" id="foraarsmarked"><h1>Forårsmarked</h1></div> -->
+    <div class="markedknap-container">
+    </div>
 </section>
+
+<template class="markedknap-template">
+    <article class="markedknap_article">
+        <a>
+            <div class="marked_div markedeknap">
+                <p class="marked_text"></p>
+            </div>
+        </a>
+    </article>
+</template>
+
 <style>
+    .markedeknap{
+        height: 300px;
+width: 300px;
+background-color: aqua;
+    }
     section{
         display: flex;
         flex-direction: row;
@@ -52,3 +70,52 @@ import { Image } from "astro:assets";
   background-position: center;
     }
 </style>
+<script>
+    window.addEventListener("DOMContentLoaded", init);
+
+const itemURL = "https://dvtoiextyxkictfnquyo.supabase.co";
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2dG9pZXh0eXhraWN0Zm5xdXlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTUxNjEzMzQsImV4cCI6MjAzMDczNzMzNH0.OHxi8VUkxXZaCDHCvU9EJD4CMxx3Os6TYHI5hhCIiLM"
+
+let itemTemplate;
+let itemContainer;
+
+function init() {
+  console.log("init");
+
+  itemTemplate = document.querySelector(".markedknap-template");
+  console.log("itemTemplate", itemTemplate);
+
+  itemContainer = document.querySelector(".markedknap-container");
+  console.log("itemContainer", itemContainer);
+
+  fetch(itemURL+"/rest/v1/market_type?select=*",{
+    method:"GET",
+    headers:{
+        apikey: key
+    }
+  })
+    .then(res=>res.json())
+    .then(showData)
+}
+    
+    function showData(items){
+        console.log(items)
+    
+  // Til her
+    
+  let itemClone;
+
+items.forEach((item) => {
+  console.log("item", item);
+  itemClone = itemTemplate.cloneNode(true).content;
+  itemClone.querySelector(
+    "a"
+  ).href = `marked-singleview.astro?market_type=${item.type}`;
+
+  itemClone.querySelector(".marked_text").textContent = item.type;
+
+  itemContainer.appendChild(itemClone);
+});
+}
+
+</script>
