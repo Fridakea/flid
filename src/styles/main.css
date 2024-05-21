@@ -12,9 +12,9 @@
   --secondary-color-tint: #edc6c5;
   --secondary-color-shade: #d68893;
 
-  --accent-color: #6670ce;
-  --accent-color-tint: #838ce0;
-  --accent-color-shade: #4650a6;
+  --accent-color: #606AC2;
+  --accent-color-tint: #747ED7;
+  --accent-color-shade: #343E93;
 
   /* Variables for spacing */
   --spacing-small: 16px;
@@ -36,9 +36,9 @@
   --secondary-color-tint: #601724;
   --secondary-color-shade: #d68893;
 
-  --accent-color: #a0a6e5;
-  --accent-color-tint: #838ce0;
-  --accent-color-shade: #bdc0ea;
+  --accent-color: #838CE0;
+  --accent-color-tint: #6670CE;
+  --accent-color-shade: #A0A6E5;
 }
 
 /* Reset */
