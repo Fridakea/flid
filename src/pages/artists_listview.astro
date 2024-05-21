@@ -4,30 +4,182 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 
 <Mainlayout>
   <main>
-    <img class="arrow" src="" alt="">
-    <template id="market_template">
+    <section id="breadcrumb">
+    <a href="meet_the_artists"><img class="arrow" src="/src/assets/img/arrow1.svg" alt="pil"></a>
+    <!-- <template id="market_template"> -->
       <nav>
         <ul>
-            <li><a href="#">Top-level page</a></li>
-            <li>Current Page</li>
+            <li><a href="artists_singleview">Mød udstillerne</a></li>
+            <li>Sensommermarked 2024</li>
         </ul>
       </nav>
-      <h1>Sensommermarked</h1>
-      <h5>Beskrivelse af sensommermarkedet 2024</h5>
-    </template>
+    </section>
+      <h2>Sensommermarked</h2>
+      <h6>Oplev det bedste inden for unikt håndværk og skabende talent, når vi fejrer et årti med dedikation til kunsten. Kom og deltag i denne festlige begivenhed, hvor vi hylder kreativitet, dygtighed og originalitet.</h6>
+    <!-- </template> -->
   <form action="">
   </form>
   <section class="artist_container">
     <template id="artist_template">
-         <a href="">
-             <article class="artist_article">
-             <img class="artist_image" src="" alt="">
-             <h2 class="artist_name"></h2>
-            </article>
+         <a href="#">
+             <img class="artist_image" src="src/assets/img/artists/helene-keinicke/helene-keinicke1.webp" alt="produkt billede">
+              <div> 
+                <h5 class="artist_name">Kunstnernavn</h5>
+              </div>
         </a>
       </template>
   </section>
 </main>
 </Mainlayout>
 
-<style></style>
+<style>
+.arrow{
+  max-width: 30px;
+  }
+
+  h2{
+    font-weight: bold;
+    font-size: 1.9rem;
+  }
+
+  h6{
+    display: none;
+  }
+
+  #breadcrumb{
+    padding-bottom: 5%;
+    padding-top: 2%;
+  }
+  #breadcrumb nav{
+    display: none;
+  }
+ 
+  /* ---- Produktliste grid ------ */
+  .artist_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
+    gap: 5px;
+    justify-content: center;
+  }
+
+  /* Rectangle 12 */
+  .artist_name{
+  /* position: absolute; */
+  padding: 4px;
+  padding-top: 0; 
+  width: auto;
+  height: 30px;
+  left: 40.7px;
+  top: 397px;
+  background: #E7B7B8;
+  color: #FEF5EA;
+  }
+
+  @media (min-width: 769px) {
+h6{
+  display: block;
+}  
+
+/* breadcrumb */
+#breadcrumb nav{
+    display: block;
+  }
+ 
+#breadcrumb {
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+}
+
+#breadcrumb nav{
+  text-align: right;
+}
+ul { 
+  list-style: none; 
+}
+
+/* vis liste-elementerne horisontalt */
+ul li { 
+  display: inline; 
+} 
+
+/* Sæt en (>) mellem liste-elementerne */
+#breadcrumb ul li+li:before {
+  content: ">";
+  padding: 10px;  
+}
+
+ul li a { 
+  text-decoration: none; 
+}
+ul li a:hover { 
+  text-decoration: underline; 
+}
+
+/* additional styling */
+ul {
+color: var(  --text-color);
+  font-family: "Avenir";
+  font-weight: bold;
+}
+
+ul li a {color: var(  --text-color);}
+ul li a:visited {color: var(  --text-color)}
+ul li+li:before {color: var(  --text-color)}
+
+.artist_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 220px));
+    gap: 25px;
+  }
+
+}
+</style>
+
+
+<script>
+// fetch af kunstnerliste
+window.addEventListener("DOMContentLoaded", init);
+
+const artistURL = "https://dvtoiextyxkictfnquyo.supabase.co/rest/v1/artist";
+const apikey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2dG9pZXh0eXhraWN0Zm5xdXlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTUxNjEzMzQsImV4cCI6MjAzMDczNzMzNH0.OHxi8VUkxXZaCDHCvU9EJD4CMxx3Os6TYHI5hhCIiLM";
+
+let artistTemplate;
+let artistContainer;
+
+function init() {
+  console.log("init");
+
+  artistTemplate = document.querySelector("#artist_template");
+  console.log("artistTemplate", artistTemplate);
+
+ artistContainer = document.querySelector(".artist_container");
+  console.log("artist_container", artistContainer);
+
+  fetch(artistURL, {
+    headers: {
+      apikey: apikey,
+    },
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (json) {
+      showArtists(json);
+    });
+}
+
+function showArtists(artistJSON) {
+  console.log(artistJSON);
+  let artistClone;
+
+  artistJSON.forEach((artist) => {
+    console.log("Artist", artist);
+    artistClone = artistTemplate.cloneNode(true).content;
+    artistClone.querySelector(".artist_image").src = artist.images;
+    artistClone.querySelector(".artist_name").textContent = artist.name;
+    artistClone.querySelector("a").href = "artists_singleview.html?id=" + artist.id;
+    artistContainer.appendChild(artistClone);
+  });
+}
+
+</script>
