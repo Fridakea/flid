@@ -1,5 +1,6 @@
 ---
 import Mainlayout from "../layouts/Mainlayout.astro";
+import ArtistImage from "../assets/img/artists/elya/elya1.webp";
 ---
 
 <Mainlayout>
@@ -22,7 +23,7 @@ import Mainlayout from "../layouts/Mainlayout.astro";
   <section class="artist_container">
     <template id="artist_template">
          <a href="#">
-             <img class="artist_image" src="src/assets/img/artists/helene-keinicke/helene-keinicke1.webp" alt="produkt billede">
+             <img class="artist_image" src="#" alt="produkt billede">
               <div> 
                 <h5 class="artist_name">Kunstnernavn</h5>
               </div>
@@ -125,6 +126,10 @@ color: var(  --text-color);
 ul li a {color: var(  --text-color);}
 ul li a:visited {color: var(  --text-color)}
 ul li+li:before {color: var(  --text-color)}
+
+h2{
+  font-size: 2.5rem;
+}
 
 .artist_container{
     display: grid;

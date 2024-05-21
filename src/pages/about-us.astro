@@ -1,29 +1,38 @@
 ---
 import { Image } from "astro:assets";
 import img1 from "../assets/img/unika-image.webp";
-import img2 from "../assets/img/artists/helene-keinicke/helene-keinicke5.webp";
-import img3 from "../assets/img/artists/rosamunde/rosamunde14.webp";
+import img2 from "../assets/img/artists/helene-keinicke/5.webp";
+import img3 from "../assets/img/artists/rosamunde/14.webp";
 import img4 from "../assets/img/julemarked19/j19-1.webp";
 import img5 from "../assets/img/julemarked19/j19-2.webp";
 import Mainlayout from "../layouts/Mainlayout.astro";
 import Timeline from "../components/Timeline.astro";
 import Accordion from "../components/Accordion.astro";
-import Footer from "../components/Footer.astro";
 ---
 
 <Mainlayout>
   <main>
-    <div class="about-flid mb-l">
-      <h1>Om os</h1>
-      <p>
-        <span>Flid</span>
-        er et kunst- og designplatform, hvor det skandinaviske kreative vækstlag
-        viser deres kunst, design og kunsthåndværk frem. På markedet får interesserede
-        gæster muligheden for at møde skabende kunstnere, designere og kunsthåndværkere
-        i uformelle omgivelser, hvor man kan erhverve sig værker, indgå dialog om
-        de kreative arbejdsprocesser, se de nyeste tendenser samt etablere forskellige
-        typer af samarbejde.
-      </p>
+    <h1>Om os</h1>
+    <div class="flex-col pc-flex-row gap-l">
+      <div class="about-flid">
+        <p>
+          <span>Flid</span>
+          er et kunst- og designplatform, hvor det skandinaviske kreative vækstlag
+          viser deres kunst, design og kunsthåndværk frem. På markedet får interesserede
+          gæster muligheden for at møde skabende kunstnere, designere og kunsthåndværkere
+          i uformelle omgivelser, hvor man kan erhverve sig værker, indgå dialog
+          om de kreative arbejdsprocesser, se de nyeste tendenser samt etablere forskellige
+          typer af samarbejde.
+        </p>
+        <div class="color-box pc-only"></div>
+      </div>
+
+      <div class="flex-col flex-center">
+        <div class="ticket flex-col flex-center gap-s">
+          <p>Indgang på Flid Marked...</p>
+          <h2>KUN 40 kr!</h2>
+        </div>
+      </div>
     </div>
 
     <Timeline />
@@ -240,11 +249,23 @@ import Footer from "../components/Footer.astro";
   </main>
 
   <style>
-    .about-flid {
-      max-width: 525px;
+    .about-flid span {
+      font-size: 2rem;
+    }
 
-      & span {
-        font-size: 2rem;
+    .ticket {
+      width: 100%;
+      padding: var(--spacing-small);
+      background-color: var(--text-color-tint);
+      margin-bottom: var(--spacing-large);
+
+      & p {
+        color: var(--primary-color);
+      }
+      & h2 {
+        letter-spacing: 2px;
+        font-weight: bold;
+        color: var(--primary-color-tint);
       }
     }
 
@@ -305,8 +326,30 @@ import Footer from "../components/Footer.astro";
     }
 
     @media (min-width: 769px) {
-      .about-flid span {
-        font-size: 3rem;
+      .about-flid {
+        position: relative;
+        max-width: 600px;
+        height: 250px;
+        padding-left: 36px;
+
+        & span {
+          font-size: 3rem;
+        }
+
+        & .color-box {
+          position: absolute;
+          width: 65px;
+          height: 150px;
+          z-index: -2;
+          top: 23%;
+          left: -10px;
+          background-color: var(--primary-color-shade);
+        }
+      }
+
+      .ticket {
+        width: 450px;
+        height: 100%;
       }
 
       .keyword-section {

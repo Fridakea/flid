@@ -14,27 +14,29 @@ import Mainlayout from "../layouts/Mainlayout.astro";
       </a>
     <h2>Udstillerne på forrige marked</h2>
     <article id="market_parent">
-       <a href="artists_listview">
         <section class="market_child">
-          <img src="/src/assets/img/marked1.webp" alt="">
+          <a href="artists_listview"></a>
+          <img src="/src/assets/img/flid-posters/foraarsmarked23.webp" alt="">
           <div></div>
-          <h6>Forårsmarked 2024</h6>  
-        </section>
+          <h6>Forårsmarked 2024</h6> 
       </a> 
-      <a href="artists_listview">
+  </section>
         <section class="market_child">
-        <img src="/src/assets/img/marked2.webp" alt="">
+              <a href="artists_listview">
+        <img src="/src/assets/img/flid-posters/julemarked23.webp" alt="">
          <div></div>
           <h6>Julemarked 2024</h6>
+             </a>
       </section>
-      </a>
-      <a href="artists_listview">
+ 
         <section class="market_child">
-        <img src="/src/assets/img/marked3.webp" alt="">
+          <a href="artists_listview"></a>
+        <img src="/src/assets/img/flid-posters/foraarsmarked22.webp" alt="">
         <div></div>
           <h6>Forårsmarked 2023</h6>
+       </a>
       </section> 
-      </a>
+     
     </article>  
   </main>
 </Mainlayout>
@@ -63,65 +65,95 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 #market_parent {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
   margin: auto;
-  gap: 5%;
+  width: auto;
 }
 
 .market_child {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
+  width: 80%;
+  margin-top: 6%;
   cursor: pointer;
   transition: all 0.3s ease;
+  background-color: var(  --text-color-tint) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+/* .market_child a, .market_child img{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+} */
+
+h6{
+  color: var(  --primary-color);
+height: 35px;
+padding-top: 5%;
+padding-left: 7px;
 }
 
+@media (min-width: 769px) {
+
+  #market_parent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  gap: 5%;
+  width: auto;
+}
+}
+
+/* 
 .market_child img {
   width: 100%;
   height: auto;
   display: none; /* Skjul billedet som standard */
-  transition: transform 0.3s ease;
-}
+  /* transition: transform 0.3s ease;
+} */
 
-.market_child div {
+/* .market_child div {
   background-color: #281411;
   width: 100%;
   height: 50px;
   transition: all 0.3s ease;
   z-index: 1;
   position: relative;
-}
+} */
 
-.market_child h6 {
+/* .market_child h6 {
   position: relative;
   color: #FEF5EA;
   margin: 0;
   padding: 10px;
   transition: all 0.3s ease;
   z-index: 2;
-}
+} */
 
 /* Hover effekt */
-.market_child:hover {
+/* .market_child:hover {
   width: auto;
 }
 
 .market_child:hover img {
   display: block; /* Vis billedet ved hover */
-  transform: translateY(-50px); /* Juster som nødvendigt */
-}
+  /* transform: translateY(-50px); /* Juster som nødvendigt */
 
-.market_child:hover div {
+
+/* .market_child:hover div {
   height: auto; /* Juster højden efter indhold */
-  background-color: transparent; /* Fjern baggrundsfarven */
-  width: auto; /* Juster bredden efter indhold */
-  z-index: 0;
-}
+  /* background-color: transparent; /* Fjern baggrundsfarven */
+  /* width: auto; /* Juster bredden efter indhold 
+   z-index: 0;
+}*/
 
 /* .market_child:hover h6 {
-  transform: translateY(-50px); /* Juster positionen som nødvendigt */
-} */
-
+  transform: translateY(-50px); /* Juster positionen som nødvendigt}
+*/
+ 
 
 </style>

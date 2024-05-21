@@ -8,6 +8,20 @@ import img5 from "../assets/img/timeline-img5.webp";
 ---
 
 <div class="timeline">
+  <svg
+    class="line-placement"
+    width="100%"
+    height="100%"
+    viewBox="0 0 527 1504"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M117.562 2C-32.6688 166.099 -11.8657 342.524 178.95 275.498L329.429 216.176C389.768 189.211 468.626 175.344 490.969 258.549C509.166 326.315 492.757 360.243 432.418 404.157L287.579 504.311C243.142 534.357 199.999 626.807 306.316 626.807H453.466C559.783 626.807 546.131 824.342 424.713 896.453C303.295 968.564 188.709 1012.27 146.593 1025.11C-106.629 1102.31 -1.85208 1442.68 264.71 1502"
+      stroke="#E1A7AC"
+      stroke-width="5"></path>
+  </svg>
+
   <div data-aos="fade-in">
     <Image src={img1} alt="Billede af kunstner som skaber kunst" />
     <p>Kunstner får ide</p>
@@ -39,51 +53,93 @@ import img5 from "../assets/img/timeline-img5.webp";
     width: 150px;
   }
 
+  .line-placement {
+    margin: auto;
+    padding: 0 2%;
+  }
+
   .timeline {
     position: relative;
-    height: 1300px;
-    background-image: url("../assets/img/timeline.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
+    height: 1250px;
 
-    display: flex;
-    justify-self: center;
-
-    margin-bottom: var(--spacing-large);
+    margin-top: var(--spacing-large);
+    margin-bottom: calc(var(--spacing-large) * 3);
 
     & div {
       position: absolute;
       transform: translate(-50%, -50%);
     }
 
-    & :nth-child(1) {
-      left: 22%;
+    & :nth-child(2) {
+      left: 30%;
       top: 5%;
     }
 
-    & :nth-child(2) {
-      left: 60%;
-      top: 30%;
-    }
-
     & :nth-child(3) {
-      left: 78%;
-      top: 50%;
-      text-align: right;
+      left: 60%;
+      top: 29%;
     }
 
     & :nth-child(4) {
-      left: 30%;
-      top: 67%;
+      left: 80%;
+      top: 53%;
+      text-align: right;
     }
 
     & :nth-child(5) {
+      left: 30%;
+      top: 70%;
+    }
+
+    & :nth-child(6) {
       left: 50%;
-      top: 90%;
+      top: 100%;
       text-align: center;
 
       & img {
         width: 250px;
+      }
+    }
+  }
+
+  @media (min-width: 769px) {
+    img {
+      width: 200px;
+    }
+
+    .timeline {
+      margin-top: calc(var(--spacing-large) * 3);
+      margin-bottom: calc(var(--spacing-large) * 5);
+
+      height: 1350px;
+
+      & :nth-child(2) {
+        left: 35%;
+        top: -7%;
+      }
+
+      & :nth-child(3) {
+        left: 65%;
+        top: 18%;
+      }
+
+      & :nth-child(4) {
+        left: 77%;
+        top: 55%;
+        text-align: right;
+      }
+
+      & :nth-child(5) {
+        left: 25%;
+        top: 75%;
+      }
+
+      & :nth-child(6) {
+        top: 112%;
+
+        & img {
+          width: 300px;
+        }
       }
     }
   }
