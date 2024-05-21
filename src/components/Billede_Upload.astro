@@ -59,8 +59,8 @@ gap: var(--spacing-small) ;
 }
 
 .picture {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   aspect-ratio: 16/9;
   background: var(--primary-color-tint);
   display: flex;
@@ -96,6 +96,12 @@ gap: var(--spacing-small) ;
 .picture__img {
   max-width: 100%;
 }
+
+@media (min-width: 769px) {
+    .picture {
+  width: 100px;
+  height: 100px;
+    }
 
   </style>
 
