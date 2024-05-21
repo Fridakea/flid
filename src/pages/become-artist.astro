@@ -1,6 +1,7 @@
 ---
 import Mainlayout from "../layouts/Mainlayout.astro";
 import Accordion from "../components/Accordion.astro";
+import Indsend_Button from "../components/Indsend_Button.astro";
 ---
 
 <Mainlayout>
@@ -122,7 +123,7 @@ import Accordion from "../components/Accordion.astro";
         placeholder="Beskriv dit professionelle kreative virke (materialer, teknikker, inspirationskilder m.m.), der kan bruges af Flid i en kommunikationskontekst..."
       ></textarea>
 
-      <div>
+      <div class="img_upload">
         <input type="file" name="fileToUpload" id="fileToUpload" />
         <input type="submit" value="Upload Image" name="submit" />
       </div>
@@ -182,7 +183,9 @@ import Accordion from "../components/Accordion.astro";
       </div>
     </div>
     </div>
+    
   </form>
+  <Indsend_Button></Indsend_Button>
 
 </main>
 </Mainlayout>
@@ -252,6 +255,10 @@ import Accordion from "../components/Accordion.astro";
   textarea {
     border-radius: 10px;
   }
+
+.img_upload {
+
+}
 
   .links {
     background-color: #f3d6d1;
