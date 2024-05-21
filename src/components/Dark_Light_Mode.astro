@@ -3,7 +3,19 @@ import Dark_Button from "./Dark_Button.astro";
 import Light_Button from "./Light_Button.astro";
 ---
 
-<Dark_Button><button onclick="myFunction()"></button></Dark_Button>
+
+
+<button id="darkToggle" onclick="myFunction()">
+<Dark_Button></Dark_Button>
+<!-- <Light_Button></Light_Button> -->
+</button>
+
+<style>
+ #darkToggle {
+    border: none;
+    background: none;
+  }
+</style>
 
 
 <script>
