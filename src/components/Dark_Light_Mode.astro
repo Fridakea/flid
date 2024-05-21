@@ -1,0 +1,14 @@
+---
+import Dark_Button from "./Dark_Button.astro";
+import Light_Button from "./Light_Button.astro";
+---
+
+<Dark_Button><button onclick="myFunction()"></button></Dark_Button>
+
+
+<script>
+    function myFunction() {
+       var element = document.body;
+       element.classList.toggle("dark-mode");
+    }
+</script>
