@@ -2,6 +2,9 @@
 import { Image } from "astro:assets";
 import Mainlayout from "../../layouts/Mainlayout.astro";
 import { apiDetails } from "../../settings";
+import FooterButton from "../../components/Footer_Button.astro";
+// import FacebookSvg from "../assets/img/svg_icons/facebook.svg";
+
 
 export async function getStaticPaths() {
   const data = await fetch(`${apiDetails.supabaseUrl}/market_type?select=*`, {
@@ -57,13 +60,52 @@ const { type, poster, fotos } = Astro.props;
 <Mainlayout>
   <main>
     <h1>{type.type}</h1>
-    <Image src={poster} alt={type.type} />
+    <section><div>
+    <Image class="poster" src={poster} alt={type.type} />
+  </div>
+  <div>
+    <h2>Deltag i vores {type.type}</h2>
+    <p>{type.description}</p>
+    <div class="some-section">
+    <FooterButton />
+    <div class="so-me">
+    <img src="/src/assets/img/svg_icons/facebook.svg" alt="facebook">
+    <img src="/src/assets/img/svg_icons/instagram.svg" alt="instagram"></div>
+  </div></div>
+  </section>
+  <section>
     <Image src={fotos} alt={type.type} />
+  </section>
   </main>
 </Mainlayout>
 
 <style>
   h1 {
     text-transform: capitalize;
+  }
+  .poster{
+
+  }
+  .some-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+  .so-me{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    height: 200px;
+    width:200px;
+    align-items: center;
+    align-content: center;
+    
+  }
+  section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
   }
 </style>
