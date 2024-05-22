@@ -2,10 +2,12 @@
   /* Variables for colors */
   --primary-color: #fef5ea;
   --primary-color-tint: #ffffff;
+  --primary-color-tint2: #ffffff;
   --primary-color-shade: #e8d2b7;
 
   --text-color: #281411;
   --text-color-tint: #351e1a;
+  --text-color-tint2: #351e1a;
   --text-color-shade: #190d0c;
 
   --secondary-color: #e1a7ac;
@@ -28,10 +30,12 @@
   /* Variables for colors in darkmode*/
   --primary-color: #281411;
   --primary-color-tint: #190d0c;
+  --primary-color-tint2: #ffffff;
   --primary-color-shade: #351e1a;
 
   --text-color: #fef5ea;
   --text-color-tint: #e8d2b7;
+  --text-color-tint2: #351e1a;
   --text-color-shade: #ffffff;
 
   --secondary-color: #8a2a3b;
