@@ -4,7 +4,7 @@ import Mainlayout from "../../layouts/Mainlayout.astro";
 import { apiDetails } from "../../settings";
 
 export async function getStaticPaths() {
-  const data = await fetch(`${apiDetails.supabaseUrl}/market?select=*`, {
+  const data = await fetch(`${apiDetails.supabaseUrl}/market?select=*,/artist_market?select*`, {
     method: "GET",
     headers: {
       apikey: apiDetails.supabaseAnonKey,
@@ -47,7 +47,7 @@ const { market, poster } = Astro.props;
 <Mainlayout>
   <main>
     <h2>Udstillerne på næste marked</h2>
-      <a href="/src/pages/marked/[slug].astro">
+      <a href=`/kunstner_oversigt/${market.slug}`>
         <div class="sensommer_container">
         <img src="/src/assets/img/sensommermarked.webp" alt="sensommermarked">
         <Image src={poster} alt={market.name} />
@@ -58,16 +58,15 @@ const { market, poster } = Astro.props;
     <h2>Udstillerne på forrige marked</h2>
     <article id="market_parent">
         <section class="market_child">
-          <a href="/src/pages/kunstner/[slug].astro"></a>
+          <a href=`/kunstner_oversigt/${market.slug}`></a>
           <img src="/src/assets/img/flid-posters/foraarsmarked23.webp" alt="">
           <Image src={poster} alt={market.name} />
           <div></div>
           <h6>Forårsmarked 2024</h6> 
-        
       </a> 
   </section>
         <section class="market_child">
-              <a href="artists_listview">
+              <a href=`/kunstner_oversigt/${market.slug}`>
         <img src="/src/assets/img/flid-posters/julemarked23.webp" alt="">
         <Image src={poster} alt={market.name} />
          <div></div>
@@ -76,7 +75,7 @@ const { market, poster } = Astro.props;
       </section>
  
         <section class="market_child">
-          <a href="artists_listview"></a>
+          <a href=`/kunstner_oversigt/${market.slug}`></a>
         <img src="/src/assets/img/flid-posters/foraarsmarked22.webp" alt="">
         <Image src={poster} alt={market.name} />
         <div></div>

@@ -68,20 +68,11 @@ const { artist, artistImages } = Astro.props;
     <article class="product_container">
       <h1 class="product_headline">{artist.name}</h1>
       <section id="some_container">
-        <!-- <div class="img_product">
-          <CarouselSwiper {artistImages.map((artistImage) => (
-            <Image src={artistImage} alt={artist.name} />
-          ))} 
-        </div> -->
-      <!-- <div class="swiper-section">
+        <div class="img_product">
           <CarouselSwiper
-            images={[
-          {artistImages.map((artistImage) => (
-              <Image src={artistImage} alt={artist.name} />
-            ))
-          }
-           ]}/>
-        </div> -->
+          images={artistImages}
+          alt="Forårsmarked 2019 billede"
+        />
         <div id="some_child">
           <div>
             <ul>
