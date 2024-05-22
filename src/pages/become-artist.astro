@@ -251,9 +251,9 @@ import Billede_Upload from "../components/Billede_Upload.astro";
   input[type="text"],
   textarea,
   select,  input[type="url"] {
-    background-color: #f3d6d1;
+    background-color: var(--secondary-color-tint2);
     font-size: 1.2rem;
-    color: #837e7e;
+    color: var(--text-color);
     border: none;
     /* gap: 10px; */
     width: 100%;
@@ -268,11 +268,11 @@ import Billede_Upload from "../components/Billede_Upload.astro";
 
 
   .links {
-    background-color: #f3d6d1;
+    background-color:var(--secondary-color-tint2);
     padding: 15px;
   }
   input[type="url"] {
-    background-color: var( --primary-color-tint);
+    background-color: var( --primary-color-tint2);
   }
 
   .kontaktinfo {
@@ -284,7 +284,7 @@ import Billede_Upload from "../components/Billede_Upload.astro";
 
   .kontaktinfo input[type="text"], .kontaktinfo 
   textarea {
-   background-color: #E7B7B8;
+   background-color: var(--secondary-color-tint3);
   }
 
 
@@ -303,6 +303,7 @@ import Billede_Upload from "../components/Billede_Upload.astro";
   form, .grid_1-2, .grid_2-3  {
     display: grid;
     gap: var(--spacing-small);
+    
   }
 
   .container {
@@ -366,7 +367,7 @@ import Billede_Upload from "../components/Billede_Upload.astro";
   top: 5px;
   width: 5px;
   height: 10px;
-  border: solid white;
+  border: solid var(--primary-color-tint);
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
