@@ -1,41 +1,62 @@
 ---
-import "../styles/main.css";
-import "../styles/style.css";
-import "../styles/pc-style.css";
-import Logo from "./Logo.astro"
-import Burger_Menu from "./Burger_Menu.astro"
-import Dark_Button from "./Dark_Button.astro"
-import Light_Button from "./Light_Button.astro"
+import Logo from "./Logo.astro";
+import Burger_Menu from "./Burger_Menu.astro";
+import Dark_Button from "./Dark_Button.astro";
+import Light_Button from "./Light_Button.astro";
 ---
- 
+
 <header>
-    <Logo></Logo>
+  <Logo />
 
- <section class="head_container">
+  <section class="head_container">
+    <button class="dark-mode-hide unstyled-button" onclick="toggleDarkMode()">
+      <Dark_Button />
+    </button>
+    <button class="dark-mode-only unstyled-button" onclick="toggleDarkMode()">
+      <Light_Button />
+    </button>
+    <Burger_Menu />
+  </section>
+</header>
 
-<Dark_Button></Dark_Button>
-    <Burger_Menu></Burger_Menu>
- </section>
-
- </header>
-
- <style>
-    header{
+<style>
+  header {
     display: grid;
     grid-template-columns: 1fr 2fr;
     margin-right: 10px;
-}
-.head_container{
+  }
+  .head_container {
     grid-column: 3;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 12px;
-
-    }
-.none {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+  }
+  .none {
     display: none;
-}
+  }
+</style>
 
- </style>
+<script is:inline>
+  function toggleDarkMode() {
+    // Toggle the 'dark-mode' class on the body element
+    document.querySelector("body").classList.toggle("dark-mode");
+
+    // Check if dark mode is enabled and save the state to local storage
+    const isDarkModeEnabled = document
+      .querySelector("body")
+      .classList.contains("dark-mode");
+    localStorage.setItem("darkMode", isDarkModeEnabled);
+  }
+
+  // Check the local storage on page load and apply dark mode if necessary
+  // The DOMContentLoaded event is used instead of "load", because it runs BEFORE the css loads.
+  // Dokumentation: https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
+  document.addEventListener("DOMContentLoaded", function () {
+    const isDarkModeEnabled = localStorage.getItem("darkMode") === "true";
+    if (isDarkModeEnabled) {
+      document.querySelector("body").classList.add("dark-mode");
+    }
+  });
+</script>

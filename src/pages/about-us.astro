@@ -24,7 +24,7 @@ import Accordion from "../components/Accordion.astro";
           om de kreative arbejdsprocesser, se de nyeste tendenser samt etablere forskellige
           typer af samarbejde.
         </p>
-        <div class="color-box pc-only"></div>
+        <div class="color-box"></div>
       </div>
 
       <div class="flex-col flex-center">
@@ -249,15 +249,33 @@ import Accordion from "../components/Accordion.astro";
   </main>
 
   <style>
-    .about-flid span {
-      font-size: 2rem;
+    .about-flid {
+      position: relative;
+      max-width: 650px;
+      height: 100%;
+      padding-left: 36px;
+      & span {
+        font-size: 2rem;
+      }
+
+      & .color-box {
+        position: absolute;
+        width: 65px;
+        height: 110%;
+        z-index: -2;
+        top: 20%;
+        left: -10px;
+        background-color: var(--secondary-color-tint);
+      }
     }
 
     .ticket {
       width: 100%;
       padding: var(--spacing-small);
-      background-color: var(--text-color-tint);
+      background-color: var(--secondary-color-shade);
       margin-bottom: var(--spacing-large);
+      box-shadow: 50px 50px var(--secondary-color-tint);
+      transform: translate(-5%);
 
       & p {
         color: var(--primary-color);
@@ -272,6 +290,7 @@ import Accordion from "../components/Accordion.astro";
     #visitor-count {
       font-size: 2rem;
       font-weight: bold;
+      color: var(--secondary-color-shade);
     }
 
     .fade-in-2s {
@@ -327,28 +346,15 @@ import Accordion from "../components/Accordion.astro";
 
     @media (min-width: 769px) {
       .about-flid {
-        position: relative;
-        max-width: 600px;
-        height: 250px;
-        padding-left: 36px;
+        margin-bottom: 80px;
 
         & span {
           font-size: 3rem;
         }
-
-        & .color-box {
-          position: absolute;
-          width: 65px;
-          height: 150px;
-          z-index: -2;
-          top: 23%;
-          left: -10px;
-          background-color: var(--primary-color-shade);
-        }
       }
 
       .ticket {
-        width: 450px;
+        width: 400px;
         height: 100%;
       }
 
