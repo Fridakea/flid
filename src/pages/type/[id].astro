@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import Mainlayout from "../../layouts/Mainlayout.astro";
 import { apiDetails } from "../../settings";
 import FooterButton from "../../components/Footer_Button.astro";
+import Newsletter from "../../components/Newsletter.astro";
 // import FacebookSvg from "../assets/img/svg_icons/facebook.svg";
 
 
@@ -75,6 +76,7 @@ const { type, poster, fotos } = Astro.props;
   </section>
   <section>
     <Image src={fotos} alt={type.type} />
+    <Newsletter />
   </section>
   </main>
 </Mainlayout>
