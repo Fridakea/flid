@@ -1,0 +1,181 @@
+---
+import { Image } from "astro:assets";
+import Mainlayout from "../layouts/Mainlayout.astro";
+import { apiDetails } from "../settings";
+
+const data = await fetch(`${apiDetails.supabaseUrl}/market?select=*`, {
+  method: "GET",
+  headers: {
+    apikey: apiDetails.supabaseAnonKey,
+  },
+}).then((response) => response.json());
+
+// Laver liste med billeder i imageFolder mappen. Astro doc: https://docs.astro.build/en/recipes/dynamically-importing-images/
+const imageFolder = "/src/assets/img/flid-posters";
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/img/flid-posters/*.{jpeg,jpg,png,gif,webp}"
+);
+---
+
+<Mainlayout>
+  <main>
+    <h2>Udstillerne på næste marked</h2>
+
+    <!-- Cards lavet til hvers marked med billede og tekst + som linjer til den specifikke underside -->
+    {
+      data.map((market) => (
+        <a href={`kunstner_oversigt/${market.slug}`}>
+          <div class="sensommer_container">
+            <Image
+              src={images[`${imageFolder}/${market.image}`]()}
+              alt={market.slug}
+            />
+            <p>{market.name}</p>
+          </div>
+        </a>
+      ))
+    }
+
+    <a href=`/kunstner_oversigt/${data.slug}`>
+      <div class="sensommer_container">
+        <img src={data.image} alt={data.name} />
+        <div></div>
+        <h5>{data.name}</h5>
+      </div>
+    </a>
+    <h2>Udstillerne på forrige marked</h2>
+    <article id="market_parent">
+      <section class="market_child">
+        <a href=`/kunstner_oversigt/${data.slug}`></a>
+        <img src={data.image} alt={data.name} />
+        <div></div>
+        <h6>Forårsmarked 2024</h6>
+      </section>
+    </article>
+    <section class="market_child">
+      <a href=`/kunstner_oversigt/${data.slug}`>
+        <img src={data.image} alt={data.name} />
+        <div></div>
+        <h6>Julemarked 2024</h6>
+      </a>
+    </section>
+
+    <section class="market_child">
+      <a href=`/kunstner_oversigt/${data.slug}`></a>
+      <img src={data.image} alt={data.name} />
+      <div></div>
+      <h6>Forårsmarked 2023</h6>
+    </section>
+  </main>
+</Mainlayout>
+
+<style>
+  .sensommer_container div {
+    width: 100%;
+    height: 40px;
+    background-color: bisque;
+    transform: translateY(-100%);
+    opacity: 80%;
+    position: relative;
+    z-index: 0;
+  }
+
+  .sensommer_container h5 {
+    transform: translateY(-250%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  /* Generel styling */
+  #market_parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: auto;
+  }
+
+  .market_child {
+    width: 80%;
+    margin-top: 6%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--text-color-tint);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  /* .market_child a, .market_child img{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+} */
+
+  h6 {
+    color: var(--primary-color);
+    height: 35px;
+    padding-top: 5%;
+    padding-left: 7px;
+  }
+
+  @media (min-width: 769px) {
+    #market_parent {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      gap: 5%;
+      width: auto;
+    }
+  }
+
+  /* 
+.market_child img {
+  width: 100%;
+  height: auto;
+  display: none; /* Skjul billedet som standard */
+  /* transition: transform 0.3s ease;
+} */
+
+  /* .market_child div {
+  background-color: #281411;
+  width: 100%;
+  height: 50px;
+  transition: all 0.3s ease;
+  z-index: 1;
+  position: relative;
+} */
+
+  /* .market_child h6 {
+  position: relative;
+  color: #FEF5EA;
+  margin: 0;
+  padding: 10px;
+  transition: all 0.3s ease;
+  z-index: 2;
+} */
+
+  /* Hover effekt */
+  /* .market_child:hover {
+  width: auto;
+}
+
+.market_child:hover img {
+  display: block; /* Vis billedet ved hover */
+  /* transform: translateY(-50px); /* Juster som nødvendigt */
+
+  /* .market_child:hover div {
+  height: auto; /* Juster højden efter indhold */
+  /* background-color: transparent; /* Fjern baggrundsfarven */
+  /* width: auto; /* Juster bredden efter indhold 
+   z-index: 0;
+}*/
+
+  /* .market_child:hover h6 {
+  transform: translateY(-50px); /* Juster positionen som nødvendigt}
+*/
+</style>
