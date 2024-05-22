@@ -6,14 +6,14 @@ import { Image } from "astro:assets";
 ---
 <section>
     
-    <!-- <div class="card" id="julemarked"><h1>Julemarked</h1></div>
-    <div class="card" id="sensommermarked"><h1>Sensommermarked</h1></div>
-    <div class="card" id="foraarsmarked"><h1>Forårsmarked</h1></div> -->
+    <a href="/type/3"><div class="card" id="julemarked"><h1>Julemarked</h1><h1 class="read-more">Læs mere</h1></div></a>
+    <a href="/type/2"><div class="card" id="sensommermarked"><h1>Sensommermarked</h1><h1 class="read-more">Læs mere</h1></div></a>
+    <a href="/type/1"><div class="card" id="foraarsmarked"><h1>Forårsmarked</h1><h1 class="read-more">Læs mere</h1></div></a>
     <div class="markedknap-container">
     </div>
 </section>
 
-<template class="markedknap-template">
+<!-- <template class="markedknap-template">
     <article class="markedknap_article">
         <a>
             <div class="marked_div markedeknap">
@@ -21,7 +21,7 @@ import { Image } from "astro:assets";
             </div>
         </a>
     </article>
-</template>
+</template> -->
 
 <style>
     .markedeknap{
@@ -35,8 +35,9 @@ background-color: aqua;
         gap: 32px;
     }
     .card{
-        height: 534px;
-        width: 341px;
+        margin: 20px 0px 60px 0px;
+        height: 554px;
+        width: 361px;
     }
     h1{
         font-size: 2.3rem;
@@ -51,26 +52,60 @@ background-color: aqua;
     #foraarsmarked{
         background-color: #C55A6D;
     }
+    .read-more{
+        display: none;
+    }
     #julemarked:hover{
         background-image: url("../assets/img/flid-posters/julemarked23.webp");
         background-repeat: no-repeat;
   background-size: cover; 
   background-position: center;
+  transition:1s;
+   & h1{
+    display: none;
+   }
+   & .read-more{
+        display:flex;
+        font-size: 1.5rem;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
     }
     #sensommermarked:hover{
-        background-image: url("../assets/img/flid-posters/efteraarsmarked21.webp");
+        background-image: url("../assets/img/flid-posters/sensommermarked21.webp");
         background-repeat: no-repeat;
-  background-size: cover; 
+        background-size: cover; 
   background-position: center;
+  transition:1s;
+   & h1{
+    display: none;
+   }
+   & .read-more{
+        display:flex;
+       color: var(--text-color-tint);
+       font-size: 1.5rem;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
     }
     #foraarsmarked:hover{
         background-image: url("../assets/img/flid-posters/foraarsmarked23.webp");
         background-repeat: no-repeat;
-  background-size: cover; 
+        background-size: cover; 
   background-position: center;
+  transition:1s;
+   & h1{
+    display: none;
+   }
+   & .read-more{
+    display:flex;
+       font-size: 1.5rem;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
     }
 </style>
-<script>
+<!-- <script>
     window.addEventListener("DOMContentLoaded", init);
 
 const itemURL = "https://dvtoiextyxkictfnquyo.supabase.co";
@@ -110,7 +145,7 @@ items.forEach((item) => {
   itemClone = itemTemplate.cloneNode(true).content;
   itemClone.querySelector(
     "a"
-  ).href = `marked-singleview.astro?market_type=${item.type}`;
+  ).href = `[id].astro?market_type=${item.type}`;
 
   itemClone.querySelector(".marked_text").textContent = item.type;
 
@@ -118,4 +153,4 @@ items.forEach((item) => {
 });
 }
 
-</script>
+</script> -->
