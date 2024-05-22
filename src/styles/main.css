@@ -2,8 +2,6 @@
   /* Variables for colors */
   --primary-color: #fef5ea;
   --primary-color-tint: #ffffff;
-  --primary-color-tint2: #ffffff;
-  --primary-color-tint3: #ffffff;
   --primary-color-shade: #e8d2b7;
 
   --text-color: #281411;
@@ -11,10 +9,8 @@
   --text-color-tint2: #351e1a;
   --text-color-shade: #190d0c;
 
-  --secondary-color: #e1a7ac;
-  --secondary-color-tint: #edc6c5;
-  --secondary-color-tint2: #f3d6d1;
-  --secondary-color-tint3: #e7b7b8;
+  --secondary-color: #E1A7AC;
+  --secondary-color-tint: #F3D6D1;
   --secondary-color-shade: #d68893;
 
   --accent-color: #606ac2;
@@ -31,20 +27,15 @@
   /* Variables for colors in darkmode*/
   --primary-color: #281411;
   --primary-color-tint: #190d0c;
-  --primary-color-tint2: #ffffff;
-  --primary-color-tint3: #e1a7ac;
   --primary-color-shade: #351e1a;
 
   --text-color: #fef5ea;
-  --text-color-tint: #e8d2b7;
-  --text-color-tint2: #351e1a;
-  --text-color-shade: #ffffff;
+  --text-color-shade: #e8d2b7;
+  --text-color-tint: #ffffff;
 
-  --secondary-color: #8a2a3b;
-  --secondary-color-tint: #601724;
-  --secondary-color-tint2: #d07986;
-  --secondary-color-tint3: #c55a6d;
-  --secondary-color-shade: #d68893;
+  --secondary-color: #75313D;
+  --secondary-color-tint: #8E4A56;
+  --secondary-color-shade: #62202C;
 
   --accent-color: #838ce0;
   --accent-color-tint: #6670ce;
