@@ -8,7 +8,6 @@ import imageForside from "../assets/img/forside-stemning.webp";
 <section id="Container">
 
 <div id="text" data-aos="fade-left"
-data-aos-offset="300"
 data-aos-duration="1300"
 data-aos-easing="ease-in-sine">
 <h2>Design</h2>
@@ -19,18 +18,34 @@ data-aos-easing="ease-in-sine">
 </section>
 
 <style>
+    #Container{
+        border: 30px 0px 30px 30px;
+    }
 #text{
     position: absolute;
-    left: 78%;
-    bottom: -50%;
+    left: 77%;
+    bottom: -82%;
     line-height: 110px;
+    
 }
 img{
-    padding: 50px 100px 50px 0px;
+    padding: 60px 120px 60px 0px;
 }
 h2{
     font-size: 4rem;
     font-weight: 500;
+}
+@media (max-width: 1169px) {
+    h2{
+    font-size: 3rem;
+    font-weight: 500;
+}
+#text{
+    position: absolute;
+    left: 73%;
+    bottom: -82%;
+    line-height: 110px;
+}
 }
     @media (max-width: 769px) {
         img{
@@ -39,14 +54,15 @@ h2{
 }
 #text{
     position: absolute;
-    left: 10%;
-    bottom: 75%;
+    left: 6%;
+    bottom: -47%;
     line-height: 50px;
     z-index: 10;
+   
 }
 h2{
     font-size: 2rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 }
 

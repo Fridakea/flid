@@ -24,33 +24,31 @@ import { Image } from "astro:assets";
 </template> -->
 
 <style>
-    .markedeknap{
-        height: 300px;
-width: 300px;
-background-color: aqua;
-    }
     section{
         display: flex;
         flex-direction: row;
+        align-items: center;
+        justify-content: center;
         gap: 32px;
     }
     .card{
         margin: 20px 0px 60px 0px;
         height: 554px;
-        width: 361px;
+        width: 362px;
     }
     h1{
         font-size: 2.3rem;
         color: white;
+        padding-left: 5px;
     }
     #julemarked{
-        background-color: #E7B7B8;
+        background-color: #C55A6D;
     }
     #sensommermarked{
         background-color: #D68893;
     }
     #foraarsmarked{
-        background-color: #C55A6D;
+        background-color: #E7B7B8;
     }
     .read-more{
         display: none;
@@ -82,7 +80,7 @@ background-color: aqua;
    }
    & .read-more{
         display:flex;
-       color: var(--text-color-tint);
+       color: #351e1a;
        font-size: 1.5rem;
         justify-content: flex-end;
         align-items: flex-end;
