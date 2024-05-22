@@ -1,8 +1,11 @@
 ---
-import { Image } from "astro:assets";
 import Mainlayout from "../../layouts/Mainlayout.astro";
+import "../../styles/main.css";
+import "../../styles/style.css";
+import "../../styles/pc-style.css";
 import CarouselSwiper from "../../components/CarouselSwiper.astro";
 import { apiDetails } from "../../settings";
+
 
 export async function getStaticPaths() {
   const data = await fetch(`${apiDetails.supabaseUrl}/artist?select=*`, {
@@ -65,14 +68,16 @@ const { artist, artistImages } = Astro.props;
         </ul>
       </nav>
     </section>
-    <article class="product_container">
+    <article class="article_container">
       <h1 class="product_headline">{artist.name}</h1>
-      <section id="some_container">
         <div class="img_product">
+          <div class="images">
           <CarouselSwiper
             images={artistImages}
             alt="Forårsmarked 2019 billede"
+             slidesPerView={1} 
           />
+        </div>
           <div id="some_child">
             <div>
               <ul>
@@ -145,19 +150,27 @@ const { artist, artistImages } = Astro.props;
               </svg>
             </div>
           </div>
-        </div>
-        <section>
+        <!-- <section id="product_container"> -->
           <h4 class="artist_undertitle">
-            We upcycle discarded textiles to give them a longer life
+            {artist.secondary_description}
           </h4>
           <p class="txt_description">{artist.description}</p>
-        </section>
-      </section>
+      <!-- </section> -->
+    </div> 
     </article>
   </main>
 </Mainlayout>
 
 <style>
+main{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+  h1{
+    margin-top: 30px;
+  }
+
   .arrow {
     max-width: 30px;
     padding-bottom: 5%;
@@ -230,6 +243,7 @@ const { artist, artistImages } = Astro.props;
     grid-template-columns: 1fr 1fr;
     margin-top: 30px;
     margin: 8%;
+    order: 1;
     /* grid-template-rows: 1fr 1fr; */
   }
 
@@ -255,6 +269,24 @@ const { artist, artistImages } = Astro.props;
     fill: #6670ce;
   }
 
+  .artist_undertitle{
+    max-width: 450px;
+    margin-bottom: 30px;
+    padding: 10px;
+    padding-bottom: 0;
+  }
+
+  /* .swiper-slide img {
+    width: 50%;
+  } */
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+
   @media (min-width: 769px) {
     h6 {
       display: block;
@@ -269,12 +301,12 @@ const { artist, artistImages } = Astro.props;
     #some_container {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
     }
     .some_child {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      justify-content: center;
+      /* order: 1;    */
+      grid-column: 1;
+      grid-row: 1;
     }
 
     .some_childchild {
@@ -282,7 +314,68 @@ const { artist, artistImages } = Astro.props;
     }
 
     .img_product {
-      order: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 2fr 2fr 1fr;
+      /* width: 500px; */
     }
+
+    .artist_undertitle{
+      grid-column: 1;
+      grid-row: 2/4;
+    }
+
+    .txt_description{
+      grid-row: 3;
+      grid-column: 1/3;
+    }
+    .images{
+      /* order: 2; */
+      grid-column: 2;
+      grid-row: 1;
+      width: 500px;
+    }
+
+  
   }
 </style>
+
+
+<script>
+import Swiper from "swiper/bundle";
+
+// Sæt slidesPerView til 1 uanset skærmstørrelse
+const slidesPerView = 1;
+// const { images, alt, slidesPerView = 1, height = '250px' } = Astro.props;
+
+const swiper = new Swiper(".swiper", {
+  slidesPerView: slidesPerView,
+  spaceBetween: 24,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+
+
+console.log(swiper);
+
+</script>
+
+
+<!-- <script>
+  import Swiper from "swiper/bundle";
+
+  let slidesPerView = 1;
+  if (window.innerWidth > 500) slidesPerView = 3;
+
+  const swiper = new Swiper(".swiper", {
+    slidesPerView: slidesPerView,
+    spaceBetween: 24,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+  console.log(swiper);
+</script> -->
