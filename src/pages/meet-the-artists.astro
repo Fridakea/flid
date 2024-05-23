@@ -117,10 +117,10 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
   @media (min-width: 769px) {
     #market_parent {
-      display: flex;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
       align-items: center;
-      justify-content: center;
+      /* justify-content: center; */
       margin: auto;
       gap: 5%;
       width: auto;

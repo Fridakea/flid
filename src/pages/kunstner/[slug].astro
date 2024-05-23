@@ -1,5 +1,8 @@
 ---
 import Mainlayout from "../../layouts/Mainlayout.astro";
+import "../../styles/main.css";
+import "../../styles/style.css";
+import "../../styles/pc-style.css";
 import ArtistSwiper from "../../components/ArtistSwiper.astro";
 import { apiDetails } from "../../settings";
 
@@ -53,13 +56,13 @@ const { artist, artistImages } = Astro.props;
 <Mainlayout>
   <main>
     <section id="breadcrumb">
-      <a href="javascript:history.back()">
-        <img class="arrow" src="/src/assets/img/arrow1.svg" alt="pil" /></a
+      <a href="javascript:history.back()"
+        ><img class="arrow" src="/src/assets/img/arrow1.svg" alt="pil" /></a
       >
       <nav>
         <ul>
-          <!-- <li><a href=`/kunstner-oversigt/${data.slug}`>Mød udstillerne</a></li> -->
-          <li><a href=`/kunstner/${artist.slug}`>{artist.name}</a></li>
+          <li><a href="meet-the-artists">Mød udstillerne</a></li>
+          <li><a href="">{artist.name}</a></li>
           <li>{artist.name}</li>
         </ul>
       </nav>
@@ -191,7 +194,7 @@ const { artist, artistImages } = Astro.props;
   }
 
   h1 {
-    margin-top: 30px;
+    margin-top: 40px;
   }
 
   .arrow {

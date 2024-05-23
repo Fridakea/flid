@@ -85,6 +85,11 @@ const { market, participants } = Astro.props;
 </Mainlayout>
 
 <style>
+  main{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+  
   .arrow {
     max-width: 30px;
   }
@@ -92,19 +97,51 @@ const { market, participants } = Astro.props;
   h2 {
     font-weight: bold;
     font-size: 1.9rem;
+    margin-top: 30px;
   }
 
   h6 {
     display: none;
   }
 
-  #breadcrumb {
-    padding-bottom: 5%;
-    padding-top: 2%;
-  }
   #breadcrumb nav {
-    display: none;
+    display: block;
   }
+
+  #breadcrumb {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+  }
+
+  #breadcrumb nav {
+    text-align: right;
+  }
+
+  /* creating the breadcrumb foundation */
+  #breadcrumb ul {
+    list-style: none;
+    font-weight: bold;
+  } /* remove bullet points */
+  #breadcrumb ul li {
+    display: inline;
+    font-size: 0.7rem;
+  } /* show list items horizontally */
+
+  /* Put an angle bracket (>) between list items */
+  #breadcrumb ul li + li:before {
+    content: ">";
+    padding: 10px;
+    font-size: 0.7rem;
+  }
+
+  #breadcrumb ul li a {
+    text-decoration: none;
+    font-size: 0.7rem;
+  } /* remove underlines from links */
+  #breadcrumb ul li a:hover {
+    text-decoration: underline;
+  } /* show underline on mouseover */
+
 
   /* ---- Produktliste grid ------ */
   .artist_container {
@@ -112,6 +149,10 @@ const { market, participants } = Astro.props;
     grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
     gap: 5px;
     justify-content: center;
+    margin-top: 40px;
+  }
+  .artist_container img{
+    height: 150px;
   }
 
   /* Rectangle 12 */
@@ -127,11 +168,6 @@ const { market, participants } = Astro.props;
     color: #fef5ea;
   }
 
-  .artist_container img{
-    max-width: 130px;
-    max-height: 130px;
-  }
-
   @media (min-width: 769px) {
     h6 {
       display: block;
@@ -140,6 +176,7 @@ const { market, participants } = Astro.props;
     /* breadcrumb */
     #breadcrumb nav {
       display: block;
+      text-align: right;
     }
 
     #breadcrumb {
@@ -147,22 +184,24 @@ const { market, participants } = Astro.props;
       grid-template-columns: 3fr 3fr;
     }
 
-    #breadcrumb nav {
-      text-align: right;
+    #breadcrumb ul li { 
+    font-size: 1rem;
+  }
+  #breadcrumb ul li a{
+    font-size:1rem;
     }
-    ul {
-      list-style: none;
-    }
-
+    
     /* vis liste-elementerne horisontalt */
     ul li {
       display: inline;
+      font-size: 1rem;
     }
 
     /* Sæt en (>) mellem liste-elementerne */
     #breadcrumb ul li + li:before {
       content: ">";
       padding: 10px;
+      font-size: 1rem;
     }
 
     ul li a {
@@ -174,6 +213,7 @@ const { market, participants } = Astro.props;
 
     /* additional styling */
     ul {
+      list-style: none;
       color: var(--text-color);
       font-family: "Avenir";
       font-weight: bold;
@@ -198,5 +238,23 @@ const { market, participants } = Astro.props;
       grid-template-columns: repeat(auto-fill, minmax(220px, 220px));
       gap: 25px;
     }
+
+    .artist_container a{
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   }
+    .artist_container img{
+    height: 225px;
+  }
+  }
+</style>
+
+<style is:global>
+ @media (min-width: 769px) {
+  #breadcrumb ul a{
+  font-size: 1rem;
+ }
+ }
 </style>
