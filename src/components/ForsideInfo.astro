@@ -7,15 +7,13 @@ import poster from "../assets/img/flid-posters/foraarsmarked18.webp";
 ---
 <section>
 <div id="indhold">
-    <div>
+
 <h3>Deltag i vores Sensommermarked</h3>
 <p>Flid fylder 10 år, og af den årsag vil vi gerne invitere til Sensommermarked!
 Vi vil i år gerne velkommen til vores særlige Sensommermarked i anledning af 10-års jubilæet for Kunsthåndværkermarked Flid. Oplev det bedste inden for unikt håndværk og skabende talent, når vi fejrer et årti med dedikation til kunsten.
  Kom og deltag i denne festlige begivenhed, hvor vi hylder kreativitet, dygtighed og originalitet.</p>
  <p>Der er betaling ved døren, så bare skriv det ind i kalenderen og mød op til en god dag. Glæd dig til en dag fyldt med inspirerende værker, live demonstrations og meget mere! Oplev et helt specielt markede, fyldt med håndlavet kunst, men også kunstnerne bag.
     Vi hos flid, glæder os rigtigt meget til at se jer.</p>
-</div>
-<div>
        <h4>Vores næste marked: <br> Sensommermarked</h4>
        <div id="Tabel">
         <div class="rows color2"><h3>Entrépris</h3><h3>40 kr.</h3></div>
@@ -23,17 +21,15 @@ Vi vil i år gerne velkommen til vores særlige Sensommermarked i anledning af 1
         <div class="rows color2"><h3>Tidspunkt</h3><h3>Kl. 10:00 - 16:00</h3></div>
         <div class="rows color1"><h3>Lokation:</h3><h3>Nørrebro Hallen</h3></div>
        </div>
+    
     </div>
+
+
        <Image src={poster} class="pc-only" alt="Billede af plakat lavet til sensommermarked" />
 </section>
 
        <style>
-section{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-gap: 60px;
-padding: ;
-}
+
 p{
     padding-top: 15px;
 }
@@ -69,10 +65,17 @@ p{
 }
 
 @media (max-width: 769px) {
-    section{
+    /* section{
     display: flex;
     flex-direction: column;
+gap: 60px; */
+
+section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 gap: 60px;
+padding: ;
 }
 }
+
        </style>
