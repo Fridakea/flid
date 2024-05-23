@@ -59,7 +59,6 @@ const { images, alt } = Astro.props;
   import Swiper from "swiper/bundle";
 
   let slidesPerView = 1;
-  if (window.innerWidth > 500) slidesPerView = 3;
 
   const swiper = new Swiper(".swiper", {
     slidesPerView: slidesPerView,
