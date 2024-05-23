@@ -180,6 +180,7 @@ const { type, poster, fotos } = Astro.props;
 </Mainlayout>
 
 <style>
+
   #insta_icon:hover .fyld,
   #facebook_icon:hover .fyld {
     fill: var(--accent-color-shade);
@@ -254,4 +255,18 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
   }
+  @media (max-width: 769px) {
+    section{
+    display: flex;
+    flex-direction: column;
+gap: 60px;
+}
+h1{
+        font-size: 2.3rem;
+    }
+  h3{
+    font-size: 1.5rem;
+  }
+  }
+
 </style>
