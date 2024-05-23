@@ -28,4 +28,12 @@
     justify-content: center;
     align-items: center;
 }
+
+.pc-space-between {
+    justify-content: space-between;
+}
+
+.pc-gap-l {
+    gap: var(--spacing-large);
+}
 }
