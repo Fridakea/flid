@@ -6,11 +6,11 @@ import { Image } from "astro:assets";
 ---
 <section>
     
-    <h1 class="pc-hide">Julemarked</h1>
+    <h1 class="mobiltext pc-hide">Julemarked</h1>
     <a href="/type/3"><div class="card" id="julemarked"><h1 class="display">Julemarked</h1><h1 class="read-more display">Læs mere</h1></div></a>
-    <h1 class="pc-hide">Sensommermarked</h1>
+    <h1 class="mobiltext pc-hide">Sensommermarked</h1>
     <a href="/type/2"><div class="card" id="sensommermarked"><h1 class="display">Sensommermarked</h1><h1 class="read-more display">Læs mere</h1></div></a>
-    <h1 class="pc-hide">Forårsmarked</h1>
+    <h1 class="mobiltext pc-hide">Forårsmarked</h1>
     <a href="/type/1"><div class="card" id="foraarsmarked"><h1 class="display">Forårsmarked</h1><h1 class="read-more display">Læs mere</h1></div></a>
     <div class="markedknap-container">
     </div>
@@ -31,10 +31,14 @@ import { Image } from "astro:assets";
     display: none;
 }
 
+.mobiltext {
+    margin-bottom: 0;
+}
 section{
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 12px;
+    margin-bottom: 50px;
 }
 
 #julemarked{
