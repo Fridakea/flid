@@ -18,6 +18,11 @@
     flex-direction: row;
 }
 
+.flex-row-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 .flex-center {
     justify-content: center;
     align-items: center;
