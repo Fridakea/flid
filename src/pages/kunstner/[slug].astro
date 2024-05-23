@@ -1,18 +1,18 @@
 ---
 import Mainlayout from "../../layouts/Mainlayout.astro";
-import "../../styles/main.css";
-import "../../styles/style.css";
-import "../../styles/pc-style.css";
 import ArtistSwiper from "../../components/ArtistSwiper.astro";
 import { apiDetails } from "../../settings";
 
 export async function getStaticPaths() {
-  const data = await fetch(`${apiDetails.supabaseUrl}/artist?select=*`, {
-    method: "GET",
-    headers: {
-      apikey: apiDetails.supabaseAnonKey,
-    },
-  }).then((response) => response.json());
+  const data = await fetch(
+    `${apiDetails.supabaseUrl}/artist?select=*,artist_market(market(name))`,
+    {
+      method: "GET",
+      headers: {
+        apikey: apiDetails.supabaseAnonKey,
+      },
+    }
+  ).then((response) => response.json());
 
   // Laver liste med billeder i imageFolder mappen. Se astro doc: https://docs.astro.build/en/recipes/dynamically-importing-images/
   const imageFolder = "/src/assets/img/artists";
@@ -61,8 +61,10 @@ const { artist, artistImages } = Astro.props;
       >
       <nav>
         <ul>
-          <li><a href="meet-the-artists">Mød udstillerne</a></li>
-          <li><a href="">{artist.name}</a></li>
+          <li><a href="../../meet-the-artists">Mød udstillerne</a></li>
+          <li>
+            <a href="javascript:history.back()">Markeder</a>
+          </li>
           <li>{artist.name}</li>
         </ul>
       </nav>
@@ -164,10 +166,6 @@ const { artist, artistImages } = Astro.props;
 </Mainlayout>
 
 <style>
-  main {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
   .categories ul {
     margin: 0 var(--spacing-small);
   }
