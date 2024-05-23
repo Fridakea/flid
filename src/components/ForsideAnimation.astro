@@ -1,72 +1,40 @@
 ---
-import "../styles/main.css";
-import "../styles/style.css";
-import "../styles/pc-style.css";
 import { Image } from "astro:assets";
 import imageForside from "../assets/img/forside-stemning.webp";
 ---
-<section id="Container">
 
-<div id="text" data-aos="fade-left"
-data-aos-duration="1300"
-data-aos-easing="ease-in-sine">
-<h2>Design</h2>
-<h2>Kunst</h2>
-<h2>Håndværk</h2>
-</div>
-<Image src={imageForside} alt="Billede af en håndlavet kop" />
+<section id="Container" class="flex-row-reverse">
+  <div
+    id="text"
+    data-aos="fade-left"
+    data-aos-duration="1300"
+    data-aos-easing="ease-in-sine"
+  >
+    <h2>Design</h2>
+    <h2>Kunst</h2>
+    <h2>Håndværk</h2>
+  </div>
+  <div>
+    <Image src={imageForside} alt="Billede af en håndlavet kop" />
+  </div>
 </section>
 
 <style>
-    #Container{
-        border: 30px 0px 30px 30px;
-    }
-#text{
-    position: absolute;
-    left: 77%;
-    bottom: -82%;
+  #Container {
+    border: 30px 0px 30px 30px;
+    margin: var(--spacing-large) 0 var(--spacing-large);
+  }
+  #text {
     line-height: 110px;
-    
-}
-img{
-    padding: 60px 120px 60px 0px;
-}
-h2{
+    margin: auto;
+    margin-left: -25px;
+  }
+  img {
+    width: 100%;
+  }
+  h2 {
     font-size: 4rem;
     font-weight: 500;
-}
-@media (max-width: 1169px) {
-    h2{
-    font-size: 3rem;
-    font-weight: 500;
-}
-#text{
-    position: absolute;
-    left: 73%;
-    bottom: -82%;
-    line-height: 110px;
-}
-}
-    @media (max-width: 769px) {
-        img{
-    padding: 10px;
-    transform: scaleX(-1);
-}
-#text{
-    position: absolute;
-    left: 6%;
-    bottom: -47%;
-    line-height: 50px;
-    z-index: 10;
-   
-}
-h2{
-    font-size: 2rem;
-    font-weight: 600;
-}
-}
-
+  }
 </style>
-<script>
-
-</script>
+<script></script>
