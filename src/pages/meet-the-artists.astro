@@ -24,7 +24,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     <!-- Cards lavet til hvers marked med billede og tekst + som linjer til den specifikke underside -->
     {
       data.map((market) => (
-        <a href={`kunstner_oversigt/${market.slug}`}>
+        <a href={`kunstner-oversigt/${market.slug}`}>
           <div class="sensommer_container">
             <Image
               src={images[`${imageFolder}/${market.image}`]()}
@@ -36,7 +36,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
       ))
     }
 
-    <a href=`/kunstner_oversigt/${data.slug}`>
+    <a href=`/kunstner-oversigt/${data.slug}`>
       <div class="sensommer_container">
         <img src={data.image} alt={data.name} />
         <div></div>
@@ -46,14 +46,14 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     <h2>Udstillerne på forrige marked</h2>
     <article id="market_parent">
       <section class="market_child">
-        <a href=`/kunstner_oversigt/${data.slug}`></a>
+        <a href=`/kunstner-oversigt/${data.slug}`></a>
         <img src={data.image} alt={data.name} />
         <div></div>
         <h6>Forårsmarked 2024</h6>
       </section>
     </article>
     <section class="market_child">
-      <a href=`/kunstner_oversigt/${data.slug}`>
+      <a href=`/kunstner-oversigt/${data.slug}`>
         <img src={data.image} alt={data.name} />
         <div></div>
         <h6>Julemarked 2024</h6>
@@ -61,7 +61,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     </section>
 
     <section class="market_child">
-      <a href=`/kunstner_oversigt/${data.slug}`></a>
+      <a href=`/kunstner-oversigt/${data.slug}`></a>
       <img src={data.image} alt={data.name} />
       <div></div>
       <h6>Forårsmarked 2023</h6>
