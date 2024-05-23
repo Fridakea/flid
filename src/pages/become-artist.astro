@@ -10,7 +10,6 @@ import Billede_Upload from "../components/Billede_Upload.astro";
     <h1>Bliv udstiller</h1>
 
     <div class="top_grid">
-   
       <div class="become_text">
         <p>
           Som udstiller oplever man en unik følelse af fællesskab blandt de
@@ -34,7 +33,7 @@ import Billede_Upload from "../components/Billede_Upload.astro";
         </p>
       </div>
 
-      <div class="images triple_pic ">
+      <div class="images triple_pic">
         <img
           class="box-1"
           src="src/assets/img/become_artist/left_pic.webp"
@@ -52,7 +51,7 @@ import Billede_Upload from "../components/Billede_Upload.astro";
         />
       </div>
 
-      <div class="acco_artist" >
+      <div class="acco_artist">
         <h2>Q & A</h2>
         <Accordion title="Bordtyper & priser">
           <p>
@@ -90,128 +89,140 @@ import Billede_Upload from "../components/Billede_Upload.astro";
           </p>
         </Accordion>
       </div>
-
-  
     </div>
-  
 
-  <h2>Tilmeld dig her</h2>
+    <h2>Tilmeld dig her</h2>
 
-  <form action="udstiller">
-    <div class="grid_1-2">
-      <input type="text" placeholder="Brandnavn..." required="" />
-      <input type="text" placeholder="CVR nummer..." required="" />
+    <form action="udstiller">
+      <div class="grid_1-2">
+        <input type="text" placeholder="Brandnavn..." required="" />
+        <input type="text" placeholder="CVR nummer..." required="" />
 
-      <select name="primary" id="primary">
-        <option value="primary">Primær kategori</option>
-        <option value="ceramics">Keramik</option>
-        <option value="textile">Tekstil</option>
-        <option value="knit">Strik</option>
-        <option value="upcycle">Upcycle</option>
-      </select>
+        <select name="primary" id="primary">
+          <option value="primary">Primær kategori</option>
+          <option value="ceramics">Keramik</option>
+          <option value="textile">Tekstil</option>
+          <option value="knit">Strik</option>
+          <option value="upcycle">Upcycle</option>
+          <option value="wood">Træ</option>
+          <option value="metal">Metal</option>
+          <option value="horn">Horn & ben</option>
+          <option value="leather">Læder & skind</option>
+          <option value="papir">Papir</option>
+          <option value="metal2">Ædelmetal</option>
+          <option value="glass">Glas</option>
+          <option value="plast">Plast</option>
+        </select>
 
-      <select name="secondary" id="secondary">
-        <option value="secondary">Sekundær kategori</option>
-        <option value="ceramics">Keramik</option>
-        <option value="textile">Tekstil</option>
-        <option value="knit">Strik</option>
-        <option value="upcycle">Upcycle</option>
-      </select>
+        <select name="secondary" id="secondary">
+          <option value="secondary">Sekundær kategori</option>
+          <option value="ceramics">Keramik</option>
+          <option value="textile">Tekstil</option>
+          <option value="knit">Strik</option>
+          <option value="upcycle">Upcycle</option>
+          <option value="wood">Træ</option>
+          <option value="metal">Metal</option>
+          <option value="horn">Horn & ben</option>
+          <option value="leather">Læder & skind</option>
+          <option value="papir">Papir</option>
+          <option value="metal2">Ædelmetal</option>
+          <option value="glass">Glas</option>
+          <option value="plast">Plast</option>
+        </select>
 
-      <textarea
-        name="description"
-        id="description"
-        placeholder="Beskriv dit professionelle kreative virke (materialer, teknikker, inspirationskilder m.m.), der kan bruges af Flid i en kommunikationskontekst..."
-      ></textarea>
-       <Billede_Upload></Billede_Upload>
+        <textarea
+          name="description"
+          id="description"
+          placeholder="Beskriv dit professionelle kreative virke (materialer, teknikker, inspirationskilder m.m.), der kan bruges af Flid i en kommunikationskontekst..."
+        ></textarea>
+        <Billede_Upload />
 
-
-      <div class="links grid_1-2">
-        <input type="url" placeholder="Link til hjemmeside..." required="" />
-        <input type="url" placeholder="Link til Facebook..." required="" />
-        <input type="url" placeholder="Link til Instagram..." required="" />
-        <input type="url" placeholder="Link til Dropbox..." required="" />
+        <div class="links grid_1-2">
+          <input type="url" placeholder="Link til hjemmeside..." required="" />
+          <input type="url" placeholder="Link til Facebook..." required="" />
+          <input type="url" placeholder="Link til Instagram..." required="" />
+          <input type="url" placeholder="Link til Dropbox..." required="" />
+        </div>
       </div>
-    </div>
 
+      <div class="grid_2-3">
+        <select name="type_bord" id="bord">
+          <option value="bord">Type bord</option>
+          <option value="almindelig1">
+            1 dag - almindeligt bord (180*90 cm) 1.200kr</option
+          >
+          <option value="dobbel1"
+            >1 dag - dobbelt bord (360*90 cm) 2.200kr</option
+          >
+          <option value="almindelig2"
+            >2 dage - almindeligt bord (180*90 cm) 2.200kr
+          </option>
+          <option value="dobbel2"
+            >2 dage - dobbelt bord (360*90 cm) 3.600kr</option
+          >
+        </select>
+        <div class="textbox">
+          <textarea
+            name="works"
+            id="works"
+            placeholder="Uddannelse og tidligere samarbejder..."></textarea>
+          <textarea name="extra" id="extra" placeholder="Andet på hjertet?"
+          ></textarea>
+        </div>
 
-    <div class="grid_2-3">
-      <select name="type_bord" id="bord">
-        <option value="bord">Type bord</option>
-        <option value="almindelig1">
-          1 dag - almindeligt bord (180*90 cm) 1.200kr</option
-        >
-        <option value="dobbel1">1 dag - dobbelt bord (360*90 cm) 2.200kr</option
-        >
-        <option value="almindelig2"
-          >2 dage - almindeligt bord (180*90 cm) 2.200kr
-        </option>
-        <option value="dobbel2"
-          >2 dage - dobbelt bord (360*90 cm) 3.600kr</option
-        >
-      </select>
-<div class="textbox">
-      <textarea
-        name="works"
-        id="works"
-        placeholder="Uddannelse og tidligere samarbejder..."></textarea>
-      <textarea name="extra" id="extra" placeholder="Andet på hjertet?"
-      ></textarea>
-    </div>
+        <div class="mini_form">
+          <h2>Kontaktinformation</h2>
+          <div class="kontaktinfo">
+            <input type="text" placeholder="Navn..." required="" />
+            <input type="text" placeholder="Efternavn..." required="" />
+            <input
+              class="big"
+              type="text"
+              placeholder="Adresse..."
+              required=""
+            />
+            <input type="text" placeholder="By..." required="" />
+            <input type="text" placeholder="Postnummer..." required="" />
+            <input
+              class="big"
+              type="text"
+              placeholder="Emailadresse..."
+              required=""
+            />
+            <input
+              class="big"
+              type="text"
+              placeholder="Telefonnummer..."
+              required=""
+            />
+          </div>
+        </div>
 
-    <div class="mini_form">
-      <h2>Kontaktinformation</h2>
-      <div class="kontaktinfo">
-        <input type="text" placeholder="Navn..." required="" />
-        <input type="text" placeholder="Efternavn..." required="" />
-        <input class="big" type="text" placeholder="Adresse..." required="" />
-        <input type="text" placeholder="By..." required="" />
-        <input type="text" placeholder="Postnummer..." required="" />
-        <input
-          class="big"
-          type="text"
-          placeholder="Emailadresse..."
-          required=""
-        />
-        <input
-          class="big"
-          type="text"
-          placeholder="Telefonnummer..."
-          required=""
-        />
+        <div class="slut">
+          <label class="container">
+            <input type="checkbox" checked="checked" />
+            <span class="checkmark"></span>
+            <p>Jeg accepterer betingelserne</p>
+          </label>
+          <Indsend_Button />
+        </div>
       </div>
-    </div>
-
-    <div class="slut">
-    <label class="container">
-      <input type="checkbox" checked="checked">
-      <span class="checkmark"></span>
-      <p>Jeg accepterer betingelserne</p>
-    </label>
-    <Indsend_Button></Indsend_Button>
-  </div>
-
-    </div>
-
-  </form>
-
-</main>
+    </form>
+  </main>
 </Mainlayout>
 
 <style>
-
-.become_text {
-     display: flex; 
+  .become_text {
+    display: flex;
     flex-direction: column;
-    gap: var(--spacing-small); 
-}
+    gap: var(--spacing-small);
+  }
   .triple_pic {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     margin-top: 50px;
   }
-
 
   .triple_pic img {
     /* height: 100%; */
@@ -227,7 +238,7 @@ import Billede_Upload from "../components/Billede_Upload.astro";
     grid-row: 2 / 4;
     grid-column: 2 / 4;
     z-index: 2;
-    max-width:100%;
+    max-width: 100%;
   }
 
   .box-3 {
@@ -235,8 +246,8 @@ import Billede_Upload from "../components/Billede_Upload.astro";
     grid-column: 3 / 5;
   }
 
-  .top_grid > *{
-  padding-top: var(--spacing-small); 
+  .top_grid > * {
+    padding-top: var(--spacing-small);
   }
   .top_grid {
     margin-bottom: var(--spacing-large);
@@ -250,10 +261,11 @@ import Billede_Upload from "../components/Billede_Upload.astro";
 
   input[type="text"],
   textarea,
-  select,  input[type="url"] {
-    background-color: #f3d6d1;
+  select,
+  input[type="url"] {
+    background-color: var(--secondary-color-tint);
     font-size: 1.2rem;
-    color: #837e7e;
+    color: var(--text-color);
     border: none;
     /* gap: 10px; */
     width: 100%;
@@ -265,14 +277,15 @@ import Billede_Upload from "../components/Billede_Upload.astro";
     border-radius: 10px;
   }
 
-
-
   .links {
-    background-color: #f3d6d1;
+    background-color: var(--secondary-color-tint);
     padding: 15px;
   }
   input[type="url"] {
-    background-color: var( --primary-color-tint);
+    background-color: var(--primary-color-tint);
+  }
+  input[type="url"]::placeholder {
+    color: var(--text-color-tint);
   }
 
   .kontaktinfo {
@@ -282,97 +295,100 @@ import Billede_Upload from "../components/Billede_Upload.astro";
     gap: var(--spacing-small);
   }
 
-  .kontaktinfo input[type="text"], .kontaktinfo 
-  textarea {
-   background-color: #E7B7B8;
+  .kontaktinfo input[type="text"],
+  .kontaktinfo textarea {
+    background-color: var( --secondary-color-tint3);
+    color: var(--text-color);
   }
 
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-color);
+  }
 
-  #description, 
+  #description,
   #works,
   #extra {
     min-height: 149px;
   }
 
- 
   .big {
     grid-column: 1 / 3;
   }
-  
 
-  form, .grid_1-2, .grid_2-3  {
+  form,
+  .grid_1-2,
+  .grid_2-3 {
     display: grid;
     gap: var(--spacing-small);
   }
 
   .container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
-/* Hide the browser's default checkbox */
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
 
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  border: 1px solid var(--text-color);
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border: 1px solid var(--text-color);
+  }
 
-}
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    border: 1px solid var(--text-color);
+  }
 
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  border: 1px solid var(--text-color);
-}
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: var(--text-color);
+  }
 
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: var(--text-color);
-}
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
 
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
 
-/* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-.container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--primary-color-tint);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
 
   @media (min-width: 769px) {
     .become_text p {
@@ -393,51 +409,50 @@ import Billede_Upload from "../components/Billede_Upload.astro";
       grid-column: 1/2;
       grid-row: 1/2;
     }
-   .textbox {
-    grid-column: 2 / 4;
-  }
+    .textbox {
+      grid-column: 2 / 4;
+    }
 
- 
     .top_grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-}
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
 
-.images {
-  grid-row: 1 / 3;
-    grid-column: 1 / 4;
+    .images {
+      grid-row: 1 / 3;
+      grid-column: 1 / 4;
+    }
 
-}
+    .become_text {
+      grid-row: 1 / 2;
+      grid-column: 1 / 3;
+    }
 
-  .become_text {
-    grid-row: 1 / 2;
-    grid-column: 1 / 3;
-  }
+    .acco_artist {
+      grid-row: 2/3;
+      grid-column: 2 / 4;
+      margin: 90px 0 0 60px;
+    }
+    #description {
+      min-height: 237px;
+    }
+    #works,
+    #extra {
+      min-height: 286px;
+    }
 
-  .acco_artist {
-    grid-row: 2/3;
-    grid-column: 2 / 4;
-    margin: 90px 0 0 60px;
-  }
-  #description {
-    min-height: 237px;
-  }
-#works, #extra {
-    min-height: 286px;
-  }
+    .links {
+      grid-column: 1 / 3;
+    }
 
-  .links {
-    grid-column: 1 / 3;
-  }
+    .slut {
+      grid-column: 2 / 3;
+    }
 
-  .slut {
-    grid-column: 2 / 3;
-  }
-
-  #bord {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-  }
+    #bord {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
   }
 </style>

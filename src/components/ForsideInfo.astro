@@ -16,16 +16,16 @@ Vi vil i år gerne velkommen til vores særlige Sensommermarked i anledning af 1
     Vi hos flid, glæder os rigtigt meget til at se jer.</p>
 </div>
 <div>
-       <h4>Vores næste markede: Sensommermarked</h4>
+       <h4>Vores næste marked: <br> Sensommermarked</h4>
        <div id="Tabel">
         <div class="rows color2"><h3>Entrépris</h3><h3>40 kr.</h3></div>
-        <div class="rows color1"><h3>Dato:</h3><h3>21 Juni 2024</h3></div>
+        <div class="rows color1"><h3>Dato:</h3><h3>21 September 2024</h3></div>
         <div class="rows color2"><h3>Tidspunkt</h3><h3>Kl. 10:00 - 16:00</h3></div>
         <div class="rows color1"><h3>Lokation:</h3><h3>Nørrebro Hallen</h3></div>
        </div>
        </div>
     </div>
-       <Image src={poster} alt="Billede af plakat lavet til sensommermarked" />
+       <Image src={poster} class="pc-only" alt="Billede af plakat lavet til sensommermarked" />
 </section>
 
        <style>
@@ -33,6 +33,7 @@ section{
     display: grid;
     grid-template-columns: 1fr 1fr;
 gap: 60px;
+padding: ;
 }
 p{
     padding-top: 15px;
@@ -43,8 +44,14 @@ p{
     justify-content: space-between;
 }
 #Tabel{
-h3{
-    font-weight: 600;
+    
+    align-items: center;
+    align-content: center;
+
+    & h3 {
+        margin: 0;
+        padding: 10px;
+        font-weight: 600;
 }
 }
 .rows{
@@ -54,11 +61,11 @@ h3{
     align-content: center;
 }
 .color1{
-    background-color: #F3D6D1;
+    background-color: var(--secondary-color-tint2);
     
 }
 .color2{
-    background-color: #EDC6C5;
+    background-color: var(--secondary-color-tint3);
     
 }
 

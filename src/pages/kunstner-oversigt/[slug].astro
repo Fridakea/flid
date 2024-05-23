@@ -1,0 +1,219 @@
+---
+import { Image } from "astro:assets";
+import Mainlayout from "../../layouts/Mainlayout.astro";
+import { apiDetails } from "../../settings";
+
+export async function getStaticPaths() {
+  const data = await fetch(
+    `${apiDetails.supabaseUrl}/market?select=*,artist_market(artist(*))`,
+    {
+      method: "GET",
+      headers: {
+        apikey: apiDetails.supabaseAnonKey,
+      },
+    }
+  ).then((response) => response.json());
+
+  // Laver liste med billeder i imageFolder mappen. Se astro doc: https://docs.astro.build/en/recipes/dynamically-importing-images/
+  const imageFolder = "/src/assets/img/artists";
+  const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/img/artists/**/*.{jpeg,jpg,png,gif,webp}"
+  );
+
+  return data.map((market) => {
+    // Check if the images are in our folders, and throw an error if its not.
+    market.artist_market = market.artist_market.map((participant) => {
+      const imgPath = participant.artist.images?.[0];
+
+      console.log(imgPath);
+
+      if (!images[`${imageFolder}/${imgPath}`]) {
+        throw new Error(
+          `"${imgPath}" ser ud til at mangle i mappen ${imageFolder}`
+        );
+      }
+
+      return {
+        ...participant.artist,
+        firstImage: images[`${imageFolder}/${imgPath}`](),
+      };
+    });
+
+    return {
+      params: { slug: market.slug },
+      props: {
+        market,
+        participants: market.artist_market,
+      },
+    };
+  });
+}
+
+interface Props {
+  market: any;
+  participants: any[];
+}
+
+const { market, participants } = Astro.props;
+---
+
+<Mainlayout>
+  <main>
+    <h2>Udstillerne på næste marked</h2>
+
+    <!-- Sådan her laves cards ud fra hver udstiller - laves ud fra alle deltagere i databasen -->
+    {
+      participants.map((participant) => (
+        <a href={`../kunstner/${participant.slug}`}>
+          <div class="sensommer_container">
+            <Image src={participant.firstImage} alt={participant.name} />
+            <h5>{participant.name}</h5>
+          </div>
+        </a>
+      ))
+    }
+
+    <a href=`/kunstner-oversigt/${market.slug}`>
+      <div class="sensommer_container">
+        <img src="/src/assets/img/sensommermarked.webp" alt="sensommermarked" />
+        <div></div>
+        <h5>{market.name}</h5>
+      </div>
+    </a>
+    <h2>Udstillerne på forrige marked</h2>
+    <article id="market_parent">
+      <section class="market_child">
+        <a href=`/kunstner-oversigt/${market.slug}`></a>
+        <img src="/src/assets/img/flid-posters/foraarsmarked23.webp" alt="" />
+        <div></div>
+        <h6>Forårsmarked 2024</h6>
+      </section>
+    </article>
+    <section class="market_child">
+      <a href=`/kunstner-oversigt/${market.slug}`>
+        <img src="/src/assets/img/flid-posters/julemarked23.webp" alt="" />
+        <div></div>
+        <h6>Julemarked 2024</h6>
+      </a>
+    </section>
+
+    <section class="market_child">
+      <a href=`/kunstner-oversigt/${market.slug}`></a>
+      <img src="/src/assets/img/flid-posters/foraarsmarked22.webp" alt="" />
+      <div></div>
+      <h6>Forårsmarked 2023</h6>
+    </section>
+  </main>
+</Mainlayout>
+
+<style>
+  .arrow {
+    max-width: 30px;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 1.9rem;
+  }
+
+  h6 {
+    display: none;
+  }
+
+  #breadcrumb {
+    padding-bottom: 5%;
+    padding-top: 2%;
+  }
+  #breadcrumb nav {
+    display: none;
+  }
+
+  /* ---- Produktliste grid ------ */
+  .artist_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
+    gap: 5px;
+    justify-content: center;
+  }
+
+  /* Rectangle 12 */
+  .artist_name {
+    /* position: absolute; */
+    padding: 4px;
+    padding-top: 0;
+    width: auto;
+    height: 30px;
+    left: 40.7px;
+    top: 397px;
+    background: #e7b7b8;
+    color: #fef5ea;
+  }
+
+  @media (min-width: 769px) {
+    h6 {
+      display: block;
+    }
+
+    /* breadcrumb */
+    #breadcrumb nav {
+      display: block;
+    }
+
+    #breadcrumb {
+      display: grid;
+      grid-template-columns: 3fr 3fr;
+    }
+
+    #breadcrumb nav {
+      text-align: right;
+    }
+    ul {
+      list-style: none;
+    }
+
+    /* vis liste-elementerne horisontalt */
+    ul li {
+      display: inline;
+    }
+
+    /* Sæt en (>) mellem liste-elementerne */
+    #breadcrumb ul li + li:before {
+      content: ">";
+      padding: 10px;
+    }
+
+    ul li a {
+      text-decoration: none;
+    }
+    ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* additional styling */
+    ul {
+      color: var(--text-color);
+      font-family: "Avenir";
+      font-weight: bold;
+    }
+
+    ul li a {
+      color: var(--text-color);
+    }
+    ul li a:visited {
+      color: var(--text-color);
+    }
+    ul li + li:before {
+      color: var(--text-color);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    .artist_container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 220px));
+      gap: 25px;
+    }
+  }
+</style>
