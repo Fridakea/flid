@@ -6,9 +6,9 @@ import { Image } from "astro:assets";
 ---
 <section>
     
-    <a href="/type/3"><div class="card" id="julemarked"><h1>Julemarked</h1><h1 class="read-more">Læs mere</h1></div></a>
-    <a href="/type/2"><div class="card" id="sensommermarked"><h1>Sensommermarked</h1><h1 class="read-more">Læs mere</h1></div></a>
-    <a href="/type/1"><div class="card" id="foraarsmarked"><h1>Forårsmarked</h1><h1 class="read-more">Læs mere</h1></div></a>
+    <a href="/type/3"><div class="card" id="julemarked"><h1>Julemarked</h1><h1 class="read-more display">Læs mere</h1></div></a>
+    <a href="/type/2"><div class="card" id="sensommermarked"><h1>Sensommermarked</h1><h1 class="read-more display">Læs mere</h1></div></a>
+    <a href="/type/1"><div class="card" id="foraarsmarked"><h1>Forårsmarked</h1><h1 class="read-more display">Læs mere</h1></div></a>
     <div class="markedknap-container">
     </div>
 </section>
@@ -24,6 +24,25 @@ import { Image } from "astro:assets";
 </template> -->
 
 <style>
+.display{
+    display: none;
+}
+
+#julemarked{
+        background-image: url("../assets/img/flid-posters/julemarked23.webp");
+        height: 315px;
+}
+#sensommermarked{
+        background-image: url("../assets/img/flid-posters/sensommermarked21.webp");
+        height: 315px;
+}
+#foraarsmarked{
+        background-image: url("../assets/img/flid-posters/foraarsmarked23.webp");
+        height: 315px;
+    }
+
+
+@media (min-width: 769px) {
     section{
         display: flex;
         flex-direction: row;
@@ -102,6 +121,7 @@ import { Image } from "astro:assets";
         align-items: flex-end;
     }
     }
+}
 </style>
 <!-- <script>
     window.addEventListener("DOMContentLoaded", init);
