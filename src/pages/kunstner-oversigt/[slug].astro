@@ -113,6 +113,9 @@ const { market, participants } = Astro.props;
     gap: 5px;
     justify-content: center;
   }
+  .artist_container img{
+    height: 130px;
+  }
 
   /* Rectangle 12 */
   .artist_name {
@@ -125,11 +128,6 @@ const { market, participants } = Astro.props;
     top: 397px;
     background: #e7b7b8;
     color: #fef5ea;
-  }
-
-  .artist_container img{
-    max-width: 130px;
-    max-height: 130px;
   }
 
   @media (min-width: 769px) {
@@ -198,5 +196,15 @@ const { market, participants } = Astro.props;
       grid-template-columns: repeat(auto-fill, minmax(220px, 220px));
       gap: 25px;
     }
+
+    .artist_container a{
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  }
+    .artist_container img{
+    height: 225px;
+  }
   }
 </style>
