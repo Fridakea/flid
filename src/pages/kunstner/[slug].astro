@@ -3,7 +3,7 @@ import Mainlayout from "../../layouts/Mainlayout.astro";
 import "../../styles/main.css";
 import "../../styles/style.css";
 import "../../styles/pc-style.css";
-import CarouselSwiper from "../../components/CarouselSwiper.astro";
+import ArtistSwiper from "../../components/ArtistSwiper.astro";
 import { apiDetails } from "../../settings";
 
 
@@ -71,7 +71,7 @@ const { artist, artistImages } = Astro.props;
       <h1 class="product_headline">{artist.name}</h1>
         <div class="img_product">
           <div class="images">
-          <CarouselSwiper
+          <ArtistSwiper
             images={artistImages}
             alt="Forårsmarked 2019 billede"
              slidesPerView={1} 
