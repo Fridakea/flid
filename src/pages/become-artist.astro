@@ -3,6 +3,10 @@ import Mainlayout from "../layouts/Mainlayout.astro";
 import Accordion from "../components/Accordion.astro";
 import Indsend_Button from "../components/Indsend_Button.astro";
 import Billede_Upload from "../components/Billede_Upload.astro";
+import { Image } from "astro:assets";
+import Image1 from "../assets/img/become_artist/left_pic.webp"
+import Image2 from "../assets/img/become_artist/middle_picture.webp"
+import Image3 from "../assets/img/become_artist/right_pic.webp"
 ---
 
 <Mainlayout>
@@ -34,21 +38,16 @@ import Billede_Upload from "../components/Billede_Upload.astro";
       </div>
 
       <div class="images triple_pic">
-        <img
-          class="box-1"
-          src="src/assets/img/become_artist/left_pic.webp"
-          alt="Smiling lady at stand"
-        />
-        <img
-          class="box-2"
-          src="src/assets/img/become_artist/middle_picture.webp"
-          alt="Glass eggs in different colors"
-        />
-        <img
-          class="box-3"
-          src="src/assets/img/become_artist/right_pic.webp"
-          alt="Customer and seller at stand"
-        />
+        <Image   class="box-1"
+        src={Image1} 
+          alt="Smiling lady at stand" /> 
+          <Image   class="box-2"
+          src={Image2} 
+          alt="Glass eggs in different colors"/> 
+            <Image   class="box-3"
+            src={Image3} 
+            alt="Customer and seller at stand"/> 
+      
       </div>
 
       <div class="acco_artist">
