@@ -28,6 +28,10 @@
     align-items: center;
 }
 
+.space-evenly {
+    justify-content: space-evenly;
+}
+
 .flex1 {
     flex: 1;
 }
