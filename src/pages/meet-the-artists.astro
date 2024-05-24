@@ -20,22 +20,151 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 <Mainlayout>
   <main>
     <h2>Udstillerne på tidligere markeder</h2>
-    <!-- Cards lavet til hvers marked med billede og tekst + som linjer til den specifikke underside -->
-    <article id="market_parent"> {
+    <!-- Cards lavet til hvert marked med billede og tekst + som linjer til den specifikke underside -->
+    <article id="market_parent"> 
+      {
+        data.map((market) => (
+          <a href={`kunstner-oversigt/${market.slug}`}>
+            <div class="market_child">
+              <div class="market_overlay"></div>
+              <div class="market_image_container">
+                <Image
+                  src={images[`${imageFolder}/${market.image}`]()}
+                  alt={market.slug}
+                  class="market_image"
+                />
+              </div>
+              <p>{market.name}</p>
+            </div>
+          </a>
+        ))
+      }
+    </article>
+  </main>
+</Mainlayout>
+
+<style>
+  /* Generel styling */
+  #market_parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .market_child {
+    position: relative;
+    width: 300px;
+    height: 450px;
+    margin-top: 6%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .market_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #d68893;
+    z-index: 20;
+    transition: opacity 0.1s ease-out;
+    opacity: 1;
+  }
+
+  .market_child:hover .market_overlay {
+    opacity: 0;
+  }
+
+  .market_image_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+
+  .market_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  p {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+    text-align: center;
+    color: var(--text-color);
+    margin: 0;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5); /* Baggrundsfarve for bedre læsbarhed */
+    border-radius: 5px;
+  }
+
+
+  
+  @media (min-width: 769px) {
+    #market_parent {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: repeat(auto-fill, minmax(500px, 500px));
+      align-items: center;
+      margin: auto;
+      gap: 15px;
+      width: auto;
+    }
+  }
+</style>
+
+<!-- ---
+import { Image } from "astro:assets";
+import Mainlayout from "../layouts/Mainlayout.astro";
+import { apiDetails } from "../settings";
+
+const data = await fetch(`${apiDetails.supabaseUrl}/market?select=*`, {
+  method: "GET",
+  headers: {
+    apikey: apiDetails.supabaseAnonKey,
+  },
+}).then((response) => response.json());
+
+// Laver liste med billeder i imageFolder mappen. Astro doc: https://docs.astro.build/en/recipes/dynamically-importing-images/
+const imageFolder = "/src/assets/img/flid-posters";
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/img/flid-posters/*.{jpeg,jpg,png,gif,webp}"
+);
+---
+
+<Mainlayout>
+  <main>
+    <h2>Udstillerne på tidligere markeder</h2>
+    Cards lavet til hvers marked med billede og tekst + som linjer til den specifikke underside 
+    <article id="market_parent"> 
+     {
       data.map((market) => (
-        <a href={`kunstner-oversigt/${market.slug}`}>
-          <div class="market_child">
+         <a href={`kunstner-oversigt/${market.slug}`}>
+         <div class="market_child"> <div class="market_overlay"> 
             <Image
               src={images[`${imageFolder}/${market.image}`]()}
               alt={market.slug}
+              class="market_image"
             />
             <p>{market.name}</p>
-          </div>
-        </a>
+         </div> </div>
+          
+        </a>  
+       
       ))
-    }  
-    </article>
-<!-- 
+    }
+   
+    </article> 
+
     <a href=`/kunstner-oversigt/${data.slug}`>
       <div class="sensommer_container">
         <img src={data.image} alt={data.name} />
@@ -70,7 +199,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 </Mainlayout>
 
 <style>
-  /* .sensommer_container div {
+/* .sensommer_container div {
     width: 100%;
     height: 40px;
     background-color: var(--secondary-color-shade);
@@ -85,9 +214,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-  } */
+  }
 
-  /* Generel styling */
+  /* Generel styling 
   #market_parent {
     display: flex;
     flex-direction: column;
@@ -96,53 +225,76 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   }
 
   .market_child {
+    position: relative;
     width: 300px;
+    height: 450px;
     margin-top: 6%;
     cursor: pointer;
     transition: all 0.3s ease;
-    background-color: var(--primary-color-tint3);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
   }
 
-
-
-  h6 {
-    color: var(--primary-color);
-    height: 35px;
-    padding-top: 5%;
-    padding-left: 7px;
+  .market_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #d68893;
+    z-index: 30;
+    transition: opacity 0.1s ease;
+    opacity: 1;
   }
+
+  .market_child:hover .market_overlay {
+    opacity: 0;
+  }
+
+  .market_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 5;
+  }
+
+  p {
+    position: relative;
+    z-index: 20;} 
+    /*
+    text-align: center;
+    margin-top: 460px; /* Juster denne værdi efter behov */
+    /* color: var(--text-color);
+
 
   @media (min-width: 769px) {
     #market_parent {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: repeat(auto-fill, minmax(500px, 500px));
       align-items: center;
-      /* justify-content: center; */
       margin: auto;
-      gap: 5%;
+      gap: 15px;
       width: auto;
     }
   }
-
-  /* 
+  
 .market_child img {
   width: 100%;
   height: auto;
-  display: none; /* Skjul billedet som standard */
-  /* transition: transform 0.3s ease;
-} */
+  display: none;  Skjul billedet som standard 
+   transition: transform 0.3s ease;
+}
 
-  /* .market_child div {
+  .market_child div {
   background-color: #281411;
   width: 100%;
   height: 50px;
   transition: all 0.3s ease;
   z-index: 1;
   position: relative;
-} */
+} 
 
   /* .market_child h6 {
   position: relative;
