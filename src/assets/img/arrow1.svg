@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.01 29.46">
+<svg id="arrow" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.01 29.46">
   <defs>
     <style>
-      .cls-1 {
+      .fill_out {
         fill: #281411;
         stroke-width: 0px;
       }
     </style>
   </defs>
   <g id="Layer_1-2" data-name="Layer 1">
-    <path class="cls-1" d="M.59,13.31c-.78.78-.78,2.05,0,2.83l12.73,12.73c.78.78,2.05.78,2.83,0,.78-.78.78-2.05,0-2.83L4.83,14.73,16.14,3.41c.78-.78.78-2.05,0-2.83-.78-.78-2.05-.78-2.83,0L.59,13.31ZM43.01,12.73H2v4h41.01v-4Z"/>
+    <path class="fill_out" d="M.59,13.31c-.78.78-.78,2.05,0,2.83l12.73,12.73c.78.78,2.05.78,2.83,0,.78-.78.78-2.05,0-2.83L4.83,14.73,16.14,3.41c.78-.78.78-2.05,0-2.83-.78-.78-2.05-.78-2.83,0L.59,13.31ZM43.01,12.73H2v4h41.01v-4Z"/>
   </g>
 </svg>

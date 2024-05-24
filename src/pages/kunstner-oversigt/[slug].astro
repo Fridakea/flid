@@ -61,7 +61,19 @@ const { market, participants } = Astro.props;
   <main>
     <section id="breadcrumb">
       <a href="javascript:history.back()">
-        <img class="arrow" src="/src/assets/img/arrow1.svg" alt="pil" /></a
+        <svg id="arrow" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.01 29.46">
+          <defs>
+            <style>
+              .fill_out {
+                fill: var(--text-color);
+                stroke-width: 0px;
+              }
+            </style>
+          </defs>
+          <g id="Layer_1-2" data-name="Layer 1">
+            <path class="fill_out" d="M.59,13.31c-.78.78-.78,2.05,0,2.83l12.73,12.73c.78.78,2.05.78,2.83,0,.78-.78.78-2.05,0-2.83L4.83,14.73,16.14,3.41c.78-.78.78-2.05,0-2.83-.78-.78-2.05-.78-2.83,0L.59,13.31ZM43.01,12.73H2v4h41.01v-4Z"/>
+          </g>
+        </svg></a
       >
       <nav>
         <ul>
@@ -75,7 +87,7 @@ const { market, participants } = Astro.props;
     <div class="artist_container">
       {
         participants.map((participant) => (
-          <a href={`../kunstner/${participant.slug}`}>
+          <a class="artist_card" href={`../kunstner/${participant.slug}`}>
             <Image src={participant.firstImage} alt={participant.name} />
             <h5 class="artist_name">{participant.name}</h5>
           </a>
@@ -86,7 +98,7 @@ const { market, participants } = Astro.props;
 </Mainlayout>
 
 <style>
-  .arrow {
+  #arrow {
     max-width: 30px;
   }
 
@@ -165,6 +177,7 @@ const { market, participants } = Astro.props;
     top: 397px;
     background: #e7b7b8;
     color: #fef5ea;
+    transform: translateY(-50%);
   }
 
   @media (min-width: 769px) {
@@ -247,6 +260,15 @@ const { market, participants } = Astro.props;
     .artist_container img {
       height: 225px;
     }
+
+    .artist_name{
+      opacity: 0;
+    }
+
+    .artist_card:hover .artist_name{
+      opacity: 1;
+    }
+
   }
 </style>
 
