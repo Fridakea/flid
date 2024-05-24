@@ -89,6 +89,8 @@ body {
 main {
   max-width: 1100px;
   margin: auto;
+  /* padding-left: 7%;
+  padding-right: 7%; */
 }
 
 /* general font styling for desktop*/
