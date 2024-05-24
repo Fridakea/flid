@@ -1,19 +1,33 @@
 ---
-import "../styles/main.css";
-import "../styles/style.css";
-import "../styles/pc-style.css";
 import { Image } from "astro:assets";
 ---
+
 <section>
-    
-    <h1 class="mobiltext pc-hide">Julemarked</h1>
-    <a href="/type/3"><div class="card" id="julemarked"><h1 class="display">Julemarked</h1><h1 class="read-more display">Læs mere</h1></div></a>
-    <h1 class="mobiltext pc-hide">Sensommermarked</h1>
-    <a href="/type/2"><div class="card" id="sensommermarked"><h1 class="display">Sensommermarked</h1><h1 class="read-more display">Læs mere</h1></div></a>
-    <h1 class="mobiltext pc-hide">Forårsmarked</h1>
-    <a href="/type/1"><div class="card" id="foraarsmarked"><h1 class="display">Forårsmarked</h1><h1 class="read-more display">Læs mere</h1></div></a>
-    <div class="markedknap-container">
-    </div>
+  <h1 class="mobiltext pc-hide">Julemarked</h1>
+  <a href="/type/3"
+    ><div class="card" id="julemarked">
+      <h1 class="display">Julemarked</h1><h1 class="read-more display">
+        Læs mere
+      </h1>
+    </div></a
+  >
+  <h1 class="mobiltext pc-hide">Sensommermarked</h1>
+  <a href="/type/2"
+    ><div class="card" id="sensommermarked">
+      <h1 class="display">Sensommermarked</h1><h1 class="read-more display">
+        Læs mere
+      </h1>
+    </div></a
+  >
+  <h1 class="mobiltext pc-hide">Forårsmarked</h1>
+  <a href="/type/1"
+    ><div class="card" id="foraarsmarked">
+      <h1 class="display">Forårsmarked</h1><h1 class="read-more display">
+        Læs mere
+      </h1>
+    </div></a
+  >
+  <div class="markedknap-container"></div>
 </section>
 
 <!-- <template class="markedknap-template">
@@ -27,128 +41,127 @@ import { Image } from "astro:assets";
 </template> -->
 
 <style>
-.display{
+  .display {
     display: none;
-}
+  }
 
-.mobiltext {
+  .mobiltext {
     margin-bottom: 0;
     font-size: 2rem;
-}
-section{
+  }
+  section {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-bottom: 50px;
-}
+  }
 
-#julemarked{
-        background-image: url("../assets/img/flid-posters/julemarked23.webp");
-        height: 315px;
-        background-position: center;
-}
+  #julemarked {
+    background-image: url("../assets/img/flid-posters/julemarked23.webp");
+    height: 315px;
+    background-position: center;
+  }
 
-#sensommermarked{
-        background-image: url("../assets/img/flid-posters/sensommermarked21.webp");
-        height: 315px;
-        background-position: center;
-}
-#foraarsmarked{
-        background-image: url("../assets/img/flid-posters/foraarsmarked23.webp");
-        height: 315px;
-        background-position: center;
-    }
+  #sensommermarked {
+    background-image: url("../assets/img/flid-posters/sensommermarked21.webp");
+    height: 315px;
+    background-position: center;
+  }
+  #foraarsmarked {
+    background-image: url("../assets/img/flid-posters/foraarsmarked23.webp");
+    height: 315px;
+    background-position: center;
+  }
 
-@media (min-width: 769px) {
-
+  @media (min-width: 769px) {
     .display {
-        display: block;
+      display: block;
     }
-    section{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 32px;
+    section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
     }
-    .card{
-        margin: 20px 0px 60px 0px;
-        height: 554px;
-        width: 362px;
+    .card {
+      margin: 20px 0px 60px 0px;
+      height: 554px;
+      width: 362px;
     }
-    h1{
-        font-size: 2.3rem;
-        color: white;
-        padding-left: 5px;
+    h1 {
+      font-size: 2.3rem;
+      color: white;
+      padding-left: 5px;
     }
-    #julemarked{
-        background-image: none;
-        background-color: #C55A6D;
-        height: 554px;
+    #julemarked {
+      background-image: none;
+      background-color: #c55a6d;
+      height: 554px;
     }
-    #sensommermarked{
-        background-image: none;
-        background-color: #D68893;
-        height: 554px;
+    #sensommermarked {
+      background-image: none;
+      background-color: #d68893;
+      height: 554px;
     }
-    #foraarsmarked{
-        background-image: none;
-        background-color: #E7B7B8;
-        height: 554px;
+    #foraarsmarked {
+      background-image: none;
+      background-color: #e7b7b8;
+      height: 554px;
     }
-    .read-more{
+    .read-more {
+      display: none;
+    }
+    #julemarked:hover {
+      background-image: url("../assets/img/flid-posters/julemarked23.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      transition: 1s;
+      & h1 {
         display: none;
-    }
-    #julemarked:hover{
-        background-image: url("../assets/img/flid-posters/julemarked23.webp");
-        background-repeat: no-repeat;
-  background-size: cover; 
-  background-position: center;
-  transition:1s;
-   & h1{
-    display: none;
-   }
-   & .read-more{
-        display:flex;
+      }
+      & .read-more {
+        display: flex;
         font-size: 1.5rem;
         justify-content: flex-end;
         align-items: flex-end;
+      }
     }
-    }
-    #sensommermarked:hover{
-        background-image: url("../assets/img/flid-posters/sensommermarked21.webp");
-        background-repeat: no-repeat;
-        background-size: cover; 
-  background-position: center;
-  transition:1s;
-   & h1{
-    display: none;
-   }
-   & .read-more{
-        display:flex;
-       color: #351e1a;
-       font-size: 1.5rem;
+    #sensommermarked:hover {
+      background-image: url("../assets/img/flid-posters/sensommermarked21.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      transition: 1s;
+      & h1 {
+        display: none;
+      }
+      & .read-more {
+        display: flex;
+        color: #351e1a;
+        font-size: 1.5rem;
         justify-content: flex-end;
         align-items: flex-end;
+      }
     }
-    }
-    #foraarsmarked:hover{
-        background-image: url("../assets/img/flid-posters/foraarsmarked23.webp");
-        background-repeat: no-repeat;
-        background-size: cover; 
-  background-position: center;
-  transition:1s;
-   & h1{
-    display: none;
-   }
-   & .read-more{
-    display:flex;
-       font-size: 1.5rem;
+    #foraarsmarked:hover {
+      background-image: url("../assets/img/flid-posters/foraarsmarked23.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      transition: 1s;
+      & h1 {
+        display: none;
+      }
+      & .read-more {
+        display: flex;
+        font-size: 1.5rem;
         justify-content: flex-end;
         align-items: flex-end;
+      }
     }
-    }
-}
+  }
 </style>
 
 <!-- <script>
