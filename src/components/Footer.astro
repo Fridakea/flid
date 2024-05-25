@@ -16,7 +16,10 @@ import FooterButton from "./Footer_Button.astro";
   <section class="footer_columns">
     <FooterButton />
     <div class="some">
-      <a href="https://www.instagram.com/flidmarked/?hl=da">
+      <a
+        class="unstyled-link"
+        href="https://www.instagram.com/flidmarked/?hl=da"
+      >
         <svg
           id="insta_icon"
           data-name="Layer 2"
@@ -57,7 +60,10 @@ import FooterButton from "./Footer_Button.astro";
           </g>
         </svg>
       </a>
-      <a href="https://www.facebook.com/p/Flid-100063503741084/?locale=da_DK">
+      <a
+        class="unstyled-link"
+        href="https://www.facebook.com/p/Flid-100063503741084/?locale=da_DK"
+      >
         <svg
           id="facebook_icon"
           data-name="Layer 2"
@@ -122,28 +128,25 @@ import FooterButton from "./Footer_Button.astro";
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 15%;
   }
 
   a {
     cursor: pointer;
   }
-  #insta_icon,
-  #facebook_icon {
+  a #insta_icon,
+  a #facebook_icon {
     max-width: 60px;
     margin-right: 10px;
   }
 
-  #insta_icon:hover .fyld,
-  #facebook_icon:hover .fyld {
+  a #insta_icon:hover .fyld,
+  a #facebook_icon:hover .fyld {
     fill: var(--accent-color-shade);
   }
   h6 {
     margin-top: 20px;
     margin-bottom: 0;
-  }
-
-  .some {
-    margin-top: 15%;
   }
 
   @media (max-width: 769px) {
