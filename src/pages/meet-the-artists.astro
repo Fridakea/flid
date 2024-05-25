@@ -21,12 +21,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   <main>
     <h2>Udstillerne på tidligere markeder</h2>
     <!-- Cards lavet til hvert marked med billede og tekst + som linjer til den specifikke underside -->
-    <article id="market_parent"> 
+    <article id="market_parent">
       {
         data.map((market) => (
-          <a href={`kunstner-oversigt/${market.slug}`}>
+          <a href={`/kunstner-oversigt/${market.slug}`}>
             <div class="market_child">
-              <div class="market_overlay"></div>
+              <div class="market_overlay" />
               <div class="market_image_container">
                 <Image
                   src={images[`${imageFolder}/${market.image}`]()}
@@ -73,7 +73,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     opacity: 40%;
   }
 
-
   .market_image_container {
     position: absolute;
     top: 0;
@@ -96,20 +95,20 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     left: 40%;
     transform: translateX(-50%);
     z-index: 30;
-    text-align:left;
+    text-align: left;
     color: var(--text-color);
     margin: 0;
     padding: 5px;
-    background-color: var(--secondary-color); /* Baggrundsfarve for bedre læsbarhed */
+    background-color: var(
+      --secondary-color
+    ); /* Baggrundsfarve for bedre læsbarhed */
     /* border-radius: 5px; */
   }
 
-  h6:hover{
+  h6:hover {
     color: var(--text-color);
   }
 
-
-  
   @media (min-width: 769px) {
     #market_parent {
       display: grid;
@@ -127,13 +126,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     }
 
     .market_child:hover .market_overlay {
-    opacity: 0;
-  }
-
-  h6{
-    background-color: var(--secondary-color-tint2);
-  }
+      opacity: 0;
     }
+
+    h6 {
+      background-color: var(--secondary-color-tint2);
+    }
+  }
 </style>
 
 <!-- ---
@@ -209,11 +208,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
       <div></div>
       <h6>Forårsmarked 2023</h6>
     </section> -->
-  </main>
-</Mainlayout>
 
 <style>
-/* .sensommer_container div {
+  /* .sensommer_container div {
     width: 100%;
     height: 40px;
     background-color: var(--secondary-color-shade);
@@ -279,7 +276,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     /*
     text-align: center;
     margin-top: 460px; /* Juster denne værdi efter behov */
-    /* color: var(--text-color);
+  /* color: var(--text-color);
 
 
   @media (min-width: 769px) {
