@@ -103,80 +103,76 @@ import { Image } from "astro:assets";
       padding-left: 5px;
     }
     #julemarked {
-      background-image: none;
-      background-color: #c55a6d;
-      height: 404px;
-      width: 40vh;
-    }
-    #sensommermarked {
-      background-image: none;
-      background-color: #d68893;
-      height: 404px;
-      width: 40vh;
-    }
-    
-    #foraarsmarked {
-      background-image: none;
-      background-color: #e7b7b8;
-      height: 404px;
-      width: 40vh;
-    }
-    .read-more {
-      display: none;
-    }
-    #julemarked:hover {
       background-image: url("../assets/img/flid-posters/julemarked23.webp");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      transition: 1s;
-      & h1 {
-        display: none;
-      }
-      & .read-more {
-        display: flex;
-        font-size: 1.5rem;
-        justify-content: flex-end;
-        background-color: #c55a6e6d;
-        align-items: flex-end;
-        padding-bottom: 10px;
-      }
+      height: 404px;
+      width: 40vh;
     }
-    #sensommermarked:hover {
+    .overlay-div-jul{
+      position: absolute;
+      background-image: none;
+      background-color: #c55a6d;
+      height: 404px;
+      width: 40vh;
+      opacity: 1;
+      transition: 0.5s;
+    }
+    .overlay-div-jul:hover{
+     opacity: 0;
+    }
+    #sensommermarked {
       background-image: url("../assets/img/flid-posters/sensommermarked21.webp");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      & h1 {
-        display: none;
-      }
-      & .read-more {
-        display: flex;
-        font-size: 1.5rem;
-        justify-content: flex-end;
-        align-items: flex-end;
-        background-color: #c55a6e6d;
-        padding-bottom: 10px;
-      }
+      height: 404px;
+      width: 40vh;
     }
-    #foraarsmarked:hover {
+    .overlay-div-sensommer{
+      position: absolute;
+      background-image: none;
+      background-color: #d68893;
+      height: 404px;
+      width: 40vh;
+      opacity: 1;
+      transition: 0.5s;
+    }
+    .overlay-div-sensommer:hover{
+     opacity: 0;
+    }
+    
+    #foraarsmarked {
       background-image: url("../assets/img/flid-posters/foraarsmarked23.webp");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      & h1 {
-        display: none;
-      }
-      & .read-more {
+      background-color: #e7b7b8;
+      height: 404px;
+      width: 40vh;
+    }
+    .overlay-div-foraar{
+      position: absolute;
+      background-image: none;
+      background-color: #e7b7b8;
+      height: 404px;
+      width: 40vh;
+      opacity: 1;
+      transition: 0.5s;
+    }
+    .overlay-div-foraar:hover{
+     opacity: 0;
+    }
+    .read-more {
         display: flex;
         font-size: 1.5rem;
         justify-content: flex-end;
-        align-items: flex-end;
         background-color: #c55a6e6d;
+        align-items: flex-end;
         padding-bottom: 10px;
-
       }
-    }
+   
   }
 
   @media (min-width:1024px) {
