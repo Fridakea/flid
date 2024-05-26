@@ -5,8 +5,8 @@ const { title } = Astro.props;
 <details>
   <summary>{title}</summary>
   <article>
-  <slot />
-</article>
+    <slot />
+  </article>
 </details>
 
 <style>
@@ -14,13 +14,13 @@ const { title } = Astro.props;
     color: var(--text-color);
     border-bottom: 1px solid var(--text-color);
     margin-bottom: var(--spacing-small);
+
     & summary {
       cursor: pointer;
       padding: calc(var(--spacing-small) / 2) var(--spacing-small);
-      transition: 0.2s ease-in-out;
       display: flex;
-    justify-content: space-between;
-    align-items: center;
+      justify-content: space-between;
+      align-items: center;
     }
   }
   summary::after {
@@ -29,11 +29,9 @@ const { title } = Astro.props;
     height: 0;
     border-top: 0.5rem solid var(--secondary-color-shade);
     border-inline: 0.4rem solid transparent;
-    transition: 0.2s ease-in-out;
   }
   details[open] > summary::after {
     transform: rotate(-180deg);
-    transition: 0.2s ease-in-out;
   }
 
   article {
@@ -44,8 +42,21 @@ const { title } = Astro.props;
     flex-direction: column;
     gap: calc(var(--spacing-small) / 2);
   }
-
-  /* summary::marker {
-    color: var(--secondary-color-shade);
-  } */
 </style>
+
+<script>
+  // Fetch all the details element.
+  const details = document.querySelectorAll("details");
+
+  // Add the onclick listeners.
+  details.forEach((targetDetail) => {
+    targetDetail.addEventListener("click", () => {
+      // Close all the details that are not targetDetail.
+      details.forEach((detail) => {
+        if (detail !== targetDetail) {
+          detail.removeAttribute("open");
+        }
+      });
+    });
+  });
+</script>

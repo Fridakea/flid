@@ -4,35 +4,35 @@ import { Image } from "astro:assets";
 
 <section>
   <h1 class="mobiltext pc-hide">Julemarked</h1>
-  <a href="/type/3"
-    >
-    <div class="card"><div id="julemarked">
-      <div class="overlay-div-jul"><h1 class="display">Julemarked</h1></div>
-      <h1 class="read-more display">
-        Læs mere
-      </h1>
-    </div></div></a
+  <a href="/type/3">
+    <div class="card">
+      <div id="julemarked">
+        <div class="overlay-div-jul"><h1 class="display">Julemarked</h1></div>
+        <h1 class="read-more display">Læs mere</h1>
+      </div>
+    </div></a
   >
   <h1 class="mobiltext pc-hide">Sensommermarked</h1>
-  <a href="/type/2"
-    >
-    <div class="card"><div id="sensommermarked">
-      <div class="overlay-div-sensommer"><h1 class="display">Sensommermarked</h1></div>
-      <h1 class="read-more display">
-        Læs mere
-      </h1>
-    </div>
+  <a href="/type/2">
+    <div class="card">
+      <div id="sensommermarked">
+        <div class="overlay-div-sensommer">
+          <h1 class="display">Sensommermarked</h1>
+        </div>
+        <h1 class="read-more display">Læs mere</h1>
+      </div>
     </div></a
   >
   <h1 class="mobiltext pc-hide">Forårsmarked</h1>
-  <a href="/type/1"
-    >
-    <div class="card"><div id="foraarsmarked">
-      <div class="overlay-div-foraar"><h1 class="display">Forårsmarked</h1></div>
-      <h1 class="read-more display">
-        Læs mere
-      </h1>
-    </div></div></a
+  <a href="/type/1">
+    <div class="card">
+      <div id="foraarsmarked">
+        <div class="overlay-div-foraar">
+          <h1 class="display">Forårsmarked</h1>
+        </div>
+        <h1 class="read-more display">Læs mere</h1>
+      </div>
+    </div></a
   >
   <div class="markedknap-container"></div>
 </section>
@@ -64,18 +64,18 @@ import { Image } from "astro:assets";
   }
 
   #julemarked {
-    background-image: url('./flid-posters/julemarked23.webp');
+    background-image: url("../assets/img/flid-posters/julemarked23.webp");
     height: 315px;
     background-position: center;
   }
 
   #sensommermarked {
-    background-image: url('./flid-posters/sensommermarked21.webp');
+    background-image: url("../assets/img/flid-posters/sensommermarked21.webp");
     height: 315px;
     background-position: center;
   }
   #foraarsmarked {
-    background-image: url('./flid-posters/foraarsmarked23.webp');
+    background-image: url("../assets/img/flid-posters/foraarsmarked23.webp");
     height: 315px;
     background-position: center;
   }
@@ -102,14 +102,14 @@ import { Image } from "astro:assets";
       padding-left: 5px;
     }
     #julemarked {
-      background-image: url('./flid-posters/julemarked23.webp');
+      background-image: url("../assets/img/flid-posters/julemarked23.webp");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
       height: 404px;
       width: 40vh;
     }
-    .overlay-div-jul{
+    .overlay-div-jul {
       position: absolute;
       background-image: none;
       background-color: #c55a6d;
@@ -118,18 +118,18 @@ import { Image } from "astro:assets";
       opacity: 1;
       transition: 0.2s;
     }
-    .overlay-div-jul:hover{
-     opacity: 0;
+    .overlay-div-jul:hover {
+      opacity: 0;
     }
     #sensommermarked {
-      background-image: url('./flid-posters/sensommermarked21.webp');
+      background-image: url("../assets/img/flid-posters/sensommermarked21.webp");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
       height: 404px;
       width: 40vh;
     }
-    .overlay-div-sensommer{
+    .overlay-div-sensommer {
       position: absolute;
       background-image: none;
       background-color: #d68893;
@@ -138,12 +138,12 @@ import { Image } from "astro:assets";
       opacity: 1;
       transition: 0.2s;
     }
-    .overlay-div-sensommer:hover{
-     opacity: 0;
+    .overlay-div-sensommer:hover {
+      opacity: 0;
     }
-    
+
     #foraarsmarked {
-      background-image: url('./flid-posters/foraarsmarked23.webp');
+      background-image: url("../assets/img/flid-posters/foraarsmarked23.webp");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -151,7 +151,7 @@ import { Image } from "astro:assets";
       height: 404px;
       width: 40vh;
     }
-    .overlay-div-foraar{
+    .overlay-div-foraar {
       position: absolute;
       background-image: none;
       background-color: #e7b7b8;
@@ -160,18 +160,17 @@ import { Image } from "astro:assets";
       opacity: 1;
       transition: 0.2s;
     }
-    .overlay-div-foraar:hover{
-     opacity: 0;
+    .overlay-div-foraar:hover {
+      opacity: 0;
     }
     .read-more {
-        display: flex;
-        font-size: 1.5rem;
-        justify-content: flex-end;
-        background-color: #c55a6e6d;
-        align-items: flex-end;
-        padding-bottom: 10px;
-      }
-   
+      display: flex;
+      font-size: 1.5rem;
+      justify-content: flex-end;
+      background-color: #c55a6e6d;
+      align-items: flex-end;
+      padding-bottom: 10px;
+    }
   }
 
   @media (min-width: 1024px) {
@@ -196,14 +195,14 @@ import { Image } from "astro:assets";
       padding-left: 5px;
     }
     #julemarked {
-      background-image: url('./flid-posters/julemarked23.webp');
+      background-image: url("../assets/img/flid-posters/julemarked23.webp");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
       height: 594px;
       width: 63vh;
     }
-    .overlay-div-jul{
+    .overlay-div-jul {
       position: absolute;
       background-image: none;
       background-color: #c55a6d;
@@ -212,18 +211,18 @@ import { Image } from "astro:assets";
       opacity: 1;
       transition: 0.2s;
     }
-    .overlay-div-jul:hover{
-     opacity: 0;
+    .overlay-div-jul:hover {
+      opacity: 0;
     }
     #sensommermarked {
-      background-image: url('./flid-posters/sensommermarked21.webp');
+      background-image: url("../assets/img/flid-posters/sensommermarked21.webp");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
       height: 594px;
       width: 63vh;
     }
-    .overlay-div-sensommer{
+    .overlay-div-sensommer {
       position: absolute;
       background-image: none;
       background-color: #d68893;
@@ -232,12 +231,12 @@ import { Image } from "astro:assets";
       opacity: 1;
       transition: 0.2s;
     }
-    .overlay-div-sensommer:hover{
-     opacity: 0;
+    .overlay-div-sensommer:hover {
+      opacity: 0;
     }
-  
+
     #foraarsmarked {
-      background-image: url('./flid-posters/foraarsmarked23.webp');
+      background-image: url("../assets/img/flid-posters/foraarsmarked23.webp");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -245,7 +244,7 @@ import { Image } from "astro:assets";
       height: 594px;
       width: 63vh;
     }
-    .overlay-div-foraar{
+    .overlay-div-foraar {
       position: absolute;
       background-image: none;
       background-color: #e7b7b8;
@@ -254,17 +253,16 @@ import { Image } from "astro:assets";
       opacity: 1;
       transition: 0.2s;
     }
-    .overlay-div-foraar:hover{
-     opacity: 0;
+    .overlay-div-foraar:hover {
+      opacity: 0;
     }
-.read-more {
-        display: flex;
-        font-size: 1.5rem;
-        justify-content: flex-end;
-        align-items: flex-end;
-        background-color: #c55a6e6d;
-      }
-  
+    .read-more {
+      display: flex;
+      font-size: 1.5rem;
+      justify-content: flex-end;
+      align-items: flex-end;
+      background-color: #c55a6e6d;
+    }
   }
 </style>
 
