@@ -59,15 +59,6 @@ import Light_Button from "./Light_Button.astro";
     }
   }
 
-  .bar {
-    width: 40px;
-    height: 3px;
-    background-color: var(--text-color);
-    border-radius: 3px;
-    position: relative;
-    transition: all 0.3s ease-in-out;
-  }
-
   /* Styling the burger-menu icon */
   .burger-icon {
     position: absolute;
@@ -76,6 +67,15 @@ import Light_Button from "./Light_Button.astro";
     flex-direction: column;
     cursor: pointer;
     align-items: end;
+
+    & .bar {
+      width: 40px;
+      height: 3px;
+      background-color: var(--text-color);
+      border-radius: 3px;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+    }
 
     & :nth-child(2) {
       width: 35px;
