@@ -14,7 +14,7 @@ import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
           <h1 class="display">Julemarked</h1>
         </div>
         <h1 class="read-more display">Læs mere</h1>
-          <Image src={julemarked} alt="julemarked plakat"></Image>
+          <Image src={julemarked} alt="julemarked plakat" class="plakat"></Image>
       </div>
     </div>
   </a>
@@ -26,7 +26,7 @@ import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
           <h1 class="display">Sensommermarked</h1>
         </div>
         <h1 class="read-more display">Læs mere</h1>
-          <Image src={sensommermarked} alt="sensommermarked plakat"></Image>
+          <Image src={sensommermarked} alt="sensommermarked plakat" class="plakat"></Image>
       </div>
     </div></a>
   <h1 class="mobiltext pc-hide">Forårsmarked</h1>
@@ -37,7 +37,7 @@ import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
           <h1 class="display">Forårsmarked</h1>
         </div>
         <h1 class="read-more display">Læs mere</h1> 
-        <Image src={foraarsmarked} alt="foraarsmarked plakat"></Image>
+        <Image src={foraarsmarked} alt="foraarsmarked plakat" class="plakat"></Image>
       </div>
     </div></a>
   <div class="markedknap-container"></div>
@@ -111,14 +111,6 @@ import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
       color: white;
       padding-left: 5px;
     }
-    /* #julemarked {
-      background-image: url("../assets/img/flid-posters/julemarked23.webp");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      height: 404px;
-      width: 40vh;
-    } */
     .overlay-div-jul {
       position: absolute;
       background-image: none;
@@ -131,14 +123,10 @@ import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
     .overlay-div-jul:hover {
       opacity: 0;
     }
-    /* #sensommermarked {
-      background-image: url("../assets/img/flid-posters/sensommermarked21.webp");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+    .plakat{
       height: 404px;
       width: 40vh;
-    } */
+    }
     .overlay-div-sensommer {
       position: absolute;
       background-image: none;
@@ -152,16 +140,7 @@ import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
       opacity: 0;
     }
 
-    /* #foraarsmarked {
-      background-image: url("../assets/img/flid-posters/foraarsmarked23.webp");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      background-color: #e7b7b8;
-      height: 404px;
-      width: 40vh;
-    } */
-    .overlay-div-foraar {
+     .overlay-div-foraar {
       position: absolute;
       background-image: none;
       background-color: #e7b7b8;
@@ -204,11 +183,11 @@ import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
       color: white;
       padding-left: 5px;
     }
-    #julemarked {
-      background-image: url("../assets/img/flid-posters/julemarked23.webp");
+.plakat{
+      /* background-image: url("../assets/img/flid-posters/julemarked23.webp");
       background-repeat: no-repeat;
       background-size: cover;
-      background-position: center;
+      background-position: center; */
       height: 594px;
       width: 63vh;
     }
@@ -224,14 +203,7 @@ import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
     .overlay-div-jul:hover {
       opacity: 0;
     }
-    #sensommermarked {
-      background-image: url("../assets/img/flid-posters/sensommermarked21.webp");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      height: 594px;
-      width: 63vh;
-    }
+
     .overlay-div-sensommer {
       position: absolute;
       background-image: none;
@@ -245,15 +217,6 @@ import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
       opacity: 0;
     }
 
-    #foraarsmarked {
-      background-image: url("../assets/img/flid-posters/foraarsmarked23.webp");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      background-color: #e7b7b8;
-      height: 594px;
-      width: 63vh;
-    }
     .overlay-div-foraar {
       position: absolute;
       background-image: none;
