@@ -9,282 +9,105 @@ import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
   <h1 class="mobiltext pc-hide">Julemarked</h1>
   <a href="/type/3">
     <div class="card">
-      <div id="julemarked">
         <div class="overlay-div-jul">
           <h1 class="display">Julemarked</h1>
         </div>
+        <div class="end">
         <h1 class="read-more display">Læs mere</h1>
-          <Image src={julemarked} alt="julemarked plakat" class="plakat"></Image>
-      </div>
+          <Image src={julemarked} alt="julemarked plakat" class="plakat"></Image></div>
     </div>
   </a>
   <h1 class="mobiltext pc-hide">Sensommermarked</h1>
   <a href="/type/2">
     <div class="card">
-      <div id="sensommermarked">
         <div class="overlay-div-sensommer">
           <h1 class="display">Sensommermarked</h1>
         </div>
+<div class="end">
         <h1 class="read-more display">Læs mere</h1>
-          <Image src={sensommermarked} alt="sensommermarked plakat" class="plakat"></Image>
-      </div>
-    </div></a>
+          <Image src={sensommermarked} alt="sensommermarked plakat" class="plakat"></Image></div>
+    </div>
+  </a>
   <h1 class="mobiltext pc-hide">Forårsmarked</h1>
   <a href="/type/1">
     <div class="card">
-      <div id="foraarsmarked">
         <div class="overlay-div-foraar"> 
           <h1 class="display">Forårsmarked</h1>
         </div>
-        <h1 class="read-more display">Læs mere</h1> 
+        <div class="end">
+      <h1 class="read-more display">Læs mere</h1> 
         <Image src={foraarsmarked} alt="foraarsmarked plakat" class="plakat"></Image>
       </div>
     </div></a>
   <div class="markedknap-container"></div>
 </section>
-
-<!-- <template class="markedknap-template">
-    <article class="markedknap_article">
-        <a>
-            <div class="marked_div markedeknap">
-                <p class="marked_text"></p>
-            </div>
-        </a>
-    </article>
-</template> -->
-
 <style>
-  .display {
-    display: none;
+  section{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr
   }
-
-  .mobiltext {
-    margin-bottom: 0;
-    font-size: 2rem;
+  h1{
+    font-size: 2.5rem;
   }
-  section {
+  .card{
+    height: 550px;
+    width: 400px;
+  }
+  .read-more{
+position: absolute;
+color: var(--primary-color-tint);
+font-size: 2rem;
+  }
+  .end{
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 50px;
+justify-content: end;
+position: absolute;
+z-index: 10;
   }
-
-  section Image{
-    height: 315px;
-    background-position: center;
+  .plakat{
+    height: 550px;
+    width: 400px;
   }
-  /* #julemarked {
-    background-image: url("../assets/img/flid-posters/julemarked23.webp"); 
-    height: 315px;
-    background-position: center;
+  .overlay-div-jul{
+    position: absolute;
+    color: aqua;
+    background-color: aqua;
+    height: 550px;
+    width: 400px;
+    z-index: 11;
+    opacity: 1;
+    transition: 0.1s;
   }
-
-  #sensommermarked {
-    /* background-image: url("../assets/img/flid-posters/sensommermarked21.webp"); 
-    height: 315px;
-    background-position: center;
+  .overlay-div-jul:hover{
+    opacity: 0;
+    z-index: 11;
   }
-  #foraarsmarked {
-    /* background-image: url("../assets/img/flid-posters/foraarsmarked23.webp"); 
-    height: 315px;
-    background-position: center;
-  } */
-
-  @media (min-width: 769px) {
-    .display {
-      display: block;
-    }
-    section {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: 0px;
-      width: 100%;
-    }
-    .card {
-      margin: 0px 0px 0px 0px;
-      height: 554px;
-    }
-    h1 {
-      font-size: 1.6rem;
-      color: white;
-      padding-left: 5px;
-    }
-    .overlay-div-jul {
-      position: absolute;
-      background-image: none;
-      background-color: #c55a6d;
-      height: 404px;
-      width: 40vh;
-      opacity: 1;
-      transition: 0.2s;
-    }
-    .overlay-div-jul:hover {
-      opacity: 0;
-    }
-    .plakat{
-      height: 404px;
-      width: 40vh;
-    }
-    .overlay-div-sensommer {
-      position: absolute;
-      background-image: none;
-      background-color: #d68893;
-      height: 404px;
-      width: 40vh;
-      opacity: 1;
-      transition: 0.2s;
-    }
-    .overlay-div-sensommer:hover {
-      opacity: 0;
-    }
-
-     .overlay-div-foraar {
-      position: absolute;
-      background-image: none;
-      background-color: #e7b7b8;
-      height: 404px;
-      width: 40vh;
-      opacity: 1;
-      transition: 0.2s;
-    }
-    .overlay-div-foraar:hover {
-      opacity: 0;
-    }
-    .read-more {
-      display: flex;
-      font-size: 1.5rem;
-      justify-content: flex-end;
-      background-color: #c55a6e6d;
-      align-items: flex-end;
-      padding-bottom: 10px;
-    }
+  .overlay-div-sensommer{
+    position: absolute;
+    color: aqua;
+    background-color: aqua;
+    height: 550px;
+    width: 400px;
+    z-index: 11;
+    opacity: 1;
+    transition: 0.1s;
   }
-
-  @media (min-width: 1024px) {
-    .display {
-      display: block;
-    }
-    section {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: 0px;
-      width: 100%;
-    }
-    .card {
-      margin: 0px 0px 0px 0px;
-      height: 554px;
-    }
-    h1 {
-      font-size: 2.3rem;
-      color: white;
-      padding-left: 5px;
-    }
-.plakat{
-      /* background-image: url("../assets/img/flid-posters/julemarked23.webp");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center; */
-      height: 594px;
-      width: 63vh;
-    }
-    .overlay-div-jul {
-      position: absolute;
-      background-image: none;
-      background-color: #c55a6d;
-      height: 594px;
-      width: 63vh;
-      opacity: 1;
-      transition: 0.2s;
-    }
-    .overlay-div-jul:hover {
-      opacity: 0;
-    }
-
-    .overlay-div-sensommer {
-      position: absolute;
-      background-image: none;
-      background-color: #d68893;
-      height: 594px;
-      width: 63vh;
-      opacity: 1;
-      transition: 0.2s;
-    }
-    .overlay-div-sensommer:hover {
-      opacity: 0;
-    }
-
-    .overlay-div-foraar {
-      position: absolute;
-      background-image: none;
-      background-color: #e7b7b8;
-      height: 594px;
-      width: 63vh;
-      opacity: 1;
-      transition: 0.2s;
-    }
-    .overlay-div-foraar:hover {
-      opacity: 0;
-    }
-    .read-more {
-      display: flex;
-      font-size: 1.5rem;
-      justify-content: flex-end;
-      align-items: flex-end;
-      background-color: #c55a6e6d;
-    }
+  .overlay-div-sensommer:hover{
+    opacity: 0;
+    z-index: 11;
+  }
+  .overlay-div-foraar{
+    position: absolute;
+    color: aqua;
+    background-color: aqua;
+    height: 550px;
+    width: 400px;
+    z-index: 11;
+    opacity: 1;
+    transition: 0.1s;
+  }
+  .overlay-div-foraar:hover{
+    opacity: 0;
+    z-index: 11;
   }
 </style>
-
-<!-- <script>
-    window.addEventListener("DOMContentLoaded", init);
-
-const itemURL = "https://dvtoiextyxkictfnquyo.supabase.co";
-const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2dG9pZXh0eXhraWN0Zm5xdXlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTUxNjEzMzQsImV4cCI6MjAzMDczNzMzNH0.OHxi8VUkxXZaCDHCvU9EJD4CMxx3Os6TYHI5hhCIiLM"
-
-let itemTemplate;
-let itemContainer;
-
-function init() {
-  console.log("init");
-
-  itemTemplate = document.querySelector(".markedknap-template");
-  console.log("itemTemplate", itemTemplate);
-
-  itemContainer = document.querySelector(".markedknap-container");
-  console.log("itemContainer", itemContainer);
-
-  fetch(itemURL+"/rest/v1/market_type?select=*",{
-    method:"GET",
-    headers:{
-        apikey: key
-    }
-  })
-    .then(res=>res.json())
-    .then(showData)
-}
-    
-    function showData(items){
-        console.log(items)
-    
-  // Til her
-    
-  let itemClone;
-
-items.forEach((item) => {
-  console.log("item", item);
-  itemClone = itemTemplate.cloneNode(true).content;
-  itemClone.querySelector(
-    "a"
-  ).href = `[id].astro?market_type=${item.type}`;
-
-  itemClone.querySelector(".marked_text").textContent = item.type;
-
-  itemContainer.appendChild(itemClone);
-});
-}
-
-</script> -->
