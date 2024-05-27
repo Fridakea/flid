@@ -125,7 +125,7 @@ const { market, participants } = Astro.props;
     <div class="artist_container">
       {
         participants.map((participant) => (
-          <a class="artist_card" href={`../kunstner/${participant.slug}`}>
+          <a class="artist_card" href={`/kunstner/${participant.slug}`}>
             <Image src={participant.firstImage} alt={participant.name} />
             <h5 class="artist_name">{participant.name}</h5>
           </a>

@@ -26,7 +26,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         data.map((market) => (
           <a href={`/kunstner-oversigt/${market.slug}`}>
             <div class="market_child">
-              <div class="market_overlay" />
+              <div class="market_overlay"></div>
               <div class="market_image_container">
                 <Image
                   src={images[`${imageFolder}/${market.image}`]()}
