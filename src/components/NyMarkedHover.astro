@@ -5,7 +5,8 @@ import sensommermarked from "../assets/img/flid-posters/sensommermarked21.webp";
 import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
 ---
 
-<section>
+<section class="flex-col flex-center">
+  <div id="grid">
   <h1 class="mobiltext pc-hide">Julemarked</h1>
   <a href="/type/3">
     <div class="card">
@@ -13,7 +14,7 @@ import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
           <h1 class="display">Julemarked</h1>
         </div>
         <div class="end">
-        <h1 class="read-more display">Læs mere</h1>
+        <h1 class="end read-more display">Læs mere</h1>
           <Image src={julemarked} alt="julemarked plakat" class="plakat"></Image></div>
     </div>
   </a>
@@ -24,7 +25,7 @@ import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
           <h1 class="display">Sensommermarked</h1>
         </div>
 <div class="end">
-        <h1 class="read-more display">Læs mere</h1>
+        <h1 class="end read-more display">Læs mere</h1>
           <Image src={sensommermarked} alt="sensommermarked plakat" class="plakat"></Image></div>
     </div>
   </a>
@@ -35,28 +36,48 @@ import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
           <h1 class="display">Forårsmarked</h1>
         </div>
         <div class="end">
-      <h1 class="read-more display">Læs mere</h1> 
+      <h1 class="end read-more display">Læs mere</h1> 
         <Image src={foraarsmarked} alt="foraarsmarked plakat" class="plakat"></Image>
       </div>
     </div></a>
+  </div>
   <div class="markedknap-container"></div>
 </section>
 <style>
+  .card{
+    height: 150px;
+    width: 400px;
+  }
+  .plakat{
+    height: 150px;
+    width: 400px;
+  }
+  .pc-hide{
+    display: none;
+  }
+  @media (min-width: 769px) {
   section{
+  margin-top: 20px;
+  }
+  #grid{
     display: grid;
+    justify-items: center;
     grid-template-columns: 1fr 1fr 1fr
   }
   h1{
     font-size: 2.5rem;
+    color: #ffffff;
   }
   .card{
-    height: 550px;
-    width: 400px;
+    height: 570px;
+    width: 430px;
   }
   .read-more{
 position: absolute;
 color: var(--primary-color-tint);
 font-size: 2rem;
+background-color:#f5bdbd9e;
+width: 100%;
   }
   .end{
     display: flex;
@@ -65,17 +86,16 @@ position: absolute;
 z-index: 10;
   }
   .plakat{
-    height: 550px;
-    width: 400px;
+    height: 570px;
+    width: 430px;
   }
   .overlay-div-jul{
     position: absolute;
-    color: aqua;
-    background-color: aqua;
-    height: 550px;
-    width: 400px;
+    background-color: #C55A6D;
+    height: 570px;
+    width: 430px;
     z-index: 11;
-    opacity: 1;
+    opacity: 0.95;
     transition: 0.1s;
   }
   .overlay-div-jul:hover{
@@ -84,12 +104,11 @@ z-index: 10;
   }
   .overlay-div-sensommer{
     position: absolute;
-    color: aqua;
-    background-color: aqua;
-    height: 550px;
-    width: 400px;
+    background-color:#D68893;
+    height: 570px;
+    width: 430px;
     z-index: 11;
-    opacity: 1;
+    opacity: 0.95;
     transition: 0.1s;
   }
   .overlay-div-sensommer:hover{
@@ -98,16 +117,16 @@ z-index: 10;
   }
   .overlay-div-foraar{
     position: absolute;
-    color: aqua;
-    background-color: aqua;
-    height: 550px;
-    width: 400px;
+    background-color:  #E7B7B8;
+    height: 570px;
+    width: 430px;
     z-index: 11;
-    opacity: 1;
+    opacity: 0.95;
     transition: 0.1s;
   }
   .overlay-div-foraar:hover{
     opacity: 0;
     z-index: 11;
   }
+}
 </style>
