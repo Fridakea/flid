@@ -19,7 +19,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
 <Mainlayout>
   <main>
-    <h2>Udstillerne på tidligere markeder</h2>
+    <h1>Mød udstillerne</h1>
+    <h5>Udstillerne på tidligere markeder</h5>
     <!-- Cards lavet til hvert marked med billede og tekst + som linjer til den specifikke underside -->
     <article id="market_parent">
       {
@@ -45,6 +46,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
 <style>
   /* Generel styling */
+h5{
+  margin-bottom: 3px;
+}
   #market_parent {
     display: flex;
     flex-direction: column;
