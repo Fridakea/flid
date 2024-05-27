@@ -1,5 +1,8 @@
 ---
 import { Image } from "astro:assets";
+import julemarked from "../assets/img/flid-posters/julemarked23.webp";
+import sensommermarked from "../assets/img/flid-posters/sensommermarked21.webp";
+import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
 ---
 
 <section>
@@ -7,11 +10,14 @@ import { Image } from "astro:assets";
   <a href="/type/3">
     <div class="card">
       <div id="julemarked">
-        <div class="overlay-div-jul"><h1 class="display">Julemarked</h1></div>
+        <div class="overlay-div-jul">
+          <h1 class="display">Julemarked</h1>
+        </div>
         <h1 class="read-more display">Læs mere</h1>
+          <Image src={julemarked} alt="julemarked plakat"></Image>
       </div>
-    </div></a
-  >
+    </div>
+  </a>
   <h1 class="mobiltext pc-hide">Sensommermarked</h1>
   <a href="/type/2">
     <div class="card">
@@ -20,20 +26,20 @@ import { Image } from "astro:assets";
           <h1 class="display">Sensommermarked</h1>
         </div>
         <h1 class="read-more display">Læs mere</h1>
+          <Image src={sensommermarked} alt="sensommermarked plakat"></Image>
       </div>
-    </div></a
-  >
+    </div></a>
   <h1 class="mobiltext pc-hide">Forårsmarked</h1>
   <a href="/type/1">
     <div class="card">
       <div id="foraarsmarked">
-        <div class="overlay-div-foraar">
+        <div class="overlay-div-foraar"> 
           <h1 class="display">Forårsmarked</h1>
         </div>
-        <h1 class="read-more display">Læs mere</h1>
+        <h1 class="read-more display">Læs mere</h1> 
+        <Image src={foraarsmarked} alt="foraarsmarked plakat"></Image>
       </div>
-    </div></a
-  >
+    </div></a>
   <div class="markedknap-container"></div>
 </section>
 
@@ -63,22 +69,26 @@ import { Image } from "astro:assets";
     margin-bottom: 50px;
   }
 
-  #julemarked {
-    background-image: url("../assets/img/flid-posters/julemarked23.webp");
+  section Image{
+    height: 315px;
+    background-position: center;
+  }
+  /* #julemarked {
+    background-image: url("../assets/img/flid-posters/julemarked23.webp"); 
     height: 315px;
     background-position: center;
   }
 
   #sensommermarked {
-    background-image: url("../assets/img/flid-posters/sensommermarked21.webp");
+    /* background-image: url("../assets/img/flid-posters/sensommermarked21.webp"); 
     height: 315px;
     background-position: center;
   }
   #foraarsmarked {
-    background-image: url("../assets/img/flid-posters/foraarsmarked23.webp");
+    /* background-image: url("../assets/img/flid-posters/foraarsmarked23.webp"); 
     height: 315px;
     background-position: center;
-  }
+  } */
 
   @media (min-width: 769px) {
     .display {
@@ -101,14 +111,14 @@ import { Image } from "astro:assets";
       color: white;
       padding-left: 5px;
     }
-    #julemarked {
+    /* #julemarked {
       background-image: url("../assets/img/flid-posters/julemarked23.webp");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
       height: 404px;
       width: 40vh;
-    }
+    } */
     .overlay-div-jul {
       position: absolute;
       background-image: none;
@@ -121,14 +131,14 @@ import { Image } from "astro:assets";
     .overlay-div-jul:hover {
       opacity: 0;
     }
-    #sensommermarked {
+    /* #sensommermarked {
       background-image: url("../assets/img/flid-posters/sensommermarked21.webp");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
       height: 404px;
       width: 40vh;
-    }
+    } */
     .overlay-div-sensommer {
       position: absolute;
       background-image: none;
@@ -142,7 +152,7 @@ import { Image } from "astro:assets";
       opacity: 0;
     }
 
-    #foraarsmarked {
+    /* #foraarsmarked {
       background-image: url("../assets/img/flid-posters/foraarsmarked23.webp");
       background-repeat: no-repeat;
       background-size: cover;
@@ -150,7 +160,7 @@ import { Image } from "astro:assets";
       background-color: #e7b7b8;
       height: 404px;
       width: 40vh;
-    }
+    } */
     .overlay-div-foraar {
       position: absolute;
       background-image: none;
