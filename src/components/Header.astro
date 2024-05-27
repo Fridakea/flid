@@ -22,7 +22,7 @@ import Light_Button from "./Light_Button.astro";
     </div>
 
     <ul class="burger-menu">
-      <li class="logo menu-link flex-col flex-center">
+      <li class="logo flex-col flex-center">
         <Logo />
       </li>
 
@@ -112,18 +112,14 @@ import Light_Button from "./Light_Button.astro";
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     background-color: var(--primary-color-shade);
     transition: 0.3s;
 
     text-align: center;
 
     & .logo {
-      margin-top: var(--spacing-medium);
-      margin-bottom: 0;
-    }
-
-    & li {
-      margin: calc(var(--spacing-small) * 2) 0;
+      margin-top: -20px;
     }
   }
 
@@ -138,13 +134,6 @@ import Light_Button from "./Light_Button.astro";
 
   .menu-link h3:hover {
     text-transform: uppercase;
-  }
-
-  @media (min-width: 769px) {
-    .burger-menu .logo {
-      margin-top: var(--spacing-large);
-      margin-bottom: var(--spacing-medium);
-    }
   }
 </style>
 
