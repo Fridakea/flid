@@ -16,6 +16,12 @@ import imageForside from "../assets/img/forside-stemning.webp";
     <h2>Kunst</h2>
     <h2>Håndværk</h2>
   </div>
+  <div
+    id="text-mobile">
+    <h2>Design</h2>
+    <h2>Kunst</h2>
+    <h2>Håndværk</h2>
+  </div>
   <div>
     <Image src={imageForside} alt="Billede af en håndlavet kop" />
   </div></div>
@@ -29,10 +35,14 @@ import imageForside from "../assets/img/forside-stemning.webp";
   }
   
 #text {
+    display: none;
+  }
+  #text-mobile{
     line-height: 50px;
     margin: auto;
     margin-left: -25px;
     margin-top: 20px;
+    z-index: 20;
   }
   h2 {
     font-size: 2rem;
@@ -44,10 +54,15 @@ import imageForside from "../assets/img/forside-stemning.webp";
     margin: var(--spacing-large) 0 var(--spacing-large);
   }
   #text {
+    display: flex;
+    flex-direction: column;
     line-height: 110px;
     margin: auto;
     margin-left: -25px;
     margin-top: 20px;
+  }
+  #text-mobile{
+    display: none;
   }
   img {
     width: 100%;
@@ -59,4 +74,3 @@ import imageForside from "../assets/img/forside-stemning.webp";
 
 }
 </style>
-<script></script>
