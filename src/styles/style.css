@@ -126,7 +126,7 @@ add-to-calendar-button::part(atcb-list) {
 
 .fixed-button {
     position: fixed;
-    top: 88vh;
-    right: 10px;
-    z-index: 60;
+    bottom: var(--spacing-small);
+    right: var(--spacing-small);
+    z-index: 30;
 }

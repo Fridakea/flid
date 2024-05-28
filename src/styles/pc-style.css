@@ -39,8 +39,7 @@
 
 /* Syling for the add-to-calender-button */
 .fixed-button {
-    max-width: 1100px;
-    top: 86vh;
-    right: 10px;
+    bottom: var(--spacing-small);
+    right: var(--spacing-small);
 }
 }
