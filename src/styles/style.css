@@ -103,3 +103,30 @@
 .bold {
     font-weight: 700;
 }
+
+add-to-calendar-button::part(atcb-button-wrapper) {
+    /* Styling the right side of the add-to-calender-button */
+    --date-btn-background: var(--primary-color-tint);
+    --date-btn-text-secondary: var(--text-color);
+    --date-btn-text: var(--text-color);
+
+    /* Styling the left side of the add-to-calender-button */
+    --date-btn-cal-background: var(--accent-color-shade);
+    --date-btn-cal-day-text: var(--primary-color);
+    --date-btn-cal-month-text: var(--primary-color);
+
+    --btn-hover-background: var(--accent-color-tint);
+}
+
+add-to-calendar-button::part(atcb-list) {
+    /* Styling the "list" that appears with options of mail */
+    --list-background: var(--primary-color-tint);
+    --list-hover-background: var(--primary-color);
+}
+
+.sticky-button {
+    position: fixed;
+    top: 60vh;
+    right: 10px;
+    z-index: 60;
+}

@@ -25,6 +25,23 @@ const { title } = Astro.props;
   </head>
   <body>
     <Header />
+    <div class="sticky-button">
+      <add-to-calendar-button
+        name="Sensommermarked 2024"
+        description="Flids sensommermarked "
+        startDate="2024-09-07"
+        startTime="11:00"
+        endDate="2024-09-08"
+        endTime="17:00"
+        timeZone="Europe/Copenhagen"
+        location="Nørrebrohallen, Nørrebrogade 208 2200 København N"
+        options="'Apple','Google','Outlook.com','MicrosoftTeams'"
+        listStyle="dropdown-static"
+        buttonStyle="date"
+        hideTextLabelList
+        size="5"
+        lightMode="bodyScheme"></add-to-calendar-button>
+    </div>
     <slot />
     <Footer />
   </body>
