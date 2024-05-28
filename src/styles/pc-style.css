@@ -36,4 +36,10 @@
 .pc-gap-l {
     gap: var(--spacing-large);
 }
+
+/* Syling for the add-to-calender-button */
+.fixed-button {
+    bottom: var(--spacing-small);
+    right: var(--spacing-small);
+}
 }
