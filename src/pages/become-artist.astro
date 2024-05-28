@@ -109,7 +109,7 @@ import Image3 from "../assets/img/become_artist/right_pic.webp";
     <form action="udstiller" name="bliv_udstiller" netlify>
       <div class="grid_1-2">
         <input type="text" placeholder="Brandnavn..." required="" />
-        <input type="text" placeholder="CVR nummer..." required="" />
+        <input type="number" placeholder="CVR nummer..." required="" />
 
         <select name="primary" id="primary">
           <option value="primary">Primær kategori</option>
@@ -198,13 +198,13 @@ import Image3 from "../assets/img/become_artist/right_pic.webp";
             <input type="text" placeholder="Postnummer..." required="" />
             <input
               class="big"
-              type="text"
+              type="email"
               placeholder="Emailadresse..."
               required=""
             />
             <input
               class="big"
-              type="text"
+              type="tel"
               placeholder="Telefonnummer..."
               required=""
             />
@@ -275,7 +275,7 @@ import Image3 from "../assets/img/become_artist/right_pic.webp";
   input[type="text"],
   textarea,
   select,
-  input[type="url"] {
+  input[type="url"],  input[type="tel"],  input[type="email"],  input[type="number"] {
     background-color: var(--secondary-color-tint);
     font-size: 1.2rem;
     color: var(--text-color);
