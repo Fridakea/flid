@@ -1,72 +1,112 @@
 ---
-import "../styles/main.css";
-import "../styles/style.css";
-import "../styles/pc-style.css";
 import { Image } from "astro:assets";
 import poster from "../assets/img/flid-posters/foraarsmarked18.webp";
 ---
-<section>
-<div id="indhold">
-    <div>
-<h3>Deltag i vores Sensommermarked</h3>
-<p>Flid fylder 10 år, og af den årsag vil vi gerne invitere til Sensommermarked!
-Vi vil i år gerne velkommen til vores særlige Sensommermarked i anledning af 10-års jubilæet for Kunsthåndværkermarked Flid. Oplev det bedste inden for unikt håndværk og skabende talent, når vi fejrer et årti med dedikation til kunsten.
- Kom og deltag i denne festlige begivenhed, hvor vi hylder kreativitet, dygtighed og originalitet.</p>
- <p>Der er betaling ved døren, så bare skriv det ind i kalenderen og mød op til en god dag. Glæd dig til en dag fyldt med inspirerende værker, live demonstrations og meget mere! Oplev et helt specielt markede, fyldt med håndlavet kunst, men også kunstnerne bag.
-    Vi hos flid, glæder os rigtigt meget til at se jer.</p>
-</div>
-<div>
-       <h4>Vores næste markede: Sensommermarked</h4>
-       <div id="Tabel">
-        <div class="rows color2"><h3>Entrépris</h3><h3>40 kr.</h3></div>
-        <div class="rows color1"><h3>Dato:</h3><h3>21 Juni 2024</h3></div>
-        <div class="rows color2"><h3>Tidspunkt</h3><h3>Kl. 10:00 - 16:00</h3></div>
-        <div class="rows color1"><h3>Lokation:</h3><h3>Nørrebro Hallen</h3></div>
-       </div>
-       </div>
+
+<section class="pc-flex-row">
+  <div id="indhold">
+    <h3>Deltag i vores Sensommermarked</h3>
+    <p>
+      Flid fylder 10 år, og af den årsag vil vi gerne invitere til
+      Sensommermarked! Vi vil i år gerne velkommen til vores særlige
+      Sensommermarked i anledning af 10-års jubilæet for Kunsthåndværkermarked
+      Flid. Oplev det bedste inden for unikt håndværk og skabende talent, når vi
+      fejrer et årti med dedikation til kunsten. Kom og deltag i denne festlige
+      begivenhed, hvor vi hylder kreativitet, dygtighed og originalitet.
+    </p>
+    <p>
+      Der er betaling ved døren, så bare skriv det ind i kalenderen og mød op
+      til en god dag. Glæd dig til en dag fyldt med inspirerende værker, live
+      demonstrations og meget mere! Oplev et helt specielt markede, fyldt med
+      håndlavet kunst, men også kunstnerne bag. Vi hos flid, glæder os rigtigt
+      meget til at se jer.
+    </p>
+
+    <h4>Vores næste marked: <br /> Sensommermarked</h4>
+    <div id="tabel">
+      <div class="rows color2"><h3>Entrépris</h3><h3>40 kr.</h3></div>
+      <div class="rows color1"><h3>Dato:</h3><h3>21 September 2024</h3></div>
+      <div class="rows color2">
+        <h3>Tidspunkt</h3><h3>Kl. 10:00 - 16:00</h3>
+      </div>
+      <div class="rows color1"><h3>Lokation:</h3><h3>Nørrebro Hallen</h3></div>
     </div>
-       <Image src={poster} alt="Billede af plakat lavet til sensommermarked" />
+  </div>
+
+  <div>
+    <Image
+      src={poster}
+      class="pic pc-only"
+      alt="Billede af plakat lavet til sensommermarked"
+    />
+  </div>
 </section>
 
-       <style>
-section{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-gap: 60px;
-}
-p{
+<style>
+  p {
     padding-top: 15px;
-}
-#indhold{
+  }
+  #indhold {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-#Tabel{
-h3{
-    font-weight: 600;
-}
-}
-.rows{
-    display:flex;
+  }
+  h4 {
+    margin-top: 20px;
+  }
+  #tabel {
+    align-items: center;
+    align-content: center;
+
+    & h3 {
+      margin: 0;
+      padding: 10px;
+      font-weight: 600;
+      font-size: 1.4rem;
+    }
+  }
+  .rows {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     align-content: center;
-}
-.color1{
-    background-color: #F3D6D1;
-    
-}
-.color2{
-    background-color: #EDC6C5;
-    
-}
+  }
+  .color1 {
+    background-color: var(--secondary-color-tint2);
+  }
+  .color2 {
+    background-color: var(--secondary-color-tint3);
+  }
 
-@media (max-width: 769px) {
-    section{
+  @media (min-width: 769px) {
+    /* section{
     display: flex;
     flex-direction: column;
-gap: 60px;
-}
-}
-       </style>
+gap: 60px; */
+    section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      padding:;
+    }
+    #tabel {
+      align-items: center;
+      align-content: center;
+
+      & h3 {
+        margin: 0;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 2rem;
+      }
+    }
+    .pic {
+      width: 100%;
+      display: block;
+    }
+
+    #indhold {
+      max-width: 550px;
+    }
+  }
+</style>

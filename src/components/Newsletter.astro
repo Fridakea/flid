@@ -1,70 +1,68 @@
 ---
-import "../styles/main.css";
-import "../styles/style.css";
-import "../styles/pc-style.css";
+
 ---
+
 <div class="mini_form">
-    <h2>Kontaktinformation</h2>
-    <form class="kontaktinfo">
-        <div class="rows">
+  <h5>Hold dig opdateret med vores nyhedsbrev:</h5>
+  <form class="kontaktinfo">
+    <div class="rows">
       <input type="text" placeholder="Besøgende" required="" />
       <button>Tilmeld</button>
-        </div>
-        <div class="rows">
+    </div>
+      <div class="rows">
       <input type="text" placeholder="Udstiller" required="" />
-      <button>Tilmeld</button>
-        </div>
-    </form>
-</div>
+      <button>Tilmeld</button></div>
+      <div/>
+      </div>
 
-<style>
-.kontaktinfo{
-    background-color: var(--secondary-color-tint2);
-    padding: 2px;
-    max-width: 310px;
-}
-.rows{
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    padding: 10px;
-    gap: 10px;
-}
-input{
-    height: 60px;
-width: 320px;
-background-color: var(  --primary-color-tint3);
-border: none;
-font-size: larger;
-}
-input::placeholder {
-    color: var(--text-color);
-    padding-left: 10px;
-}
-button{
-    height: 60px;
-    width: auto;
-    background-color: var(  --primary-color-tint3);
-    border: none;
-    font-size: larger;
-}
-button:hover {
-    background-color: var( --secondary-color) ;
-   cursor: pointer;
-}
-
-
-@media (min-width: 769px) {
-
+  <style>
     .kontaktinfo {
-   max-width: 565px;
+      background-color: var(--secondary-color-tint2);
+      padding: 2px;
+      max-width: 340px;
+      margin: 0 auto;
     }
-    input{
-    height: 60px;
-width: 370px;}
-button{
-    height: 60px;
-    width: auto;
-}
-}
+    .rows {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      padding: 10px;
+      gap: 10px;
+    }
+    input {
+      height: 60px;
+      width: 200px;
+      background-color: var(--primary-color-tint3);
+      border: none;
+      font-size: larger;
+    }
+    input::placeholder {
+      color: var(--text-color);
+      padding-left: 10px;
+    }
+    button {
+      height: 60px;
+      width: auto;
+      background-color: var(--primary-color-tint3);
+      border: none;
+      font-size: larger;
+    }
+    button:hover {
+      background-color: var(--secondary-color);
+      cursor: pointer;
+    }
 
-</style>
+    @media (min-width: 769px) {
+      .kontaktinfo {
+        max-width: 565px;
+      }
+      input {
+        height: 60px;
+        width: 370px;
+      }
+      button {
+        height: 60px;
+        width: auto;
+      }
+    }
+  </style>
+</div>

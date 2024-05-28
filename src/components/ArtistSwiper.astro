@@ -1,0 +1,79 @@
+---
+import "swiper/css/bundle";
+import { Image } from "astro:assets";
+const { images, alt } = Astro.props;
+---
+
+<div class="swiper">
+  <div class="swiper-wrapper">
+    {
+      images.map((img, i) => (
+        <div class="swiper-slide">
+          <Image src={img} alt={`${alt} ${i + 1}`} />
+        </div>
+      ))
+    }
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 450px;
+    position: relative;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (min-width: 769px) {
+    .swiper {
+      max-width: 400px;
+      max-height: 450px;
+    }
+  }
+</style>
+
+<style is:global>
+  .swiper-pagination-bullet {
+    background-color: var(--primary-color-tint);
+    opacity: 0.75;
+    width: 10px;
+    height: 10px;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: var(--accent-color);
+    opacity: 1;
+  }
+</style>
+
+<script>
+  import Swiper from "swiper/bundle";
+
+  let slidesPerView = 1;
+
+  const swiper = new Swiper(".swiper", {
+    slidesPerView: slidesPerView,
+    spaceBetween: 24,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+  console.log(swiper);
+</script>

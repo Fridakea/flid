@@ -1,6 +1,5 @@
 ---
 import Logo from "./Logo.astro";
-import Burger_Menu from "./Burger_Menu.astro";
 import Dark_Button from "./Dark_Button.astro";
 import Light_Button from "./Light_Button.astro";
 ---
@@ -8,15 +7,37 @@ import Light_Button from "./Light_Button.astro";
 <header>
   <Logo />
 
-  <section class="head_container">
+  <nav class="head_container">
     <button class="dark-mode-hide unstyled-button" onclick="toggleDarkMode()">
       <Dark_Button />
     </button>
     <button class="dark-mode-only unstyled-button" onclick="toggleDarkMode()">
       <Light_Button />
     </button>
-    <Burger_Menu />
-  </section>
+
+    <div class="burger-icon">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+
+    <ul class="burger-menu">
+      <li class="logo flex-col flex-center">
+        <Logo />
+      </li>
+
+      <li class="menu-link">
+        <a href="/meet-the-artists"><h3>Mød udstillerne</h3></a>
+      </li>
+      <li class="menu-link"><a href="/about-us"><h3>Om os</h3></a></li>
+      <li class="menu-link">
+        <a href="/become-artist"><h3>Bliv udstiller</h3></a>
+      </li>
+      <li class="menu-link">
+        <a href="/project-gallery"><h3>Projekt galleri</h3></a>
+      </li>
+    </ul>
+  </nav>
 </header>
 
 <style>
@@ -32,9 +53,93 @@ import Light_Button from "./Light_Button.astro";
     justify-content: flex-end;
     align-items: center;
     gap: 12px;
+
+    & button {
+      margin-right: 60px;
+    }
   }
-  .none {
-    display: none;
+
+  /* Styling the burger-menu icon */
+  .burger-icon {
+    position: absolute;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    align-items: end;
+
+    & .bar {
+      width: 40px;
+      height: 3px;
+      background-color: var(--text-color);
+      border-radius: 3px;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+    }
+
+    & :nth-child(2) {
+      width: 35px;
+      margin: 12px 0 12px 5px;
+    }
+
+    & :nth-child(3) {
+      margin-bottom: 5px;
+    }
+  }
+
+  .burger-icon.active {
+    position: fixed;
+
+    & .bar:nth-child(2) {
+      opacity: 0;
+    }
+    .bar:nth-child(1) {
+      transform: translateY(15px) rotate(45deg);
+    }
+    .bar:nth-child(3) {
+      transform: translateY(-15px) rotate(-45deg);
+    }
+  }
+
+  /* styling the burger menu */
+  .burger-menu {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    z-index: 40;
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: var(--secondary-color-tint2);
+    transition: 0.3s;
+
+    text-align: center;
+
+    & .logo {
+      margin-top: -20px;
+    }
+  }
+
+  .burger-menu.active {
+    left: 0;
+  }
+
+  .menu-link h3 {
+    text-decoration: none;
+    list-style: none;
+  }
+
+  .menu-link h3:hover {
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 769px) {
+    .logo {
+      margin-left: 26px;
+    }
   }
 </style>
 
@@ -59,4 +164,21 @@ import Light_Button from "./Light_Button.astro";
       document.querySelector("body").classList.add("dark-mode");
     }
   });
+
+  /* Burger menu */
+  const burgerIcon = document.querySelector(".burger-icon");
+  const burgerMenu = document.querySelector(".burger-menu");
+
+  burgerIcon.addEventListener("click", () => {
+    burgerIcon.classList.toggle("active");
+    burgerMenu.classList.toggle("active");
+  });
+
+  /* Remove menu after one of the links have been clicked */
+  document.querySelectorAll(".menu-link").forEach((n) =>
+    n.addEventListener("click", () => {
+      burgerIcon.classList.remove("active");
+      burgerMenu.classList.remove("active");
+    })
+  );
 </script>

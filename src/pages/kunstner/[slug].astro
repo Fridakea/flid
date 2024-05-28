@@ -1,16 +1,18 @@
 ---
-import { Image } from "astro:assets";
 import Mainlayout from "../../layouts/Mainlayout.astro";
-import CarouselSwiper from "../../components/CarouselSwiper.astro";
+import ArtistSwiper from "../../components/ArtistSwiper.astro";
 import { apiDetails } from "../../settings";
 
 export async function getStaticPaths() {
-  const data = await fetch(`${apiDetails.supabaseUrl}/artist?select=*`, {
-    method: "GET",
-    headers: {
-      apikey: apiDetails.supabaseAnonKey,
-    },
-  }).then((response) => response.json());
+  const data = await fetch(
+    `${apiDetails.supabaseUrl}/artist?select=*,artist_market(market(name))`,
+    {
+      method: "GET",
+      headers: {
+        apikey: apiDetails.supabaseAnonKey,
+      },
+    }
+  ).then((response) => response.json());
 
   // Laver liste med billeder i imageFolder mappen. Se astro doc: https://docs.astro.build/en/recipes/dynamically-importing-images/
   const imageFolder = "/src/assets/img/artists";
@@ -54,42 +56,52 @@ const { artist, artistImages } = Astro.props;
 <Mainlayout>
   <main>
     <section id="breadcrumb">
-      <a href="meet_the_artists"
-        ><img class="arrow" src="/src/assets/img/arrow1.svg" alt="pil" /></a
+      <a href="javascript:history.back()"
+        ><svg
+          id="arrow"
+          data-name="Layer 2"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 43.01 29.46"
+        >
+          <defs>
+            <style>
+              .fill_out {
+                fill: var(--text-color);
+                stroke-width: 0px;
+              }
+            </style>
+          </defs>
+          <g id="Layer_1-2" data-name="Layer 1">
+            <path
+              class="fill_out"
+              d="M.59,13.31c-.78.78-.78,2.05,0,2.83l12.73,12.73c.78.78,2.05.78,2.83,0,.78-.78.78-2.05,0-2.83L4.83,14.73,16.14,3.41c.78-.78.78-2.05,0-2.83-.78-.78-2.05-.78-2.83,0L.59,13.31ZM43.01,12.73H2v4h41.01v-4Z"
+            ></path>
+          </g>
+        </svg></a
       >
       <nav>
         <ul>
-          <li><a href="meet_the_artists">Mød udstillerne</a></li>
-          <li><a href="artists_listview">{artist.name}</a></li>
+          <li><a href="../../meet-the-artists">Mød udstillerne</a></li>
+          <li>
+            <a href="javascript:history.back()">Markeder</a>
+          </li>
           <li>{artist.name}</li>
         </ul>
       </nav>
     </section>
-    <article class="product_container">
-      <h1 class="product_headline">{artist.name}</h1>
-      <section id="some_container">
-        <!-- <div class="img_product">
-          <CarouselSwiper {artistImages.map((artistImage) => (
-            <Image src={artistImage} alt={artist.name} />
-          ))} 
-        </div> -->
-      <!-- <div class="swiper-section">
-          <CarouselSwiper
-            images={[
-          {artistImages.map((artistImage) => (
-              <Image src={artistImage} alt={artist.name} />
-            ))
-          }
-           ]}/>
-        </div> -->
-        <div id="some_child">
-          <div>
-            <ul>
-              <li class="primary_category">{artist.primary_category}</li>
-              <li class="secondary_category">{artist.secondary_category}</li>
-            </ul>
-          </div>
-          <div class="some_childchild">
+    <article class="article_container pc-flex-row-reverse pc-gap-l">
+      <h1 class="product_headline pc-hide">{artist.name}</h1>
+      <div class="images">
+        <ArtistSwiper
+          images={artistImages}
+          alt="Forårsmarked 2019 billede"
+          slidesPerView={1}
+        />
+      </div>
+      <div class="pc-content">
+        <h1 class="product_headline pc-only">{artist.name}</h1>
+        <div id="some_child" class="flex-row-reverse space-between">
+          <a href={artist.instagram_url}><div class="icons_styling flex-row flex-center">
             <svg
               id="insta_icon"
               class="instagram_url"
@@ -130,6 +142,8 @@ const { artist, artistImages } = Astro.props;
                 </g>
               </g>
             </svg>
+          </a>
+          <a href={artist.facebook_url}>
             <svg
               id="facebook_icon"
               class="facebook_url"
@@ -152,21 +166,59 @@ const { artist, artistImages } = Astro.props;
                 ></path>
               </g>
             </svg>
+          </a>
+          </div>
+
+          <div class="categories flex-col flex-center">
+            <ul>
+              <li class="primary_category">{artist.primary_category}</li>
+              <li class="secondary_category">{artist.secondary_category}</li>
+            </ul>
           </div>
         </div>
-      </section>
-      <section>
+
+        <!-- <section id="product_container"> -->
         <h4 class="artist_undertitle">
-          We upcycle discarded textiles to give them a longer life
+          {artist.secondary_description}
         </h4>
         <p class="txt_description">{artist.description}</p>
-      </section>
+        <!-- </section> -->
+      </div>
     </article>
   </main>
 </Mainlayout>
 
 <style>
-  .arrow {
+  .categories ul {
+    margin: 0 var(--spacing-small);
+  }
+
+  .icons_styling {
+    margin-top: var(--spacing-small);
+  }
+  #insta_icon,
+  #facebook_icon {
+    width: 50px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  #insta_icon:hover .fyld,
+  #facebook_icon:hover .fyld {
+    fill: var(--accent-color-shade);
+  }
+
+  .artist_undertitle {
+    margin-bottom: 30px;
+    padding: 10px;
+    padding-bottom: 0;
+  }
+
+  h1 {
+    margin-top: 40px;
+  }
+
+  #arrow {
     max-width: 30px;
     padding-bottom: 5%;
     padding-top: 2%;
@@ -177,117 +229,98 @@ const { artist, artistImages } = Astro.props;
   }
 
   #breadcrumb nav {
-      display: block;
-    }
-
-    #breadcrumb {
-      display: grid;
-      grid-template-columns: 1fr 8fr;
-    }
-
-    #breadcrumb nav {
-      text-align: right;
-    }
-
-    /* creating the breadcrumb foundation */
-    #breadcrumb ul {
-      list-style: none;
-    } /* remove bullet points */
-    #breadcrumb ul li {
-      display: inline;
-      font-size: 0.7rem;
-    } /* show list items horizontally */
-
-    /* Put an angle bracket (>) between list items */
-    #breadcrumb ul li + li:before {
-      content: ">";
-      padding: 10px;
-      font-size: 0.7rem;
-    }
-
-    #breadcrumb ul li a {
-      text-decoration: none;
-    } /* remove underlines from links */
-    #breadcrumb ul li a:hover {
-      text-decoration: underline;
-    } /* show underline on mouseover */
-
-    /* additional styling */
-    ul {
-      color: var(--text-color);
-      font-family: "Avenir";
-      font-weight: bold;
-    }
-    ul li a {
-      color: var(--text-color);
-      font-size: 0.7rem;
-    }
-    ul li a:visited {
-      color: var(--text-color);
-    }
-    ul li + li:before {
-      color: var(--text-color);
-    }
-
-  #some_container li {
-    margin-left: 15%;
+    display: block;
   }
 
-  #some_child {
+  #breadcrumb {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-top: 30px;
-    margin: 8%;
-    /* grid-template-rows: 1fr 1fr; */
+    grid-template-columns: 1fr 8fr;
+  }
+
+  #breadcrumb nav {
+    text-align: right;
+  }
+
+  /* creating the breadcrumb foundation */
+  #breadcrumb ul {
+    list-style: none;
+  } /* remove bullet points */
+  #breadcrumb ul li {
+    display: inline;
+    font-size: 0.7rem;
+  } /* show list items horizontally */
+
+  /* Put an angle bracket (>) between list items */
+  #breadcrumb ul li + li:before {
+    content: ">";
+    padding: 10px;
+    font-size: 0.7rem;
+  }
+
+  #breadcrumb ul li a {
+    text-decoration: none;
+  } /* remove underlines from links */
+  #breadcrumb ul li a:hover {
+    text-decoration: underline;
+  } /* show underline on mouseover */
+
+  /* additional styling */
+  ul {
+    color: var(--text-color);
+    font-family: "Avenir";
+    font-weight: bold;
+  }
+  ul li a {
+    color: var(--text-color);
+    font-size: 0.7rem;
+  }
+  ul li a:visited {
+    color: var(--text-color);
+  }
+  ul li + li:before {
+    color: var(--text-color);
   }
 
   ul {
     grid-column: 1;
   }
 
-  .some_childchild {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    grid-column: 2;
-  }
-  #insta_icon,
-  #facebook_icon {
-    max-width: 50px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+  .flex-row-reverse {
+    margin-bottom: 20px;
   }
 
-  #insta_icon:hover .fyld,
-  #facebook_icon:hover .fyld {
-    fill: #6670ce;
-  }
   @media (min-width: 769px) {
+    .pc-content {
+      max-width: 600px;
+    }
+    .article_container {
+      margin-top: var(--spacing-small);
+    }
+    h1 {
+      margin: 0;
+    }
     h6 {
       display: block;
     }
 
-    ul li a, #breadcrumb ul li + li:before, #breadcrumb ul li{
+    ul li a,
+    #breadcrumb ul li + li:before,
+    #breadcrumb ul li {
       font-size: 1rem;
     }
 
-    #some_container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    .some_child {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      justify-content: center;
+    .icons_styling {
+      margin-top: 0;
     }
 
-    .some_childchild {
-    align-items: center;
-  }
+    .categories {
+      padding: 0 5%;
+    }
 
-    .img_product {
-      order: 1;
+    .images {
+      grid-column: 2;
+      grid-row: 1;
+      width: 500px;
     }
   }
 </style>

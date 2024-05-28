@@ -33,7 +33,7 @@
   --primary-color-tint: #190d0c;
   --primary-color-tint2: #ffffff;
   --primary-color-tint3: #e1a7ac;
-  --primary-color-shade: #351e1a;
+  --primary-color-shade: #402621;
 
   --text-color: #fef5ea;
   --text-color-tint: #e8d2b7;
@@ -89,6 +89,7 @@ body {
 main {
   max-width: 1100px;
   margin: auto;
+  padding: 0 var(--spacing-small);
 }
 
 /* general font styling for desktop*/
