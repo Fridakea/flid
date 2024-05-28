@@ -124,7 +124,7 @@ add-to-calendar-button::part(atcb-list) {
     --list-hover-background: var(--primary-color);
 }
 
-.sticky-button {
+.fixed-button {
     position: fixed;
     top: 88vh;
     right: 10px;
