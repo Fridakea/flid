@@ -1,3 +1,8 @@
+/* import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap'); 
+@import url("https://use.typekit.net/gys7fqa.css");
+
+
 :root {
   /* Variables for colors */
   --primary-color: #fef5ea;
