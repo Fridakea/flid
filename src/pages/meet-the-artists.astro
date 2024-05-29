@@ -17,7 +17,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 ---
 
-<Mainlayout>
+<Mainlayout title="Mød udstillerne">
   <main>
     <h1>Mød udstillerne</h1>
     <h5>Udstillerne på tidligere markeder</h5>
@@ -27,7 +27,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         data.map((market) => (
           <a href={`/kunstner-oversigt/${market.slug}`}>
             <div class="market_child">
-              <div class="market_overlay"></div>
+              <div class="market_overlay" />
               <div class="market_image_container">
                 <Image
                   src={images[`${imageFolder}/${market.image}`]()}
@@ -46,9 +46,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
 <style>
   /* Generel styling */
-h5{
-  margin-bottom: 3px;
-}
+  h5 {
+    margin-bottom: 3px;
+  }
   #market_parent {
     display: flex;
     flex-direction: column;

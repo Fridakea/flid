@@ -22,9 +22,30 @@ const { title } = Astro.props;
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://use.typekit.net/tfg6rzj.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2"
+      async
+      defer></script>
   </head>
   <body>
     <Header />
+    <div class="fixed-button">
+      <add-to-calendar-button
+        name="Sensommermarked 2024"
+        description="Flids sensommermarked "
+        startDate="2024-09-07"
+        startTime="11:00"
+        endDate="2024-09-08"
+        endTime="17:00"
+        timeZone="Europe/Copenhagen"
+        location="Nørrebrohallen, Nørrebrogade 208 2200 København N"
+        options="'Apple','Google','Outlook.com','MicrosoftTeams'"
+        listStyle="dropup-static"
+        buttonStyle="date"
+        hideTextLabelList
+        size="5"
+        lightMode="bodyScheme"></add-to-calendar-button>
+    </div>
     <slot />
     <Footer />
   </body>
@@ -33,5 +54,19 @@ const { title } = Astro.props;
     import AOS from "aos";
     import "aos/dist/aos.css";
     AOS.init();
+  </script>
+
+  <script type="module">
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        observer.disconnect();
+        import(
+          "../../node_modules/add-to-calendar-button/dist/module/index.js"
+        );
+      }
+    });
+    const instances = document.querySelectorAll("add-to-calendar-button");
+    for (const instance of instances) observer.observe(instance);
   </script>
 </html>

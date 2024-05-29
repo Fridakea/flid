@@ -3,60 +3,89 @@ import { Image } from "astro:assets";
 import imageForside from "../assets/img/forside-stemning.webp";
 ---
 
-<section id="container" >
+<section id="container">
   <h1>Flid Marked</h1>
   <div class="flex-row-reverse">
-  <div
-    id="text"
-    data-aos="fade-left"
-    data-aos-duration="1300"
-    data-aos-easing="ease-in-sine"
-  >
-    <h2>Design</h2>
-    <h2>Kunst</h2>
-    <h2>Håndværk</h2>
+    <div id="text">
+      <div>
+        <h2
+          data-aos="fade-left"
+          data-aos-duration="1100"
+          data-aos-easing="ease-in-sine"
+        >
+          Design
+        </h2>
+        <h2
+          data-aos="fade-left"
+          data-aos-duration="1100"
+          data-aos-easing="ease-in-sine"
+        >
+          Kunst
+        </h2>
+        <h2
+          data-aos="fade-left"
+          data-aos-duration="1100"
+          data-aos-easing="ease-in-sine"
+        >
+          Håndværk
+        </h2>
+      </div>
+    </div>
+    <div id="text-mobile">
+      <h2>Design</h2>
+      <h2>Kunst</h2>
+      <h2>Håndværk</h2>
+    </div>
+    <div>
+      <Image src={imageForside} alt="Billede af en håndlavet kop" />
+    </div>
   </div>
-  <div>
-    <Image src={imageForside} alt="Billede af en håndlavet kop" />
-  </div></div>
 </section>
 
 <style>
-
-#container {
-    /* border: 30px 0px 30px 30px; */
+  body {
+    overflow-x: hidden;
+  }
+  #container {
     margin: var(--spacing-small) 0 var(--spacing-small);
   }
-  
-#text {
+
+  #text {
+    display: none;
+  }
+  #text-mobile {
     line-height: 50px;
     margin: auto;
     margin-left: -25px;
     margin-top: 20px;
+    z-index: 20;
   }
   h2 {
     font-size: 2rem;
     font-weight: 400;
   }
-@media (min-width: 769px) {
-  #container {
-    border: 30px 0px 30px 30px;
-    margin: var(--spacing-large) 0 var(--spacing-large);
+  @media (min-width: 769px) {
+    #container {
+      border: 30px 0px 30px 30px;
+      margin: var(--spacing-large) 0 var(--spacing-large);
+    }
+    #text {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      line-height: 110px;
+      margin-left: -25px;
+      margin-top: 20px;
+    }
+    #text-mobile {
+      display: none;
+    }
+    img {
+      width: 100%;
+    }
+    h2 {
+      font-size: 4rem;
+      font-weight: 400;
+    }
   }
-  #text {
-    line-height: 110px;
-    margin: auto;
-    margin-left: -25px;
-    margin-top: 20px;
-  }
-  img {
-    width: 100%;
-  }
-  h2 {
-    font-size: 4rem;
-    font-weight: 400;
-  }
-
-}
 </style>
-<script></script>
