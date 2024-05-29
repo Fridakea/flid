@@ -58,7 +58,32 @@ const { type, poster, fotos } = Astro.props;
 
 <Mainlayout title={type.type}>
   <main>
+    <div class="flex-row">
+    <a href="javascript:history.back()">
+      <svg
+        id="arrow"
+        data-name="Layer 2"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 43.01 29.46"
+      >
+        <defs>
+          <style>
+            .fill_out {
+              fill: var(--text-color);
+              stroke-width: 0px;
+            }
+          </style>
+        </defs>
+        <g id="Layer_1-2" data-name="Layer 1">
+          <path
+            class="fill_out"
+            d="M.59,13.31c-.78.78-.78,2.05,0,2.83l12.73,12.73c.78.78,2.05.78,2.83,0,.78-.78.78-2.05,0-2.83L4.83,14.73,16.14,3.41c.78-.78.78-2.05,0-2.83-.78-.78-2.05-.78-2.83,0L.59,13.31ZM43.01,12.73H2v4h41.01v-4Z"
+          ></path>
+        </g>
+      </svg></a
+    >
     <h1>{type.type}</h1>
+  </div>
     <section>
       <div>
         <Image class="poster" src={poster} alt={type.type} />
@@ -194,6 +219,13 @@ const { type, poster, fotos } = Astro.props;
 </Mainlayout>
 
 <style>
+   #arrow {
+    max-width: 30px;
+    height: 30px;
+    margin: 20px;
+    margin-right: 20px;
+    margin-left: 0;
+  }
   #newsletter {
     align-self: center;
   }
@@ -276,9 +308,16 @@ const { type, poster, fotos } = Astro.props;
     }
     h1 {
       font-size: 2.3rem;
+      margin-bottom:8px;
     }
     h3 {
       font-size: 1.5rem;
+    }
+    #arrow {
+    margin: 0;
+  }
+    .flex-row{
+      flex-direction: column;
     }
   }
 </style>
