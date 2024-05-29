@@ -1,132 +1,132 @@
 /* General classnames */
 .pc-only {
-    display: none;
+  display: none;
 }
 
 .pc-hide {
-    display: block;
+  display: block;
 }
 
 /* Styling for flex and grid */
 .flex-col {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .flex-row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .flex-row-reverse {
-    display: flex;
-    flex-direction: row-reverse;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .flex-center {
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .space-between {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .space-evenly {
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 .flex1 {
-    flex: 1;
+  flex: 1;
 }
 
 /* Styling for gap and spacing */
 .gap-s {
-    gap: var(--spacing-small);
+  gap: var(--spacing-small);
 }
 
 .gap-m {
-    gap: var(--spacing-medium);
+  gap: var(--spacing-medium);
 }
 
 .gap-l {
-    gap: var(--spacing-large);
+  gap: var(--spacing-large);
 }
 
 .mb-s {
-    margin-bottom: var(--spacing-small);
+  margin-bottom: var(--spacing-small);
 }
 
 .mb-m {
-    margin-bottom: var(--spacing-medium);
+  margin-bottom: var(--spacing-medium);
 }
 
 .mb-l {
-    margin-bottom: var(--spacing-large);
+  margin-bottom: var(--spacing-large);
 }
 
 .unstyled-button {
-    background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 
 .unstyled-link {
-    &,
-    &:visited,
-    &:hover,
-    &:active,
-    &:focus,
-    &:active:hover {
-      font-style: inherit;
-      color: inherit;
-      background-color: transparent;
-      font-size: inherit;
-      text-decoration: none;
-      font-variant: inherit;
-      font-weight: inherit;
-      line-height: inherit;
-      font-family: inherit;
-      border-radius: inherit;
-      border: inherit;
-      outline: inherit;
-      box-shadow: inherit;
-      padding: inherit;
-      vertical-align: inherit;
-    }
+  &,
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus,
+  &:active:hover {
+    font-style: inherit;
+    color: inherit;
+    background-color: transparent;
+    font-size: inherit;
+    text-decoration: none;
+    font-variant: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    border-radius: inherit;
+    border: inherit;
+    outline: inherit;
+    box-shadow: inherit;
+    padding: inherit;
+    vertical-align: inherit;
   }
+}
 
 .bold {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 add-to-calendar-button::part(atcb-button-wrapper) {
-    /* Styling the right side of the add-to-calender-button */
-    --date-btn-background: var(--primary-color-tint);
-    --date-btn-text-secondary: var(--text-color);
-    --date-btn-text: var(--text-color);
+  /* Styling the right side of the add-to-calender-button */
+  --date-btn-background: var(--primary-color-tint);
+  --date-btn-text-secondary: var(--text-color);
+  --date-btn-text: var(--text-color);
 
-    /* Styling the left side of the add-to-calender-button */
-    --date-btn-cal-background: var(--accent-color-shade);
-    --date-btn-cal-day-text: var(--primary-color);
-    --date-btn-cal-month-text: var(--primary-color);
+  /* Styling the left side of the add-to-calender-button */
+  --date-btn-cal-background: var(--accent-color-shade);
+  --date-btn-cal-day-text: var(--primary-color);
+  --date-btn-cal-month-text: var(--primary-color);
 
-    --btn-hover-background: var(--accent-color-tint);
+  --btn-hover-background: var(--accent-color-tint);
 }
 
 add-to-calendar-button::part(atcb-list) {
-    /* Styling the "list" that appears with options of mail */
-    --list-background: var(--primary-color-tint);
-    --list-hover-background: var(--primary-color);
+  /* Styling the "list" that appears with options of mail */
+  --list-background: var(--primary-color-tint);
+  --list-hover-background: var(--primary-color);
 }
 
 .fixed-button {
-    position: fixed;
-    bottom: var(--spacing-small);
-    right: var(--spacing-small);
-    z-index: 30;
+  position: fixed;
+  bottom: var(--spacing-small);
+  right: var(--spacing-small);
+  z-index: 60;
 }
