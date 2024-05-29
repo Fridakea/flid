@@ -56,7 +56,7 @@ interface Props {
 const { type, poster, fotos } = Astro.props;
 ---
 
-<Mainlayout>
+<Mainlayout title={type.type}>
   <main>
     <h1>{type.type}</h1>
     <section>
