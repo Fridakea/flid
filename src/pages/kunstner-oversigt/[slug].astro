@@ -57,7 +57,10 @@ interface Props {
 const { market, participants } = Astro.props;
 ---
 
-<Mainlayout title={market.name}>
+<Mainlayout
+  title={market.name}
+  description=`Underside til Flid hvor man kan se hvilke udstillere som har været på ${market.name}`
+>
   <main>
     <section id="breadcrumb">
       <a href="javascript:history.back()">

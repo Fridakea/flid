@@ -10,7 +10,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "add-to-calendar-button": "^2.6.15",
     "aos": "^2.3.4",
     "astro": "^4.8.2",
     "swiper": "^11.1.3"

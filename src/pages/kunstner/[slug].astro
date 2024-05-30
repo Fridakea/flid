@@ -53,7 +53,10 @@ interface Props {
 const { artist, artistImages } = Astro.props;
 ---
 
-<Mainlayout title={artist.name}>
+<Mainlayout
+  title={artist.name}
+  description=`Underside til Flid hvor man kan se og læse mere om kunstneren ${artist.name}`
+>
   <main>
     <section id="breadcrumb">
       <a href="javascript:history.back()"

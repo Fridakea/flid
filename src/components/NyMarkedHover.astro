@@ -7,224 +7,241 @@ import foraarsmarked from "../assets/img/flid-posters/foraarsmarked23.webp";
 
 <section class="flex-col flex-center">
   <div id="grid">
-  <h1 class="mobiltext pc-hide">Julemarked</h1>
-  <a href="/type/3">
-    <div class="card">
+    <h1 class="mobiltext pc-hide">Julemarked</h1>
+    <a href="/type/3">
+      <div class="card">
         <div class="overlay-div-jul">
           <h1 class="display">Julemarked</h1>
         </div>
         <div class="end">
-        <h1 class="end read-more display">Læs mere</h1>
-          <Image src={julemarked} alt="julemarked plakat" class="plakat"></Image></div>
-    </div>
-  </a>
-  <h1 class="mobiltext pc-hide">Sensommermarked</h1>
-  <a href="/type/2">
-    <div class="card">
+          <h1 class="end read-more display">Læs mere</h1>
+          <Image
+            loading="eager"
+            src={julemarked}
+            alt="julemarked plakat"
+            class="plakat"
+          />
+        </div>
+      </div>
+    </a>
+    <h1 class="mobiltext pc-hide">Sensommermarked</h1>
+    <a href="/type/2">
+      <div class="card">
         <div class="overlay-div-sensommer">
           <h1 class="display">Sensommermarked</h1>
         </div>
-<div class="end">
-        <h1 class="end read-more display">Læs mere</h1>
-          <Image src={sensommermarked} alt="sensommermarked plakat" class="plakat"></Image></div>
-    </div>
-  </a>
-  <h1 class="mobiltext pc-hide">Forårsmarked</h1>
-  <a href="/type/1">
-    <div class="card">
-        <div class="overlay-div-foraar"> 
+        <div class="end">
+          <h1 class="end read-more display">Læs mere</h1>
+          <Image
+            loading="eager"
+            src={sensommermarked}
+            alt="sensommermarked plakat"
+            class="plakat"
+          />
+        </div>
+      </div>
+    </a>
+    <h1 class="mobiltext pc-hide">Forårsmarked</h1>
+    <a href="/type/1">
+      <div class="card">
+        <div class="overlay-div-foraar">
           <h1 class="display">Forårsmarked</h1>
         </div>
         <div class="end">
-      <h1 class="end read-more display">Læs mere</h1> 
-        <Image src={foraarsmarked} alt="foraarsmarked plakat" class="plakat"></Image>
-      </div>
-    </div></a>
+          <h1 class="end read-more display">Læs mere</h1>
+          <Image
+            loading="eager"
+            src={foraarsmarked}
+            alt="foraarsmarked plakat"
+            class="plakat"
+          />
+        </div>
+      </div></a
+    >
   </div>
   <div class="markedknap-container"></div>
 </section>
 <style>
-  .card{
+  .card {
     height: 190px;
     width: 360px;
     margin-bottom: 25px;
     display: flex;
     flex-direction: column;
-    
   }
-  .plakat{
-   width: 360px;
+  .plakat {
+    width: 360px;
     height: 190px;
     object-fit: cover;
   }
 
   .display {
     display: none;
-}
+  }
   .mobiltext {
     margin-bottom: 0;
     font-size: 2rem;
   }
- @media (min-width: 769px) {
-
-  section{
-  margin-top: 20px;
+  @media (min-width: 769px) {
+    section {
+      margin-top: 20px;
+    }
+    .display {
+      display: grid;
+    }
+    .pc-hide {
+      display: none;
+    }
+    #grid {
+      display: grid;
+      justify-items: center;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    h1 {
+      padding-left: 5px;
+      font-size: 1.5rem;
+      color: #ffffff;
+    }
+    .card {
+      height: 390px;
+      width: 250px;
+    }
+    .read-more {
+      position: absolute;
+      color: var(--primary-color-tint);
+      font-size: 1.5rem;
+      background-color: #f5bdbd9e;
+      width: 100%;
+      opacity: 0;
+    }
+    .end {
+      display: flex;
+      justify-content: end;
+      position: absolute;
+      z-index: 10;
+    }
+    .plakat {
+      height: 390px;
+      width: 250px;
+    }
+    .overlay-div-jul,
+    .overlay-div-sensommer,
+    .overlay-div-foraar {
+      position: absolute;
+      background-color: #c55a6d;
+      height: 390px;
+      width: 250px;
+      z-index: 11;
+      opacity: 0.95;
+      transition: 0.1s;
+    }
+    .overlay-div-jul:hover {
+      opacity: 0;
+      z-index: 11;
+    }
+    .overlay-div-sensommer {
+      background-color: #d68893;
+    }
+    .overlay-div-sensommer:hover {
+      opacity: 0;
+      z-index: 11;
+    }
+    .overlay-div-foraar {
+      background-color: #e7b7b8;
+    }
+    .overlay-div-foraar:hover {
+      opacity: 0;
+      z-index: 11;
+    }
   }
-  .display{
-    display: grid;
-  }
-  .pc-hide{
-    display: none;
-  }
-  #grid{
-    display: grid;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr 1fr
-  }
-  h1{
-    padding-left: 5px;
-    font-size: 1.5rem;
-    color: #ffffff;
-  }
-  .card{
-    height: 390px;
-    width: 250px;
-  }
-  .read-more{
-    position: absolute;
-    color: var(--primary-color-tint);
-    font-size: 1.5rem;
-    background-color:#f5bdbd9e;
-    width: 100%;
-    opacity: 0;
-  }
-  .end{
-    display: flex;
-    justify-content: end;
-    position: absolute;
-    z-index: 10;
-  }
-  .plakat{
-    height: 390px;
-    width: 250px;
-  }
-  .overlay-div-jul, 
-  .overlay-div-sensommer, 
-  .overlay-div-foraar{
-    position: absolute;
-    background-color: #C55A6D;
-    height: 390px;
-    width: 250px;
-    z-index: 11;
-    opacity: 0.95;
-    transition: 0.1s;
-  }
-  .overlay-div-jul:hover{
-    opacity: 0;
-    z-index: 11;
-  }
-  .overlay-div-sensommer{
-    background-color:#D68893;
-  }
-  .overlay-div-sensommer:hover{
-    opacity: 0;
-    z-index: 11;
-  }
-  .overlay-div-foraar{
-    background-color:  #E7B7B8;
-  }
-  .overlay-div-foraar:hover{
-    opacity: 0;
-    z-index: 11;
-  }
- }
   @media (min-width: 1025px) {
-  section{
-  margin-top: 20px;
+    section {
+      margin-top: 20px;
+    }
+    .display {
+      display: grid;
+    }
+    .pc-hide {
+      display: none;
+    }
+    #grid {
+      display: grid;
+      justify-items: center;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    h1 {
+      padding-left: 5px;
+      font-size: 2.5rem;
+      color: #ffffff;
+    }
+    .card {
+      height: 550px;
+      width: 410px;
+    }
+    .read-more {
+      position: absolute;
+      color: var(--primary-color-tint);
+      font-size: 2rem;
+      background-color: #f5bdbd9e;
+      width: 100%;
+      opacity: 1;
+    }
+    .end {
+      display: flex;
+      justify-content: end;
+      position: absolute;
+      z-index: 10;
+    }
+    .plakat {
+      height: 550px;
+      width: 410px;
+    }
+    .overlay-div-jul,
+    .overlay-div-sensommer,
+    .overlay-div-foraar {
+      position: absolute;
+      background-color: #c55a6d;
+      height: 550px;
+      width: 410px;
+      z-index: 11;
+      opacity: 0.95;
+      transition: 0.1s;
+    }
+    .overlay-div-sensommer {
+      background-color: #d68893;
+    }
+    .overlay-div-foraar {
+      background-color: #e7b7b8;
+    }
+    .overlay-div-jul:hover {
+      opacity: 0;
+      z-index: 11;
+    }
+    .overlay-div-sensommer {
+      position: absolute;
+      background-color: #d68893;
+      height: 550px;
+      width: 410px;
+      z-index: 11;
+      opacity: 0.95;
+      transition: 0.1s;
+    }
+    .overlay-div-sensommer:hover {
+      opacity: 0;
+      z-index: 11;
+    }
+    .overlay-div-foraar {
+      position: absolute;
+      background-color: #e7b7b8;
+      height: 550px;
+      width: 410px;
+      z-index: 11;
+      opacity: 0.95;
+      transition: 0.1s;
+    }
+    .overlay-div-foraar:hover {
+      opacity: 0;
+      z-index: 11;
+    }
   }
-  .display{
-    display: grid;
-  }
-  .pc-hide{
-    display: none;
-  }
-  #grid{
-    display: grid;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr 1fr
-  }
-  h1{
-    padding-left: 5px;
-    font-size: 2.5rem;
-    color: #ffffff;
-  }
-  .card{
-    height: 550px;
-    width: 410px;
-  }
-  .read-more{
-    position: absolute;
-    color: var(--primary-color-tint);
-    font-size: 2rem;
-    background-color:#f5bdbd9e;
-    width: 100%;
-    opacity: 1;
-  }
-  .end{
-    display: flex;
-    justify-content: end;
-    position: absolute;
-    z-index: 10;
-  }
-  .plakat{
-    height: 550px;
-    width: 410px;
-  }
-  .overlay-div-jul, .overlay-div-sensommer,.overlay-div-foraar{
-    position: absolute;
-    background-color: #C55A6D;
-    height: 550px;
-    width: 410px;
-    z-index: 11;
-    opacity: 0.95;
-    transition: 0.1s;
-  }
-  .overlay-div-sensommer{
-    background-color:#D68893;
-  }
-  .overlay-div-foraar {
-    background-color:  #E7B7B8;
-  }
-  .overlay-div-jul:hover{
-    opacity: 0;
-    z-index: 11;
-  }
-  .overlay-div-sensommer{
-    position: absolute;
-    background-color:#D68893;
-    height: 550px;
-    width: 410px;
-    z-index: 11;
-    opacity: 0.95;
-    transition: 0.1s;
-  }
-  .overlay-div-sensommer:hover{
-    opacity: 0;
-    z-index: 11;
-  }
-  .overlay-div-foraar{
-    position: absolute;
-    background-color:  #E7B7B8;
-    height: 550px;
-    width: 410px;
-    z-index: 11;
-    opacity: 0.95;
-    transition: 0.1s;
-  }
-  .overlay-div-foraar:hover{
-    opacity: 0;
-    z-index: 11;
-  }
-}
-
 </style>

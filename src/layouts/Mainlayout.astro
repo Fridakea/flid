@@ -16,13 +16,6 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="noindex" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="https://use.typekit.net/tfg6rzj.css" />
     <script
       src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2"
       async
@@ -55,19 +48,5 @@ const { title } = Astro.props;
     import AOS from "aos";
     import "aos/dist/aos.css";
     AOS.init();
-  </script>
-
-  <script type="module">
-    const observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        observer.disconnect();
-        import(
-          "../../node_modules/add-to-calendar-button/dist/module/index.js"
-        );
-      }
-    });
-    const instances = document.querySelectorAll("add-to-calendar-button");
-    for (const instance of instances) observer.observe(instance);
   </script>
 </html>
