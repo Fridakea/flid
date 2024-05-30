@@ -4,13 +4,14 @@ import "../styles/style.css";
 import "../styles/pc-style.css";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <html lang="da">
   <head>
     <meta charset="utf-8" />
     <title>{title}</title>
+    <meta name={description} />
 
     <link rel="icon" type="image/svg+xml" href="/flid_svg_ny.svg" />
     <meta name="viewport" content="width=device-width" />
