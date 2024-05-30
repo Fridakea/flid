@@ -8,10 +8,18 @@ import Light_Button from "./Light_Button.astro";
   <Logo />
 
   <nav class="head_container">
-    <button class="dark-mode-hide unstyled-button" onclick="toggleDarkMode()">
+    <button
+      class="dark-mode-hide unstyled-button"
+      onclick="toggleDarkMode()"
+      aria-label="Skift til dark mode"
+    >
       <Dark_Button />
     </button>
-    <button class="dark-mode-only unstyled-button" onclick="toggleDarkMode()">
+    <button
+      class="dark-mode-only unstyled-button"
+      onclick="toggleDarkMode()"
+      aria-label="Skift til light mode"
+    >
       <Light_Button />
     </button>
 

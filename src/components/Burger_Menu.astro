@@ -5,14 +5,22 @@ import Logo from "./Logo.astro";
 <menu class="menuparent">
   <li><Logo /></li>
   <li class="menupunkt">
-    <a href="/meet-the-artists"><h3>Mød udstillerne</h3></a>
-  </li>
-  <li class="menupunkt"><a href="/about-us"> <h3>Om os</h3> </a></li>
-  <li class="menupunkt">
-    <a href="/become-artist"> <h3>Bliv udstiller</h3></a>
+    <a aria-label="Gå til mød udstillere" href="/meet-the-artists"
+      ><h3>Mød udstillerne</h3></a
+    >
   </li>
   <li class="menupunkt">
-    <a href="/project-gallery"> <h3>Projektgalleri</h3></a>
+    <a aria-label="Gå til om os" href="/about-us"> <h3>Om os</h3> </a>
+  </li>
+  <li class="menupunkt">
+    <a aria-label="gå til bliv udstiller" href="/become-artist">
+      <h3>Bliv udstiller</h3></a
+    >
+  </li>
+  <li class="menupunkt">
+    <a aria-label="Gå til galleri" href="/project-gallery">
+      <h3>Projektgalleri</h3></a
+    >
   </li>
 </menu>
 <div class="hamburger">
